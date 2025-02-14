@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+void main()
+{
+	int i;
+	char string1[20]="Dreams come true!", string2[20], *ptr1, *ptr2;
+	
+	ptr1 = string1;				// ©ç
+	printf("\n string1ÀÇ ÁÖ¼Ò = %u \t ptr1 = %u", string1, ptr1);	 // ©è
+	printf("\n string1 = %s \n ptr1 = %s", string1, ptr1);
+	printf("\n\n %s",ptr1+7);		// ©é
+	ptr2 = &string1[7];			// ©ê
+	printf("\n %s \n\n ", ptr2);		// ©ë
+
+	for(i=16; i>=0; i--){			// ©ì
+		putchar(*(ptr1+i));
+	}
+	for(i=0; i<20; i++){			// ©í
+		string2[i] = *(ptr1+i);
+	}
+	printf("\n\n string1 = %s", string1);
+	printf("\n string2 = %s", string2);
+
+	*ptr1 = 'P';				// ©î
+	*(ptr1+1) = 'e';			// ©ï
+	*(ptr1+2) = 'a';			// ©ð
+	*(ptr1+3) = 'c';			// ©ñ
+	*(ptr1+4) = 'e';			// ©ò
+	printf("\n\n string1 = %s\n", string1);
+
+	getchar();
+}             
