@@ -3,7 +3,7 @@
 #include <stdio.h>
 //======================================================
 /*
-1.	Auto Type Conversion
+	1.	Auto Type Conversion
 */
 
 /*

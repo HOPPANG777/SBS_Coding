@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 //======================================================
-//*	1.	변수를 이용한 데이터 저장
+/*	1.	변수를 이용한 데이터 저장
 
 int main(void)
 {
@@ -24,7 +24,7 @@ int main(void)
 //======================================================
 /*	2.	변수의 선언 및 초기화
 
-//#pragma warning( disable : 4700 )
+#pragma warning( disable : 4700 )
 /*
 	이전 버전의 컴파일러에선
 	초기화 되지 않은 변수에 대해
@@ -35,7 +35,7 @@ int main(void)
 		막았음..
 */
 
-/*
+//*
 int main(void)
 {
 	//	1)	선언..
@@ -75,10 +75,10 @@ int main(void)
 /*	3.	변수 선언시 주의 사항
 int main(void)
 {
-	int 11thStreet;		//	( X )	변수 이름 숫자로 시작
-	int email#;			//	( X )	특수문자(_는 예외) 사용.	
+	int 11thStreet;		//	( X )	변수 이름 숫자로 시작..
+	int email#;			//	( X )	특수문자(_는 예외) 사용..
 	int _test;			//	( O )
-	int my name;		//	( X )	공백
+	int my name;		//	( X )	공백..
 	int score;
 	int score;
 

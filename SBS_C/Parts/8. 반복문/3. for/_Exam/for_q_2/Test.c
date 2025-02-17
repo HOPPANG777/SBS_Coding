@@ -8,6 +8,7 @@ int main(void)
 	{
 		for (int j = 2; j <= 9; ++j)
 			printf("%d x %d = %d\t", j, i, j * i);
+
 		printf("\n");
 	}
 

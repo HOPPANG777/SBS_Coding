@@ -95,7 +95,7 @@ int main( void )
 	//		2)	현재 실행중인 함수의
 	//			종료 처리..
 
-	return 0;					
+	return 0;
 
 	//	main 함수의 몸통 끝.
 }
