@@ -8,3 +8,4 @@
 #include <time.h>
 #include <string.h>
 
+#pragma warning( disable : 4996 )
