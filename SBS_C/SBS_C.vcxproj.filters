@@ -6,8 +6,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
     <ClCompile Include="stdafx.c" />
+    <ClCompile Include="Parts\12. 포인터\2. 포인터와 배열\PointerAndArray\Test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />

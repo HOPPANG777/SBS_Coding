@@ -1,8 +1,10 @@
 //======================================================
-#pragma warning (disable : 4996)
-#include <stdio.h>
+//#pragma warning (disable : 4996)
+//#include <stdio.h>
 //	문자열 관련 함수 헤더파일.
-#include <string.h>
+//#include <string.h>
+//#include <stdlib.h>
+#include "stdafx.h"
 //======================================================
 /*
 	------------
