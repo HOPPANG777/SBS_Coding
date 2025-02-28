@@ -3,7 +3,7 @@
 #include <stdio.h>
 //======================================================
 /*
-	1.	Forced Type Conversion
+	1.	Forced Type Conversion..
 
 		-	연산 결과의 자료형은
 			피연산자의 자료형과 일치..
@@ -22,9 +22,9 @@
 int main(void)
 {
 	int num1 = 3, num2 = 4;
-    float divResult = num1 / num2;
-	//	다음과 같이 수정.
-	//float divResult = (float)num1 / num2;
+    //float divResult = num1 / num2;
+	//	다음과 같이 수정..
+	float divResult = (float)num1 / num2;
 	//float divResult = num1 / (float)num2;
 
 	/* 과정..

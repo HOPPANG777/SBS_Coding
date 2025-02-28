@@ -6,7 +6,9 @@
 int main()
 {
 	const int LIMIT_CHAR_LENGTH = 10;
+	
 	int length = 0;
+
 	do
 	{
 		char szTmp[50];
@@ -16,7 +18,9 @@ int main()
 
 		length = strlen(szTmp);
 
-	} while (length < LIMIT_CHAR_LENGTH);
+	}
+	while (length < LIMIT_CHAR_LENGTH);
+
 	printf("10 글자를 넘겼습니다!!\n");
 	return 0;
 

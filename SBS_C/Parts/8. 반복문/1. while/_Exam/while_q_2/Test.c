@@ -6,7 +6,7 @@ int main(void)
 {
 	int filterNum = 0;
 
-	printf("필터링할 배수 : ");
+	printf("필터링 할 배수 : ");
 	scanf("%d", &filterNum);
 	
 	int num = 0;

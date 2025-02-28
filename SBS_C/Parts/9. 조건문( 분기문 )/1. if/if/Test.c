@@ -16,7 +16,7 @@ int main(void)
 
 	//	if 문 밑에 중괄호가 없다면
 	//	한 줄만 if문에 적용됨..
-	if (num < 0)
+	if ( num < 0 )
 		printf("입력값은 0 보다 작습니다.\n");
 	
 	if (num > 0)
@@ -42,7 +42,7 @@ int main(void)
 */
 //======================================================
 /*
-	2.	일반적인 if 문의 문제점
+	2.	일반적인 if 문의 문제점..
 		[ 1. 일반적인 if 문의 활용 ] 참고..
 
 		-	num의 조건이 0보다 작다하더라도
@@ -66,9 +66,9 @@ int main(void)
 */
 //======================================================
 /*	디버깅으로 확인..
-* 
-	ㄴ	참고..	
-		https://cafe.naver.com/jackieleeunity/509
+
+//	ㄴ	참고..	
+//		https://cafe.naver.com/jackieleeunity/509
 
 int main(void)
 {
@@ -100,10 +100,10 @@ int main(void)
 				if( 조건 A )
 					Do Something
 
-				else if( 조건 B)
+				else if( 조건 B )
 					Do Something
 
-				else if( 조건 C)
+				else if( 조건 C )
 					Do Something
 
 

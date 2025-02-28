@@ -24,7 +24,7 @@
 
 			ㄴ	char형은 문자의 표현을 위해서
 				정의된 자료형..
-				( character 앞 네글자를 인용. )
+				( character 앞 네글자를 인용.. )
 
 				ㄴ	이런 이유로 [ 문자형 ]이라고도
 					분류하기도 함..
@@ -37,11 +37,11 @@
 						정수 형식 데이터..
 
 
-		4)	특수문자 관련 참고 링크.
+		4)	특수문자 관련 참고 링크..
 			-	https://darksoulstory.tistory.com/329
 
 */
-//*
+/*
 int main(void)
 {
 	//	아스키 코드표..
@@ -73,12 +73,12 @@ int main(void)
 	->	a c e g i
 */
 //======================================================
-/*
+//*
 int main(void)
 {
 	char ch1 = 'a';
 
-	printf("%c %c %c %c %c\n", ch1, ch1, ch1, ch1, ch1);
+	printf("%c %c %c %c %c\n", ch1, ch1 + 2, ch1 + 4, ch1 + 6, ch1 + 8);
 
 	return 0;
 }

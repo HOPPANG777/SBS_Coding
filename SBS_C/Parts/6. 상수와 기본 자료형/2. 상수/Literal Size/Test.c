@@ -25,7 +25,7 @@
 			변환되므로 int형으로 표현..
 
 */
-//*
+/*
 int main(void)
 {
 	printf("literal int size : %d\n", sizeof(10));
@@ -42,6 +42,7 @@ int main(void)
 //======================================================
 /*
 	2.	const, #define
+
 */
 /*
 #define BULLET_SPEED 20
@@ -79,11 +80,11 @@ int main(void)
 */
 //---------------------------------------
 
-/*
+//*
 enum DayOfWeek {
-	Sunday,
+	Sunday = 5,
 	Monday,
-	Tuesday,//	= 10,
+	Tuesday = 10,
 	Wednesday,
 	Thursday,
 	Friday,

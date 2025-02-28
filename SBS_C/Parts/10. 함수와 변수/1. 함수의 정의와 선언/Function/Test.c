@@ -89,7 +89,6 @@ int main(void)
 
 /*
 
-
 void TestFunc()
 {
 	int a;
@@ -270,7 +269,7 @@ int CompareAbs(int num1, int num2)
 	È­¾¾ ¿Âµµ -> ¼·¾¾ ¿Âµµ·Î
 	º¯È¯ÇÏ´Â ÇÔ¼ö¸¦ ¸¸µé¾î È£ÃâÇØº»´Ù..
 
-		¼·¾¾(Celsius)		=	( È­¾¾(F) - 32 ) / 1.8
+		¼·¾¾(Celsius)	=	( È­¾¾(F) - 32 ) / 1.8
 		È­¾¾(Fahrenheit)	=	( 1.8 x ¼·¾¾(C) ) + 32
 
 ¿¹)

@@ -2,7 +2,7 @@
 /*
 	Q _ 1)	입력한 수 이하 양의 정수의 합을 구하는 재귀 함수
 
-			예) Recursive( 3 );
+			예) int res = Recursive( 3 );
 
 				출력)
 						6

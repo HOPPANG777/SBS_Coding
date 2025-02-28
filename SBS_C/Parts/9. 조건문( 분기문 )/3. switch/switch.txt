@@ -11,7 +11,7 @@
 
 		2.	형식..
 
-			switch( 정수형 변수 )	//	char도 정수
+			switch( 정수형 변수 )	//	char도 정수..
 			{
 				case 1:
 					....
@@ -23,7 +23,7 @@
 
 				default :
 					....
-					break;		
+					break;
 			}
 
 

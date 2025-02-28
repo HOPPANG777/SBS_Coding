@@ -25,6 +25,7 @@
 				ㄴ	반복을 시작하기 앞서
 					딱 한번 실행됨..
 		
+
 			-----------
 			-	조건식..
 			-----------
@@ -62,7 +63,7 @@ int main(void)
 /*	for
 int main(void)
 {		
-	for(int num = 0; num < 3; ++num)
+	for( int num = 0; num < 3; ++num )
 		printf("Hello !! %d 회 출력\n", num + 1);
 
 	return 0;
@@ -76,11 +77,13 @@ int main(void)
 	-------------------
 
 		-	for문 권장..
+
 			-	반복의 횟수가
-				명시적으로 정해진 경우
+				명시적으로 정해진 경우..
 		
 
 		-	while 권장..
+
 			-	그외의 경우,
 				특히 사용자의 입력값이나
 				외부 조건에 따라 
@@ -114,15 +117,14 @@ int main(void)
 	for (int cur = 1; cur <= inputNum; ++cur)
 		total += cur;
 	printf("1 ~ %d 까지의 합 : %d\n", inputNum, total);	
-
-	//	2)	for문 외부에서 초기화 하는 경우.
-	//int cur = 1;
-	//for ( ;cur <= inputNum; ++cur)
-	//{
-	//	total += cur;
-	//	printf("1 ~ %d 까지의 합 : %d까지 더한 값 = %d\n", inputNum, cur, total);
-	//}
 	
+	//	2)	for문 외부에서 초기화 하는 경우.
+	int cur = 1;
+	for ( ;cur <= inputNum; ++cur)
+	{
+		total += cur;
+		printf("1 ~ %d 까지의 합 : %d까지 더한 값 = %d\n", inputNum, cur, total);
+	}
 	
 	return 0;
 }
@@ -132,11 +134,11 @@ int main(void)
 	quiz - 1)
 
 		두 수를 입력하여
-		작은수부터 큰수까지의
+		작은 수부터 큰 수까지의
 		합을 구한다..( 작은수, 큰수 포함 )
 	
 		예)
-			작은수를 입력하세요 : 1
+			작은 수를 입력하세요 : 1
 			큰 수를 입력하세요 : 5
 			1 ~ 5 까지의 합 : 15
 
@@ -148,7 +150,7 @@ int main(void)
 		반복 처리..
 	----------------
 
-		-	for(; ;) ->	while( 1 )
+		-	for( ; ; ) ->	while( 1 )
 
 			ㄴ	조건식이 비워지면
 				무조건 참으로 인식하여
@@ -192,7 +194,7 @@ int main(void)
 
 */
 //======================================================
-/*
+//*
 int main(void)
 {
 	int n = 0;

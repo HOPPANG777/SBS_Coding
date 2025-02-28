@@ -148,7 +148,7 @@ int main()
 
 	if (num == 1)
 	{
-		int num = 7;	//	주석처리후 비교할것.
+		//int num = 7;	//	주석처리후 비교할것.
 		num += 1;
 		printf("if문 안의 지역변수 num : %d\n", num);
 
