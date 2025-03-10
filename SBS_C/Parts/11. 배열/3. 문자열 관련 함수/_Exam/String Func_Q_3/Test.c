@@ -8,7 +8,7 @@ int CharToNumber(char cWord) { return cWord - '0'; }
 int main()
 {
 	//-----------------------------------
-	//	문자 입력..
+	//	문자열 입력..
 	char szWords[30] = "";
 	printf("숫자가 포함된 문자를 입력하세요 : " );
 	scanf("%s", szWords);

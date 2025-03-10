@@ -4,28 +4,31 @@
 //======================================================
 //----------------
 /*
-	1.	구조체 사용 목적.
+	---------------------
+	1.	구조체 사용 목적..
+	---------------------
 
 		-	연관 데이터를 하나로 통합..
-			-	데이터 표현 및 관리가 용이하여
+
+			ㄴ	데이터 표현 및 관리가 용이하여
 				합리적인 코드 작성 가능..
 */
 //----------------
 /*	예)
 typedef struct
 {
-	char _name[20];			//	학생 이름.
-	char _idx[20];			//	고유 번호.
-	char _schoolName[20];	//	학교 이름.
-	char _major[20];		//	전공.
-	int _year;				//	학년.
+	char _name[20];			//	학생 이름..
+	char _idx[20];			//	고유 번호..
+	char _schoolName[20];	//	학교 이름..
+	char _major[20];		//	전공..
+	int _year;				//	학년..
 
 }SStudent;
 //----------------
 //	1)	매개변수의 호출이 간편해짐.
-//	void ShowStudentInfo(SStudent* pStudent);	//	학생 정보 출력.
-//	void EditStudentInfo(SStudent* pStudent);	//	학생 정보 편집.
-//	void AddStudentInfo(SStudent* pStudent);	//	학생 정보 추가.
+//	void ShowStudentInfo(SStudent* pStudent);	//	학생 정보 출력..
+//	void EditStudentInfo(SStudent* pStudent);	//	학생 정보 편집..
+//	void AddStudentInfo(SStudent* pStudent);	//	학생 정보 추가..
 
 //		SStudent 구조체를 정의 하지 않았다면
 //		void ShowStudentInfo(char *pName, char *pIdx, char *pScholName, char *pMajor, int year)
@@ -67,7 +70,9 @@ int main()
 //======================================================
 //----------------
 /*
+	----------------
 	2.	중첩 구조체..
+	----------------
 
 		-	구조체의 멤버변수로
 			또다른 구조체 가능..
@@ -109,17 +114,18 @@ int main()
 
 	return 0;
 }
-//----------------
 //*/
-//----------------
+
 //======================================================
 /*
 	Quiz)
 		
-		좌상단좌표, 우하단좌표를 이용하여
+		좌상단 좌표, 우하단 좌표를 이용하여
 		직사각형 정보를 관리하는
 
-		1)	구조체 sRectangle를 정의하라. 단 다음 구조체를 사용하여 정의한다.
+		1)	구조체 sRectangle를 정의하라..
+			
+			단 다음 구조체를 사용하여 정의한다..
 
 			typedef struct
 			{
@@ -129,7 +135,7 @@ int main()
 			}sPoint;
 
 
-		2)	좌상단좌표, 우하단좌표가
+		2)	좌상단 좌표, 우하단 좌표가
 			각각 [0, 0], [100, 100]라고 할때,
 			4개의 꼭지점 정보를 출력하는 함수와 ( ShowPtInfo )
 		
