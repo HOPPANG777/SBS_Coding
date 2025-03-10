@@ -7,7 +7,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.c" />
-    <ClCompile Include="Parts\12. 포인터\2. 포인터와 배열\PointerAndArray\Test.c" />
+    <ClCompile Include="Parts\12. 포인터\6. 포인터와 함수\2. Call By Value VS Call By Reference\Call By Value &amp; Reference\Test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
