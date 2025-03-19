@@ -7,7 +7,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.c" />
-    <ClCompile Include="Parts\14. 함수포인터\FuncPointer\Test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />

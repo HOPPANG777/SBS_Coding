@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Parts\14. 함수포인터\FuncPointer\Test.c" />
     <ClCompile Include="stdafx.c" />
   </ItemGroup>
   <ItemGroup>
