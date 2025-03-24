@@ -3,7 +3,7 @@
 //===========================================================
 using namespace std;
 //----------------------------------------------
-/*
+//*
 CTime::CTime(int hour)
 {
 	m_nHour = hour;
@@ -20,7 +20,7 @@ CTime::CTime(int hour, int minute, int second) : CTime( hour, minute )
 }
 //*/
 //----------------------------------------------
-//*
+/*
 CTime::CTime(int hour, int minute, int second)
 {
 	m_nHour = hour;

@@ -14,13 +14,13 @@ class CTime
 	int m_nSecond;
 
 public:
-	/*	생성자 오버로딩..
+	//*	생성자 오버로딩..
 	CTime(int hour);
 	CTime(int hour, int minute);
 	CTime(int hour, int minute, int second);
 	//*/
 
-	//*	디폴트 매개변수..
+	/*	디폴트 매개변수..
 	CTime(int hour = 0, int minute = 0, int second = 0);
 	//*/
 

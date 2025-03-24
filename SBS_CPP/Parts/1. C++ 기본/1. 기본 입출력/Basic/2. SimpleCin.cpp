@@ -8,7 +8,7 @@
 #include <iostream>
 
 /*
-	1)	cin
+	1)	cin..
 
 		-	키보드로부터 데이터 입력..
 

@@ -22,8 +22,8 @@ class CRSPManager
 	char* GetHandToString(int card);
 
 	void ShowMenu();
-	//int GetPlayerHand();
-	//int GetComHand();
+	int GetPlayerHand();
+	int GetComHand();
 	int GetResult(int player, int cpu);
 	void ShowResult(int player, int cpu, int result);
 

@@ -1,5 +1,6 @@
 #include "CRectangle.h"
 using namespace std;
+
 CRectangle::CRectangle(int wid, int hei)
 {
 	m_nWidth = wid;

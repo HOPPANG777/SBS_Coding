@@ -16,13 +16,16 @@ class CRSPManager
 	int _winCount;
 	int _loseCount;
 	int _drawCount;
-	char _szHand[20];
-	char* GetHandToString(int card);
 
 	void ShowMenu();
+
 	int GetPlayerHand();
 	int GetComHand();
+
+	char* GetHandToString(int card);
+
 	int GetResult(int player, int cpu);
+
 	void ShowResult(int player, int cpu, int result);
 
 public:

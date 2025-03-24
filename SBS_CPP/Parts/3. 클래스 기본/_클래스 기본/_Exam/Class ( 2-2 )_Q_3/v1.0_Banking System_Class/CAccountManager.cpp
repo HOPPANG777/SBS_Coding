@@ -58,7 +58,7 @@ void CAccountManager::MakeAccount()
 
 }//	void CAccountManager::MakeAccount()
 //-------------------------------------------------
-//	입 금..
+//	입금..
 //-------------------------
 void CAccountManager::Deposit()
 {
@@ -91,7 +91,7 @@ void CAccountManager::Deposit()
 
 }//	void CAccountManager::Deposit()
 //-------------------------------------------------
-//	출 금..
+//	출금..
 //-------------------------
 void CAccountManager::Withdraw()
 {
@@ -124,7 +124,7 @@ void CAccountManager::Withdraw()
 
 }//	void CAccountManager::Withdraw()
 //-------------------------------------------------
-//	검색후 조회..
+//	검색 후 조회..
 //-------------------------
 void CAccountManager::Inquire()
 {
@@ -187,7 +187,8 @@ void CAccountManager::Process()
 	while (1)
 	{
 		ShowMenu();
-		cout << "-- 선택 : ";	cin >> select;
+		cout << "-- 선택 : ";
+		cin >> select;
 
 		switch (select)
 		{

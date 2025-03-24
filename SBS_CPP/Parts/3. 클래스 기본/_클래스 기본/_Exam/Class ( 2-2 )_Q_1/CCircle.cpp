@@ -1,5 +1,6 @@
 #include "CCircle.h"
 using namespace std;
+
 CCircle::CCircle(float rad)	{ m_nRad = rad; }
 
 void CCircle::ShowArea()

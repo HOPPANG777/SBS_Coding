@@ -1,5 +1,6 @@
 #include "CCalculator.h"
 using namespace std;
+
 void CCalculator::Init()
 {
 	m_fResult = 0.0f;

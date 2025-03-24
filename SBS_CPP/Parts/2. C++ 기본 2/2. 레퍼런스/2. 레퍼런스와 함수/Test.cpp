@@ -54,7 +54,7 @@ typedef struct
 //	-	매개변수 p에 값을 복사..
 //	-	이 과정에서 복사되는 바이트의 수
 //		= int(4byte) + char[20](20byte) + char[20](20byte) = 44byte.
-//void ShowInfo(SPerson p)
+void ShowInfo(SPerson p)
 
 //	call by reference 방식(by 레퍼런스)
 //
@@ -68,7 +68,7 @@ typedef struct
 //			ㄴ	상수화를 통하여 해결 가능..
 
 //void ShowInfo(SPerson &p)
-void ShowInfo(const SPerson &p)
+//void ShowInfo(const SPerson &p)
 {
 	cout << "--- 개인 정보 ---" << endl;
 	cout << "이름 : " << p._name << endl;
@@ -138,7 +138,7 @@ int main()
 //=====================================================
 //	적절한 형태..
 //=====================================================
-//*
+/*
 int& Func(int& val);
 
 int main()

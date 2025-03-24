@@ -5,7 +5,7 @@ void main()
 {
 	CCalculator cal;
 
-	cal.Init();	//	멤버변수 초기화.
+	cal.Init();	//	멤버변수 초기화..
 
 	cal.Sum(1, 2);
 	cal.Minus(5, 2);

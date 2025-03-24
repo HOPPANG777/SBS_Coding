@@ -27,8 +27,9 @@
 
 		-	가독성 증가..
 
-		-	이름이 동일하면 유사한 기능이라고
-			예측 가능..
+			-	이름이 동일하면
+				유사한 기능이라고
+				예측 가능..
 
 		-	함수 네이밍에 대한 고민 감소..
 
@@ -41,11 +42,12 @@ using namespace std;
 int Func()	{ return 10; }
 //void Func() { return; }
 
-int		Add(int a, int b)		{ return a + b; }
+int		Add(int a, int b)	{ return a + b; }
+//float	Add(int a, int b)	{ return a + b; }
+
 float	Add(float a, float b)	{ return a + b; }
 float	Add(float a, float b, float c) { return a + b + c; }
 float	Add(float a, float b, float c, int d) { return a + b + c + d; }
-//float	Add(int a, int b)		{ return a + b; }
 float	Add(float a)			{ return a + 2; }
 //======================================================================================
 int main()
