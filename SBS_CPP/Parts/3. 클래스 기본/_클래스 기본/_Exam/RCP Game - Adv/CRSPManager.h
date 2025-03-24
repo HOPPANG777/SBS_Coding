@@ -19,7 +19,7 @@ class CRSPManager
 	int _loseCount;
 	int _drawCount;
 	char _szHand[20];
-	char* GetHandToString(int card);
+	const char* GetHandToString(int card);
 
 	void ShowMenu();
 	int GetPlayerHand();
@@ -29,6 +29,7 @@ class CRSPManager
 
 	CHuman _player;
 	CComputer _com;
+
 public:
 	CRSPManager()
 	{

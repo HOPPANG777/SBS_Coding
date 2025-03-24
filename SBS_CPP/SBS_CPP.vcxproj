@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Parts\3. 클래스 기본\_클래스 기본\클래스 기본( extra )\RCP Game\Computer.cpp" />
+    <ClCompile Include="Parts\3. 클래스 기본\_클래스 기본\클래스 기본%28 extra %29\RCP Game\RSPManager.cpp" />
+    <ClCompile Include="Parts\3. 클래스 기본\_클래스 기본\클래스 기본( extra )\RCP Game\Test.cpp" />
+    <ClCompile Include="Parts\3. 클래스 기본\_클래스 기본\클래스 기본%28 extra %29\RCP Game\Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Parts\3. 클래스 기본\_클래스 기본\클래스 기본( extra )\RCP Game\Computer.h" />
+    <ClInclude Include="Parts\3. 클래스 기본\_클래스 기본\클래스 기본%28 extra %29\RCP Game\RSPManager.h" />
+    <ClInclude Include="Parts\3. 클래스 기본\_클래스 기본\클래스 기본( extra )\RCP Game\Player.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

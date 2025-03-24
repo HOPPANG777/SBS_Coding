@@ -28,7 +28,7 @@ int CRSPManager::GetResult( int player, int cpu )
 
 }//	int CRSPManager::GetResult( int player, int cpu )
 //---------------------------------------
-char* CRSPManager::GetHandToString(int card)
+const char* CRSPManager::GetHandToString(int card)
 {
 	switch (card)
 	{

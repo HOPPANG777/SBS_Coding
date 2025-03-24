@@ -44,14 +44,14 @@ void CAccountManager::MakeAccount()
 	int money;
 
 	cout << "-- 계좌 개설 --" << endl;
-	cout << "1. 계좌 ID : ";	cin >> id;
+	cout << "1. 계좌 ID : ";		cin >> id;
 	cout << "2. 이 름 : ";		cin >> name;
 	cout << "3. 입금액 : ";		cin >> money;
 	_pAccountArray[_curIndex].SetInfo(id, money, name);
 
 	++_curIndex;
 
-	cout << "개설되었습니다.!!" << endl;
+	cout << "개설 되었습니다.!!" << endl;
 
 	getchar();
 	getchar();

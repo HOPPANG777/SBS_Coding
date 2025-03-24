@@ -9,9 +9,9 @@ using namespace std;
 void CRSPManager::ShowMenu()
 {
 	system("cls");
-	cout << "- 가위바위보 게임입니다. --" << endl;
+	cout << "- 가위 바위 보 게임입니다. --" << endl;
 	cout << "                   현재 결과 " << _winCount << "승 " << _drawCount << "무 " << _loseCount << "패" << endl;
-	cout << "  번호를 선택해주세요" << endl;
+	cout << "  번호를 선택해주세요.." << endl;
 	cout << "  1) 가위     2) 바위     3) 보   4) 종료" << endl;
 
 }//	void CRSPManager::ShowMenu()
@@ -46,7 +46,7 @@ int CRSPManager::GetResult( int player, int cpu )
 
 }//	int CRSPManager::GetResult( int player, int cpu )
 //---------------------------------------
-char* CRSPManager::GetHandToString(int card)
+const char* CRSPManager::GetHandToString(int card)
 {
 	switch (card)
 	{
@@ -59,7 +59,7 @@ char* CRSPManager::GetHandToString(int card)
 
 	return NULL;
 
-}//	char* CRSPManager::GetHandToString(int card)
+}//	const char* CRSPManager::GetHandToString(int card)
 //---------------------------------------
 void CRSPManager::ShowResult( int player, int cpu, int result )
 {
@@ -101,7 +101,7 @@ void CRSPManager::Process()
 
 }//	void CRSPManager::Process()
 //====================================================
-// Q)	CRSPManager의 기능중 
+// Q)	CRSPManager의 기능 중 
 //		플레이어와 컴퓨터의 기능을 별개의 클래스로 
 //		만들어 적용합니다..
 //====================================================

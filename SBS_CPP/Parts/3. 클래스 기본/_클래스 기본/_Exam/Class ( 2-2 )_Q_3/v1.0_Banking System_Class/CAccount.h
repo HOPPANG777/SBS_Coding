@@ -3,9 +3,9 @@
 //=================================================================
 class CAccount
 {
-	int _id;		//	계좌번호.
-	int _money;		//	보유금액.
-	char* _pszName;	//	이름.
+	int _id;		//	계좌번호..
+	int _money;		//	보유금액..
+	char* _pszName;	//	이름..
 
 public:
 	CAccount();

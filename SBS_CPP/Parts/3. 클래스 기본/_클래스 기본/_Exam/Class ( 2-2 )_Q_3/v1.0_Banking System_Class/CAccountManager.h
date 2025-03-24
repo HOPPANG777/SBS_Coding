@@ -21,12 +21,8 @@ enum
 //==================================================
 class CAccountManager
 {
-	CAccount* _pAccountArray;	//	계좌정보 배열.
+	CAccount* _pAccountArray;	//	계좌정보 배열..
 	int _curIndex;
-
-public:
-	CAccountManager();
-	~CAccountManager();
 
 	void ShowMenu();
 	void MakeAccount();
@@ -34,6 +30,10 @@ public:
 	void Withdraw();
 	void Inquire();
 	void InquireAll();
+
+public:
+	CAccountManager();
+	~CAccountManager();
 
 	void Process();
 };

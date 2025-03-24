@@ -22,7 +22,7 @@ class CRSPManager
 	int GetPlayerHand();
 	int GetComHand();
 
-	char* GetHandToString(int card);
+	const char* GetHandToString(int card);
 
 	int GetResult(int player, int cpu);
 
