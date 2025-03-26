@@ -113,6 +113,10 @@ int main()
 	cout << "전공 : ";
 	cin >> szMajor;
 
+	cout << "\n\n";
+
+	cout << "\n실행 데이터\n";
+
 	char* pszName = szName;
 	char* pszMajor = szMajor;
 
