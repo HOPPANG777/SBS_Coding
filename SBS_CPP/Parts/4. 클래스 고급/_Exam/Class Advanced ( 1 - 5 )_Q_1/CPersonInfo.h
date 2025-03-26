@@ -12,7 +12,7 @@ class CPersonInfo
 	int _age;
 
 public:
-	CPersonInfo(char* pszName, char* pszPhone, int age);
+	CPersonInfo(const char* pszName, const char* pszPhone, int age);
 	CPersonInfo(const CPersonInfo& test);
 	~CPersonInfo();
 	void ShowData();

@@ -76,14 +76,15 @@ int main()
 						
 
 				ㄴ	&..
-					(레퍼런스)
+					( 레퍼런스 )
 
 					ㄴ	레퍼런스로 받지 않으면
-						무한루프에 빠지게 됨..
+						무한 루프에 빠지게 됨..
 
 						예)
 							A b;
 							A a = b;
+							->	A a(b);
 							
 							-	A 클래스가 참조가 아닌
 								값으로 전달 받는 복사 생성자를
@@ -111,7 +112,7 @@ int main()
 										b 대입 시도..
 										->	A( A a = b );
 
-									5)	매개변수의 생성자 호출..
+									5)	매개 변수의 생성자 호출..
 
 									6)	5)생성자의 매개변수에
 										b 대입 시도..
@@ -197,11 +198,12 @@ class CTest
 public:
 	CTest(int x, int y)	{ _x = x,	_y = y; }
 	
-	CTest( const CTest& test )
-	{
-		_x = test._x;
-		_y = test._y;
-	}
+	
+	//CTest( const CTest& test )
+	//{
+	//	_x = test._x;
+	//	_y = test._y;
+	//}
 
 	void ShowData()		{ cout << _x << " " << _y << endl; }
 };
@@ -244,14 +246,14 @@ int main()
 						ㄴ	값과 참조형식 모두..
 					
 					ㄴ	객체가 참조 타입의 멤버를
-						포함하는 경우, 참조값의 복사가 아닌
+						포함하는 경우, 참조 값의 복사가 아닌
 						참조된 객체 자체가 복사되는 것..
 
 				출처: http://wonjayk.tistory.com/256
 
 */
 //=================================================
-//*
+/*
 class CPersonInfo
 {
 	char* _pszName;
@@ -259,22 +261,23 @@ class CPersonInfo
 	int _age;
 
 public:
-	CPersonInfo(char* pszName, char* pszPhone, int age)
+	CPersonInfo(const char* pszName, const char* pszPhone, int age)
 	{
 		_pszName = new char[strlen(pszName) + 1];
 		_pszPhone = new char[strlen(pszPhone) + 1];
 
 		strcpy(_pszName, pszName);
 		strcpy(_pszPhone, pszPhone);
+
 		_age = age;
 	}
 
-	//CPersonInfo( const CPersonInfo& test )
-	//{
-	//	_pszName = test._pszName;
-	//	_pszPhone = test._pszPhone;
-	//	_age = test._age;
-	//}
+	CPersonInfo( const CPersonInfo& test )
+	{
+		_pszName = test._pszName;
+		_pszPhone = test._pszPhone;
+		_age = test._age;
+	}
 
 	~CPersonInfo()
 	{
@@ -300,37 +303,37 @@ int main()
 
 	return 0;
 
-//	에러발생!!!!!
+//	에러 발생!!!!!
 //		원인은 ? ? ? ?
 }
 
 //*/
 //=================================================
 /*
-	Quiz)	위의 문제를 복사생성자와
-			깊은 복사를 이용해서 해결한다..
+	Quiz - 1 )	위의 문제를 복사 생성자와
+				깊은 복사를 이용해서 해결한다..
 */
 //=================================================
 /*
 	4.	복사 생성자의 호출 시점..
 			
-		=	복사가 진행되는 시점!!
-
-		=	대입이 진행되는 시점!!
-
-
-
+		=	[ 복사 ] 또는 [ 대입 ]이
+			진행되는 시점..
+			
+		------------------------
 		1)	기존에 생성된 객체로
 			새로운 객체를 초기화..
+		------------------------
 
 			예)	CTest test1;
 				CTest test2 = test1;
-				->	test2(test1); 묵시적 변환..
+				->	test2(test1);	묵시적 변환..
 
 
-
+		---------------------------
 		2)	함수 호출시 객체를
 			값에 의해 전달하는 경우..
+		---------------------------
 			
 			예)	
 				void Func( CTest test )	{ .... }
@@ -351,9 +354,10 @@ int main()
 				2)	test에 _test 복사..
 
 
+		---------------------
 		3)	함수 내에서 객체를
 			값에 의해 리턴..
-
+		---------------------
 
 			예)	
 				int GetValue()

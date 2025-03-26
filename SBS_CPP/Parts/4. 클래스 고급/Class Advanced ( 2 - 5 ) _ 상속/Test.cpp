@@ -10,36 +10,47 @@ using namespace std;
 /* 
 	1.	기본 개념..
 
+		------------
 		-	[ 상속 ]
+		------------
 
 			ㄴ	기존의 클래스를 이용해서
 				새로운 클래스를 만드는 것..
 
 
-		-	상속 되는 클래스..
+			---------------------
+			-	상속 되는 클래스..
+			---------------------
 
-			ㄴ	기존 클래스..
-			ㄴ	Super, Base,
-				부모, 상위 클래스 등..
+				ㄴ	기존 클래스..
 
-			상속받는 클래스..
-			
-			ㄴ	새로 생성되는 클래스..
-			ㄴ	Sub, Derived,
-				자식, 하위 클래스 등..
+				ㄴ	Super, Base,
+					부모, 상위 클래스 등..
+
+			--------------------
+			-	상속받는 클래스..
+			--------------------
+
+				ㄴ	새로 생성되는 클래스..
+
+				ㄴ	Sub, Derived,
+					자식, 하위 클래스 등..
 
 
-
+		--------------
 		-	기본 원리..
+		--------------
 
 			-	기존 클래스의 멤버를
 				새로 정의하는 클래스의
 				멤버로 포함..
 
-			-	기존 클래스의 기능 + 새로운 기능..
+			-	기존 클래스의 기능
+				+ 새로운 기능..
+
 */
 //=================================================
-/*
+//*
 class CPerson
 {
 	char _szName[20];
@@ -52,16 +63,32 @@ public:
 		_age = 0;
 	}
 
+	CPerson(char* pszName, const int& age)
+	{
+		strcpy(_szName, pszName);
+		_age = age;
+	}
+
 	char* GetName() { return _szName; }
 	int GetAge()	{ return _age; }
 };
 
 class CStudent : public CPerson
 {
+private:
 	char _szMajor[30];
 
 public :
-	CStudent(char* pszMajor) { strcpy(_szMajor, pszMajor); }
+	CStudent(char* pszMajor)
+	{
+		strcpy(_szMajor, pszMajor); 
+	}
+
+	CStudent(char* pszMajor, char* pszName, const int& age) : CPerson(pszName, age)
+	{
+		strcpy(_szMajor, pszMajor);
+	}
+
 	char* GetMajor() { return _szMajor; }
 
 	void ShowData()
@@ -74,7 +101,22 @@ public :
 
 int main()
 {
-	CStudent Kim("국어");
+	char szName[20];
+	int age;
+	char szMajor[30];
+
+	cout << "이름, 나이, 전공을 입력해주세요." << "\n";
+	cout << "이름 : ";
+	cin >> szName;
+	cout << "나이 : ";
+	cin >> age;
+	cout << "전공 : ";
+	cin >> szMajor;
+
+	char* pszName = szName;
+	char* pszMajor = szMajor;
+
+	CStudent Kim(pszMajor, pszName, age);
 	Kim.ShowData();
 
 	return 0;
@@ -85,8 +127,8 @@ int main()
 
 	1)	class CStudent : public CPerson
 
-		-	CStudent클래스가
-			CPerson 클래스를
+		-	[ CStudent 클래스 ]가
+			[ CPerson 클래스 ]를
 			상속 받음..( public 상속 )
 
 
@@ -112,7 +154,7 @@ int main()
 
 			ㄴ	호출된 자식 클래스의 생성자에 대하여
 				부모 클래스의 특정 생성자가
-				호출되어야 한다는 선언이 없다면
+				호출 되어야 한다는 선언이 없다면
 				부모 클래스의 [ 기본 생성자 ] 또는
 				[ 유사 기본 생성자 ]가 호출 및 실행됨..
 
@@ -180,7 +222,8 @@ class CChild : public CParent
 {
 	int _def;
 public :
-	CChild() {
+	CChild() 
+	{
 		_def = 0;
 		cout << "CChild() 호출" << endl;
 	}
@@ -275,8 +318,9 @@ int main()
 			자식에게는 [ public ]으로
 			처리..
 
-			->	기본적으로 private과 같으나
-				상속관계에 놓여있는 경우에는
+			->	기본적으로 [ private ]과 같으나
+				상속 관계에 놓여있는 경우
+				( 자식 클래스 )
 				접근을 허용..
 */
 //=================================================
@@ -344,16 +388,16 @@ int main()
 /*
 	5.	세가지 형태의 상속
 
-	====================================================================
-		부모 클래스 멤버의 	|	public		|	protected	|	private	
+	======================================================================
+		부모 클래스 멤버의 	|	public..	|	protected..	|	private..
 		접근 권한..			|				|				|			
-	====================================================================
-		public 멤버..		|	public		|	protected	|	private	
-	--------------------------------------------------------------------
-		protected 멤버..		|	protected	|	protected	|	private	
-	--------------------------------------------------------------------
-		private 멤버	..		|	접근 불가	|	접근 불가	|	접근 불가
-	====================================================================
+	======================================================================
+		public 멤버..		|	public..	|	protected..	|	private..	
+	----------------------------------------------------------------------
+		protected 멤버..		|	protected..	|	protected..	|	private..	
+	----------------------------------------------------------------------
+		private 멤버	..		|	접근 불가..	|	접근 불가..	|	접근 불가..
+	======================================================================
 
 	->	private 멤버는
 		무조건 접근 불가..
@@ -366,7 +410,21 @@ int main()
 		ㄴ	private은 접근 불가로
 			변환..
 
-	->	private vs 접근 불가 ???
+			ㄴ	private vs 접근 불가..
+
+				ㄴ	private..
+
+					ㄴ	외부에서 사용 불가,
+						내부에서 사용 가능..
+
+
+				ㄴ	접근 불가..
+
+					ㄴ	외부 / 내부 모두
+						사용 불가..
+				
+
+		
 
 //=================================================
 /*
