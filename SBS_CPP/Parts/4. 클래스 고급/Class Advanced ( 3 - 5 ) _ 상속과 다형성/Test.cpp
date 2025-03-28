@@ -147,7 +147,7 @@ int main()
 			-	[ 참고 : CPerson_CStudent_CPartTimeStudent 상속관계.png ]
 */
 //=================================================
-//*
+/*
 class CPerson
 {
 public :
