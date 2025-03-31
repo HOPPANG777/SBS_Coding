@@ -217,50 +217,54 @@ T CData<T>::GetData()
 */
 
 /*
+template <typename T>
 class CStack
 {
 	int _topIdx;
-	char* _pStack;
+	T* _pStack;
 	
 public:
 	CStack(int size = 10);
 	~CStack();
-	void Push(const char value);
-	char Pop();
+	void Push(const T value);
+	T Pop();
 };
 
-CStack::CStack(int size)
+template <typename T>
+CStack<T>::CStack(int size)
 {
 	_topIdx = -1;
-	_pStack = new char[size];
+	_pStack = new T[size];
 }
 
-CStack::~CStack()
+template <typename T>
+CStack<T>::~CStack()
 {
 	delete[] _pStack;
 	_pStack = NULL;
 }
 
-void CStack::Push(const char value)
+template <typename T>
+void CStack<T>::Push(const T value)
 {
 	_pStack[++_topIdx] = value;
 }
 
-char CStack::Pop()
+template <typename T>
+T CStack<T>::Pop()
 {
 	return _pStack[_topIdx--];
 }
 
 int main()
 {
-	CStack tmpStack(10);
+	CStack<char> tmpStack(10);
 
 	tmpStack.Push('a');
 	tmpStack.Push('b');
 	tmpStack.Push('c');
 
-	for (int i = 0; i < 3; ++i)
-		cout << tmpStack.Pop() << endl;
+	for (int i = 0; i < 3; ++i)	cout << tmpStack.Pop() << endl;
 
 	return 0;
 }

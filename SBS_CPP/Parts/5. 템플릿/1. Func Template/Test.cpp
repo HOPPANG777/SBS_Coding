@@ -173,7 +173,12 @@ int main()
 	ShowData(1, 2);
 	ShowData(1, 2.5f);
 	
-	//float res = Add( 2, 3.3 );
+	//float res = Add<int, float>( 2, 3.3 );
+	// 템플릿으로 정의된 함수의 
+	// 자료형이 결정되는 시점..
+	// ㄴ 인자가 전달되는 시점..
+	// ㄴ T3는 연산 결과에 따라 달라짐..
+	// ㄴ 명시적으로 선언해야함..
 	//cout << res << endl;
 
 
