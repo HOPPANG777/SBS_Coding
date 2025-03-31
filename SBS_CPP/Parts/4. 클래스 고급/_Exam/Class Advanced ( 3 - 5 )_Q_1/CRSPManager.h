@@ -20,26 +20,26 @@ class CRSPManager
 	int _loseCount;
 	int _drawCount;
 	char _szHand[20];
-	char* GetHandToString(int card);
+	const char* GetHandToString(int card);
 
 	void ShowMenu();
-	//int GetPlayerHand();
-	//int GetComHand();
+	int GetPlayerHand();
+	int GetComHand();
 	int GetResult(int player, int cpu);
 	void ShowResult(int player, int cpu, int result);
 
-	CPlayer* _players[2];
 	CHuman _human;
 	CComputer _com;
 	
 public:
+
 	CRSPManager()
 	{
 		_winCount = 0;
 		_loseCount = 0;
 		_drawCount = 0;
-		_players[0] = &_human;
-		_players[1] = &_com;
+
+		memset(_szHand, 0, sizeof(_szHand));
 	}
 
 	

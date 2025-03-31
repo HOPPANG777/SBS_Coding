@@ -4,6 +4,7 @@
 #define _CCOMPUTER_H_
 //==========================================
 #include "CPlayer.h"
+//==========================================
 class CComputer : public CPlayer
 {
 public:

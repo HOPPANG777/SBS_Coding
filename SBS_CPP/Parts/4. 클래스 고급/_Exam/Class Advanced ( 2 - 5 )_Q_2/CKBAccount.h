@@ -6,7 +6,7 @@ class CKBAccount : public CKoreaAccount
 {
 	float _interestRate;
 public:
-	CKBAccount(const char* pszAccNum, int money, int moneyLimit, float _interestRate);
+	CKBAccount(const char* pszAccNum, int money, int moneyLimit, float interestRate);
 	void ShowData();
 };
 //	class CKBAccount : public CKoreaAccount

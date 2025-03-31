@@ -50,7 +50,7 @@ using namespace std;
 
 */
 //=================================================
-//*
+/*
 class CPerson
 {
 	char _szName[20];
@@ -63,32 +63,16 @@ public:
 		_age = 0;
 	}
 
-	CPerson(char* pszName, const int& age)
-	{
-		strcpy(_szName, pszName);
-		_age = age;
-	}
-
 	char* GetName() { return _szName; }
 	int GetAge()	{ return _age; }
 };
 
 class CStudent : public CPerson
 {
-private:
 	char _szMajor[30];
 
 public :
-	CStudent(char* pszMajor)
-	{
-		strcpy(_szMajor, pszMajor); 
-	}
-
-	CStudent(char* pszMajor, char* pszName, const int& age) : CPerson(pszName, age)
-	{
-		strcpy(_szMajor, pszMajor);
-	}
-
+	CStudent( const char* pszMajor ) { strcpy(_szMajor, pszMajor); }
 	char* GetMajor() { return _szMajor; }
 
 	void ShowData()
@@ -101,26 +85,7 @@ public :
 
 int main()
 {
-	char szName[20];
-	int age;
-	char szMajor[30];
-
-	cout << "이름, 나이, 전공을 입력해주세요." << "\n";
-	cout << "이름 : ";
-	cin >> szName;
-	cout << "나이 : ";
-	cin >> age;
-	cout << "전공 : ";
-	cin >> szMajor;
-
-	cout << "\n\n";
-
-	cout << "\n실행 데이터\n";
-
-	char* pszName = szName;
-	char* pszMajor = szMajor;
-
-	CStudent Kim(pszMajor, pszName, age);
+	CStudent Kim("국어");
 	Kim.ShowData();
 
 	return 0;
@@ -145,6 +110,7 @@ int main()
 /*
 	2.	자식 클래스의
 		객체 생성 과정..
+
 
 		1)	메모리 공간의 할당..
 
@@ -197,6 +163,13 @@ int main()
 
 		4)	자식 클래스 생성자의
 			구현부 실행..
+
+
+		-	목적..
+
+			ㄴ	객체가 생성될 때,
+				부모 클래스의 생성자에서
+				동적인 메모리를 생성할 기회 제공..
 */
 //=================================================
 /*
@@ -220,14 +193,23 @@ public:
 		_attack = attack;
 		cout << "CParent(int hp, int attack) 호출" << endl;
 	}
+
+	void ShowData()
+	{
+		cout << "_hp : " << _hp << endl;
+		cout << "_attack : " << _attack << endl;
+	}
+
+	int GetHP() { return _hp; }
+	int GetAttack() { return _attack; }
 };
 
 class CChild : public CParent
 {
 	int _def;
+	
 public :
-	CChild() 
-	{
+	CChild() {
 		_def = 0;
 		cout << "CChild() 호출" << endl;
 	}
@@ -238,12 +220,22 @@ public :
 		_def = def;
 		cout << "CChild( int hp, int attack, int def ) 호출" << endl;
 	}
+
+	void ShowData()
+	{
+		cout << "_hp : " << GetHP() << endl;
+		cout << "_attack : " << GetAttack() << endl;
+		cout << "_def : " << _def << endl;
+	}
 };
 
 int main()
 {
 	CChild child1;
 	CChild child2(100, 10, 10);
+
+	child1.ShowData();
+	child2.ShowData();
 
 	return 0;
 }
@@ -316,7 +308,7 @@ int main()
 	4.	[ Protected ] 멤버..
 
 		-	[ public ]과 [ private ]의
-			중간 정도되는 접근제한..
+			중간 정도되는 접근 제한..
 
 		-	외부에서는 [ private ],
 			자식에게는 [ public ]으로
@@ -351,7 +343,7 @@ public:
 		_pub = 0;	//	public
 		_prot = 20;	//	protected,
 					//	자식에게는 public !!
-		_priv = 10;	//	private
+		_priv = 10;	//	private..
 	}
 };
 
@@ -390,7 +382,7 @@ int main()
 //*/
 //=================================================
 /*
-	5.	세가지 형태의 상속
+	5.	세가지 형태의 상속..
 
 	======================================================================
 		부모 클래스 멤버의 	|	public..	|	protected..	|	private..
@@ -418,13 +410,13 @@ int main()
 
 				ㄴ	private..
 
-					ㄴ	외부에서 사용 불가,
+					ㄴ	외부 / 자식 클래스에서 사용 불가,
 						내부에서 사용 가능..
 
 
 				ㄴ	접근 불가..
 
-					ㄴ	외부 / 내부 모두
+					ㄴ	외부 / 내부 / 자식 클래스 모두
 						사용 불가..
 				
 

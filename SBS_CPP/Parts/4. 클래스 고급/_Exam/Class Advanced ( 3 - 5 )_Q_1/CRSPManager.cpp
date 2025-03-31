@@ -28,7 +28,7 @@ int CRSPManager::GetResult( int player, int cpu )
 
 }//	int CRSPManager::GetResult( int player, int cpu )
 //---------------------------------------
-char* CRSPManager::GetHandToString(int card)
+const char* CRSPManager::GetHandToString(int card)
 {
 	switch (card)
 	{
@@ -68,33 +68,34 @@ void CRSPManager::Process()
 	{
 		ShowMenu();
 				
-		int player = _players[0]->GetHand();	//int player = GetPlayerHand();
+		int player = GetPlayerHand();
 		if (player == FINISH) exit(1);
 
-		int cpu = _players[1]->GetHand();		//int cpu = GetComHand();
+		int cpu = GetComHand();
 		int result = GetResult(player, cpu);
 
 		ShowResult(player, cpu, result);
 
-		if ( _winCount >= 3 || _drawCount >= 3) exit(1);
+		if (_winCount >= 3 || _loseCount >= 3)
+		{
+			cout << "- 최종 결과.. --" << endl;
+			cout << _winCount << "승 " << _drawCount << "무 " << _loseCount << "패" << endl;
+			exit(1);
+		}
 
 	}//	while (1)
 
 }//	void CRSPManager::Process()
 //====================================================
-/*
+//*
 int CRSPManager::GetPlayerHand()
 {
-	int select;
-	cin >> select;
-	return select;
+	return _human.GetHand();
 }
 //---------------------------------------
 int CRSPManager::GetComHand()
 {
-	srand(time(0));
-	int cpu = rand() % 3 + 1;
-	return cpu;
+	return _com.GetHand();
 }
-*/
+//*/
 //====================================================

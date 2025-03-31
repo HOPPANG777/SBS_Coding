@@ -38,6 +38,7 @@ public:
 	void ShowData()
 	{
 		CPerson::ShowData();
+
 		//cout << "이름 : " << GetName() << endl;
 		//cout << "나이 : " << GetAge() << endl;
 		cout << "전공 : " << GetMajor() << endl;

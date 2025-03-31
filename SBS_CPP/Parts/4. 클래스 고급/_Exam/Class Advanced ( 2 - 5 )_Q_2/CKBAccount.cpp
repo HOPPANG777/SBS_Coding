@@ -10,6 +10,7 @@ CKBAccount::CKBAccount(const char* pszAccNum, int money, int moneyLimit, float i
 void CKBAccount::ShowData()
 {
 	CKoreaAccount::ShowData();
+
 	cout << "ÀÌÀÚÀ² : " << _interestRate << endl;
 }
 //===========================================================================

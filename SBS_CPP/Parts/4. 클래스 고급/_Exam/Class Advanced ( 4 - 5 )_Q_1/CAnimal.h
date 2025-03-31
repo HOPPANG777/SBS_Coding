@@ -13,7 +13,7 @@ protected:
 public:
 	CAnimal(char* pszName) { strcpy(_szName, pszName); }
 	const char* GetName() { return _szName; }
-	virtual void MakeVoice() = 0;		// 순수 가상함수.
+	virtual void MakeVoice() = 0;		// 순수 가상함수..
 };
 //================================================
 class CCat : public CAnimal

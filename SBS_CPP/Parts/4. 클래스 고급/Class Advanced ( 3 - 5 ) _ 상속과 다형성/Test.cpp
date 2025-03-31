@@ -94,10 +94,13 @@ int main()
 			가장 기본적인 관계..
 
 		-	"Student is Person" ( O )
-				예)	class CStudent : public CPerson ( O )
+		
+			예)	class CStudent : public CPerson ( O )
 
 			"Person is Student" ( X )
-				예)	class CPerson : public CStudent ( X )
+			
+			예)	class CPerson : public CStudent ( X )
+
 
 			-	논리적으로 [ 사람 ]의 범위가
 				[ 학생 ]이라는 범위보다

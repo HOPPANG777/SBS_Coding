@@ -6,6 +6,6 @@ protected :
 
 public :
 	CPlayer() { _myHand = 0; }
-	virtual int GetHand();
+	int GetHand();
 };
 
