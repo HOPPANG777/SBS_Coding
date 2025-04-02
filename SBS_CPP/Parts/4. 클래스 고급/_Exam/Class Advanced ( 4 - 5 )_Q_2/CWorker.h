@@ -11,9 +11,10 @@ protected:
 	char _szName[30];		//	이름..
 	char _szWorkType[30];	//	고용타입..
 	int _salaryPerMonth;	//	월급..
-	virtual void CalculateSalary() = 0;	//	월급 계산..	
+	virtual void CalculateSalary() = 0;	//	월급 계산..
 	void SetName(const char* pszName) { strcpy(_szName, pszName); }
 	void SetWorkType(const char* pszWorkType) { strcpy(_szWorkType, pszWorkType); }
+
 public:
 	CWorker( const char* pszName )
 	{

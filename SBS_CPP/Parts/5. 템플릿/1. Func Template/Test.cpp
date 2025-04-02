@@ -130,7 +130,7 @@ int main()
 									//	함수의 자료형이
 									//	결정되는 시점!!
 	cout << Add(1.1f, 2.2f) << endl;	
-		
+	
 	return 0;
 }
 //*/
@@ -173,14 +173,16 @@ int main()
 	ShowData(1, 2);
 	ShowData(1, 2.5f);
 	
-	//float res = Add<int, float>( 2, 3.3 );
-	// 템플릿으로 정의된 함수의 
-	// 자료형이 결정되는 시점..
-	// ㄴ 인자가 전달되는 시점..
-	// ㄴ T3는 연산 결과에 따라 달라짐..
-	// ㄴ 명시적으로 선언해야함..
-	//cout << res << endl;
+	
+	//double res = Add( 2, 3.3f );
 
+	//	템플릿으로 정의된 함수의
+	//	자료형이 결정되는 시점..
+	//	ㄴ	인자가 전달되는 시점..
+	//	ㄴ	T3는 연산 결과에 따라 달라짐..
+	//	ㄴ	명시적으로 선언할 것..
+	//double res = Add<int, float, double>(2, 3.3f);
+	
 
 	return 0;
 }
@@ -249,7 +251,7 @@ int GetSize(T* a) { return sizeof(a) + 100; }
 
 //  c)  b)의 명시적 특수화..
 template<>
-int GetSize(char* a) { return sizeof(a) + 5; }
+int GetSize(const char* a) { return sizeof(a) + 5; }
 
 //  result : 4   8   9
 //*/
@@ -285,7 +287,7 @@ int main()
 {
 	int a = 10;
 	double b = 2.2;
-	char* pStr = "Hello";
+	const char* pStr = "Hello";
 
 	cout << GetSize(a) << endl;
 	cout << GetSize(b) << endl;

@@ -25,7 +25,7 @@ CStack<T>::CStack(int size)
 template <typename T>
 CStack<T>::~CStack()
 {
-	if (_pStack != null)
+	if (_pStack != NULL)
 	{
 		delete[] _pStack;
 		_pStack = NULL;

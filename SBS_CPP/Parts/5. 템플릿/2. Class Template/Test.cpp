@@ -24,6 +24,7 @@ using namespace std;
 class CDataInt
 {
 	int _data;
+
 public:
 	CDataInt(int d) { _data = d; }
 	void SetData(int d) { _data = d;  }
@@ -34,6 +35,7 @@ public:
 class CDataDouble
 {
 	double _data;
+
 public:
 	CDataDouble(double d) { _data = d; }
 	void SetData(double d) { _data = d; }
@@ -114,7 +116,7 @@ int main()
 					멤버 변수의 타입을 알수 없으므로
 					에러 발생..
 
-					-	클래스의 객체 생성방식으로 인해
+					-	클래스의 객체 생성 방식으로 인해
 						[ 생성자 ]를 통해서
 						[ T의 타입 ]에 대한 정보를
 						전달할 수밖에 없음..
@@ -135,7 +137,7 @@ int main()
 	------------------------
 */
 //=================================================
-/*
+//*
 template <typename T>
 class CData
 {
@@ -204,7 +206,7 @@ T CData<T>::GetData()
 
 		스택..
 
-		-	자료구조의 일종..
+		-	자료 구조의 일종..
 
 		-	LIFO( Last Input, First Out ) / FILO( First Input, Last Out )..
 
@@ -217,54 +219,50 @@ T CData<T>::GetData()
 */
 
 /*
-template <typename T>
 class CStack
 {
 	int _topIdx;
-	T* _pStack;
+	char* _pStack;
 	
 public:
 	CStack(int size = 10);
 	~CStack();
-	void Push(const T value);
-	T Pop();
+	void Push(const char value);
+	char Pop();
 };
 
-template <typename T>
-CStack<T>::CStack(int size)
+CStack::CStack(int size)
 {
 	_topIdx = -1;
-	_pStack = new T[size];
+	_pStack = new char[size];
 }
 
-template <typename T>
-CStack<T>::~CStack()
+CStack::~CStack()
 {
 	delete[] _pStack;
 	_pStack = NULL;
 }
 
-template <typename T>
-void CStack<T>::Push(const T value)
+void CStack::Push(const char value)
 {
 	_pStack[++_topIdx] = value;
 }
 
-template <typename T>
-T CStack<T>::Pop()
+char CStack::Pop()
 {
 	return _pStack[_topIdx--];
 }
 
 int main()
 {
-	CStack<char> tmpStack(10);
+	CStack tmpStack(10);
 
 	tmpStack.Push('a');
 	tmpStack.Push('b');
 	tmpStack.Push('c');
 
-	for (int i = 0; i < 3; ++i)	cout << tmpStack.Pop() << endl;
+	for (int i = 0; i < 3; ++i)
+		cout << tmpStack.Pop() << endl;
 
 	return 0;
 }
