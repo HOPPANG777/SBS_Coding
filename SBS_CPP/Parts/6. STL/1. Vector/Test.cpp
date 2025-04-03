@@ -66,16 +66,14 @@ int main()
 	//----------------------------------------
 	//	요소 접근 - 1..
 	cout << "--- 요소 접근 (배열 인덱스)---" << endl;
-	for (int i = 0; i < vec.size(); ++i)
-		cout << vec[i] << endl;
+	for (int i = 0; i < vec.size(); ++i) cout << vec[i] << endl;
 
 	//	요소 접근 - 2..
 	cout << "--- 요소 접근 (이터레이터)---" << endl;
 	vector<int>::iterator iterBegin = vec.begin();
 	vector<int>::iterator iterEnd = vec.end();
 	vector<int>::iterator iterCur;
-	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
-		cout << (*iterCur) << endl;
+	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur) cout << (*iterCur) << endl;
 
 
 
@@ -92,8 +90,7 @@ int main()
 	}
 	iterBegin = vec.begin();
 	iterEnd = vec.end();
-	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
-		cout << (*iterCur) << endl;
+	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur) cout << (*iterCur) << endl;
 
 
 
@@ -103,8 +100,7 @@ int main()
 	vec.clear();
 	iterBegin = vec.begin();
 	iterEnd = vec.end();
-	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
-		cout << (*iterCur) << endl;
+	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur) cout << (*iterCur) << endl;
 
 
 
@@ -112,7 +108,8 @@ int main()
 	//	capacity 참고..
 	cout << "--- data size capacity ---" << endl;
 	vec.reserve(20);	//	크기를 미리 할당..
-	for (int i = 0; i <= 60; i++) {
+	for (int i = 0; i <= 60; i++) 
+	{
 		vec.push_back(i + 1);
 		cout << "[ " << vec[i] << " [ size : " << vec.size() << " , capacity :  " << vec.capacity() << "]" << endl;
 	}
