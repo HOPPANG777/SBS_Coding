@@ -72,7 +72,7 @@ int CAddressManager::GetIndex(char *pszName)
 
 	}//	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
 
-	return idx;
+	return -1;
 
 }//	int CAddressManager::GetIndex(char *pszName)
 //-------------------------------
@@ -249,7 +249,7 @@ void CAddressManager::Show()
 		bool bResult = ShowData(szName);
 
 		if (bResult == false)
-			cout << "검색결과가 없습니다 ㅠ.ㅠ" << endl;
+			cout << "검색 결과가 없습니다 ㅠ.ㅠ" << endl;
 
 	}//	~if (_list.size() == 0)
 

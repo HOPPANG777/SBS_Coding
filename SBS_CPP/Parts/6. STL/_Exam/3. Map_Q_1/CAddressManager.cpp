@@ -19,6 +19,7 @@ bool CAddressManager::DeleteData(char* pszName)
 	ITER_CPERSON iterBegin = _list.begin();
 	ITER_CPERSON iterEnd = _list.end();
 	ITER_CPERSON iterCur;
+
 	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
 	{
 		CPerson *pTmp = (*iterCur).second;
@@ -46,6 +47,7 @@ bool CAddressManager::DeleteAllData()
 	ITER_CPERSON iterBegin = _list.begin();
 	ITER_CPERSON iterEnd = _list.end();
 	ITER_CPERSON iterCur;
+
 	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
 	{
 		CPerson *pTmp = (*iterCur).second;
@@ -65,6 +67,7 @@ bool CAddressManager::ShowData(char* pszName)
 	ITER_CPERSON iterBegin = _list.begin();
 	ITER_CPERSON iterEnd = _list.end();
 	ITER_CPERSON iterCur;
+
 	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
 	{
 		CPerson *pTmp = (*iterCur).second;
@@ -87,6 +90,7 @@ bool CAddressManager::ShowAllData()
 	ITER_CPERSON iterBegin = _list.begin();
 	ITER_CPERSON iterEnd = _list.end();
 	ITER_CPERSON iterCur;
+
 	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
 	{
 		CPerson *pTmp = (*iterCur).second;

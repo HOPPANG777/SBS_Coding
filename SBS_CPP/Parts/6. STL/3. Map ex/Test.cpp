@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	//	[ 참고 1 ] 결과 비교...
-	std::map<char*, int> mp;
+	std::map<const char*, int> mp;
 	//std::map<string, int> mp;
 
     mp["abc"] = 1;
@@ -35,7 +35,7 @@ int main()
 	cout << endl;
 
 	//	[ 참고 1 ]
-	std::map<char*, int>::iterator iter;
+	std::map<const char*, int>::iterator iter;
 	//std::map<string, int>::iterator iter;
 	for (iter = mp.begin(); iter != mp.end(); iter++)
 		cout << (*iter).first << ": " << (iter->second) << endl;
@@ -45,15 +45,17 @@ int main()
 	//	"aaa"는 동일한 메모리????
 	//	참고 - https://gpgstudy.com/forum/viewtopic.php?t=25224
 	//	cout << endl;
-	//	char* ptmp1 = "aaa";
-	//	char* ptmp2 = "aaa";
+	//	const char* ptmp1 = "aaa";
+	//	const char* ptmp2 = "aaa";
 	//	printf("ptmp1 = %p    ptmp2 = %p\n", ptmp1, ptmp2);
-    //  -   gpgstudy 발췌
-    //      -   "aaa"와 같은 순수 문자열(?)은
-	//			상수 메모리(?)에 먼저 등록되고
-    //          그 주소값을 리턴하기 때문에
-	//			ptmp1의 주소값과 ptmp2의 주소값이
-	//			같은 것으로 됩니다
+	// 
+    //  -   gpgstudy 발췌..
+	// 
+    //      ㄴ   "aaa"와 같은 순수 문자열(?)은
+	//			 상수 메모리(?)에 먼저 등록되고
+    //           그 주소값을 리턴하기 때문에
+	//			 ptmp1의 주소값과 ptmp2의 주소값이
+	//			 같은 것으로 됩니다..
 
 	return 0;
 }

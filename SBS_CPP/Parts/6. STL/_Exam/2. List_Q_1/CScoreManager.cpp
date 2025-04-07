@@ -1,5 +1,6 @@
 //=====================================================
 #include "CScoreManager.h"
+#include<algorithm>
 using namespace std;
 //=====================================================
 CScoreManager::~CScoreManager()	{ DeleteAllData(); }
@@ -126,6 +127,10 @@ void CScoreManager::Process()
 
 			case EDIT: Edit(); break;
 
+			case SORT_DESC: ShowAll_Desc(); break;
+
+			case SORT_ASC: ShowAll_Asc(); break;
+
 			case FINISH: Finish(); break;
 
 			default: DoError(); break;
@@ -147,7 +152,9 @@ void CScoreManager::ShowMenu()
 	cout << "4. 조회" << endl;
 	cout << "5. 전체 조회" << endl;
 	cout << "6. 편집" << endl;
-	cout << "7. 종료" << endl;
+	cout << "7. 1등부터 조회..( 내림차순 )" << endl;
+	cout << "8. 꼴등부터 조회..( 오름차순 )" << endl;
+	cout << "9. 종료" << endl;
 
 	cin >> _select;
 
@@ -254,6 +261,35 @@ void CScoreManager::ShowAll()
 
 }//	void CScoreManager::ShowAll()
 //-------------------------------
+/*
+	함수 객체..
+
+	-	클래스의 객체를 마치 함수처럼 사용하는 방식..
+
+*/
+class CompareDesc {
+public:
+	bool operator()(CStudent* lhs, CStudent* rhs) { return lhs->Get_Avg() > rhs->Get_Avg(); }
+};
+
+class CompareAsc{
+public:
+	bool operator()(CStudent* lhs, CStudent* rhs) { return lhs->Get_Avg() < rhs->Get_Avg(); }
+};
+//-------------------------------
+void CScoreManager::ShowAll_Desc()
+{
+	_list.sort(CompareDesc());
+
+	ShowAll();
+}
+void CScoreManager::ShowAll_Asc()
+{
+	_list.sort(CompareAsc());
+
+	ShowAll();
+}
+//-------------------------------
 //	편집..
 void CScoreManager::Edit()
 {
@@ -304,4 +340,14 @@ void CScoreManager::Finish()
 	exit(1);	
 
 }//	void CScoreManager::Finish()
-//-------------------------------
+//=====================================================
+/*
+	[ 참고 ]
+
+		C++ Sorting Custom Objects in a list
+		https://stackoverflow.com/questions/16507519/c-sorting-custom-objects-in-a-list
+
+		C++ Function Object (함수 객체)를 알아보자
+		https://mutpp.tistory.com/entry/C-Function-Object-%ED%95%A8%EC%88%98-%EA%B0%9D%EC%B2%B4%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90
+*/
+//=====================================================

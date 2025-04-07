@@ -3,6 +3,7 @@
 using namespace std;
 #include<iostream>
 #include<list>
+#include<functional>
 #include"CStudent.h"
 //=================================================
 typedef list<CStudent*>::iterator ITER_CPERSON;
@@ -15,6 +16,8 @@ enum
 	SHOW,
 	SHOWALL,
 	EDIT,
+	SORT_DESC,	//	내림차순..
+	SORT_ASC,	//	오름차순..
 	FINISH
 };
 //=================================================
@@ -38,6 +41,8 @@ class CScoreManager
 	void DeleteAll();
 	void Show();
 	void ShowAll();
+	void ShowAll_Desc();
+	void ShowAll_Asc();
 	void Edit();
 
 	//	데이터 처리와 상관없지만 시퀀스 처리를 담당하는 함수들..
@@ -49,5 +54,17 @@ public:
 	CScoreManager() { _select = 0; }
 	~CScoreManager();
 	void Process();		//	전체 프로세스 처리..
+};
+//=================================================
+struct Functor_Desc : public binary_function< const CStudent*, const CStudent*, bool >
+{
+public:
+	Functor_Desc() {};
+
+public:
+	bool operator()(CStudent* p1,  CStudent* p2)
+	{
+		return p1->Get_Avg() < p2->Get_Avg();
+	}
 };
 //=================================================

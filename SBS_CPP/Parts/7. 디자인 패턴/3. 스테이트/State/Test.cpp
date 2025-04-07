@@ -4,16 +4,15 @@ using namespace std;
 #pragma warning( disable : 4996 )
 //=================================================
 /*
-	---------------
-	1.	스테이트 패턴
-	---------------
+	-------------------
+	1.	스테이트 패턴..
+	-------------------
 
 		-	상황발생..
 
 			-	내부적인 상태에 따라
 				다른 동작을 해야하는 경우,
-				일반적으로
-				각 동작에 대한
+				일반적으로 각 동작에 대한
 				분기를 고려..
 
 */
@@ -21,10 +20,10 @@ using namespace std;
 /*
 enum NPC_STATE
 {
-	NPCSTATE_WANDERING = 0,	//배회 하기 
-	NPCSTATE_DETECTING,		//적탐지 루틴검사
-	NPCSTATE_RUSH,			//돌격모드. 타겟에게 돌격하는상태 
-	NPCSTATE_FIGHT,			//전투모드 타겟을 적으로
+	NPCSTATE_WANDERING = 0,	//	배회 하기.. 
+	NPCSTATE_DETECTING,		//	적탐지 루틴검사..
+	NPCSTATE_RUSH,			//	돌격모드.. 타겟에게 돌격하는상태..
+	NPCSTATE_FIGHT,			//	전투모드.. 타겟을 적으로 설정..
 };
 
 class Npc
@@ -102,7 +101,7 @@ class NpcStateWandering : public NpcState
 public: 
 	virtual void Act( Npc *pNpc )
 	{ 
-		//배회동작
+		//	배회 동작..
 	}
 };
 //---------------------
@@ -111,7 +110,7 @@ class NpcStateDetecting : public NpcState
 public:
 	virtual void Act( Npc *pNpc )
 	{
-		//탐지동작
+		//	탐지 동작..
 	}
 };
 //---------------------
@@ -120,7 +119,7 @@ class NpcStateRush : public NpcState
 public:
 	virtual void Act( Npc *pNpc )
 	{
-		//러쉬동작
+		//	러쉬 동작..
 	}
 };
 //---------------------
@@ -129,7 +128,7 @@ class NpcStateFight : public NpcState
 public:
 	virtual void Act( Npc *pNpc )
 	{
-		//전투동작
+		//	전투 동작..
 	}
 };
 //---------------------
@@ -152,7 +151,7 @@ public:
 };
 //*/
 //=================================================
-/*	적용
+/*	적용..
 
 int main()
 {

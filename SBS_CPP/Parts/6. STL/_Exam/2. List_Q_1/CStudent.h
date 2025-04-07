@@ -21,5 +21,7 @@ public:
 	bool SetScore(int idx, int score);
 	
 	void ShowInfo();
-	char* GetName()		{ return _szName; }
+	char* GetName()	{ return _szName; }
+	float Get_Avg() { return _avg; }
+
 };
