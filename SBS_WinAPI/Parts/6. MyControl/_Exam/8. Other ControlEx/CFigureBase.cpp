@@ -1,0 +1,1 @@
+#include "CFigureBase.h"

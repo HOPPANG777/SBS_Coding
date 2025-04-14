@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="CScrollBar.cpp">
+      <Filter>CControl\CScrollBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CEdit.cpp">
+      <Filter>CControl\CEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="CControlBase.cpp">
+      <Filter>CControl\CControlBase</Filter>
+    </ClCompile>
+    <ClCompile Include="CControlFactory.cpp">
+      <Filter>CControl\_CControlFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="CListBox.cpp">
+      <Filter>CControl\CListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="CButton.cpp">
+      <Filter>CControl\CButton</Filter>
+    </ClCompile>
+    <ClCompile Include="CComboBox.cpp">
+      <Filter>CControl\CComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="CStatic.cpp">
+      <Filter>CControl\CStatic</Filter>
+    </ClCompile>
+    <ClCompile Include="CCircle.cpp">
+      <Filter>CFigure\CCircle</Filter>
+    </ClCompile>
+    <ClCompile Include="CFigureBase.cpp">
+      <Filter>CFigure\CFigureBase</Filter>
+    </ClCompile>
+    <ClCompile Include="CLine.cpp">
+      <Filter>CFigure\CLine</Filter>
+    </ClCompile>
+    <ClCompile Include="CRectangle.cpp">
+      <Filter>CFigure\CRectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="CFigureFactory.cpp">
+      <Filter>CFigure\_CFigureFactory</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CScrollBar.h">
+      <Filter>CControl\CScrollBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CEdit.h">
+      <Filter>CControl\CEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="CControlBase.h">
+      <Filter>CControl\CControlBase</Filter>
+    </ClInclude>
+    <ClInclude Include="CControlFactory.h">
+      <Filter>CControl\_CControlFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="CListBox.h">
+      <Filter>CControl\CListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="CButton.h">
+      <Filter>CControl\CButton</Filter>
+    </ClInclude>
+    <ClInclude Include="CComboBox.h">
+      <Filter>CControl\CComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="CStatic.h">
+      <Filter>CControl\CStatic</Filter>
+    </ClInclude>
+    <ClInclude Include="CCircle.h">
+      <Filter>CFigure\CCircle</Filter>
+    </ClInclude>
+    <ClInclude Include="CFigureBase.h">
+      <Filter>CFigure\CFigureBase</Filter>
+    </ClInclude>
+    <ClInclude Include="CLine.h">
+      <Filter>CFigure\CLine</Filter>
+    </ClInclude>
+    <ClInclude Include="CRectangle.h">
+      <Filter>CFigure\CRectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="CFigureFactory.h">
+      <Filter>CFigure\_CFigureFactory</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CFigure">
+      <UniqueIdentifier>{5ba0e5b2-7983-482e-80da-49a9ffad41e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl">
+      <UniqueIdentifier>{fc0dc143-7891-4ee0-8073-f54379682036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\CScrollBar">
+      <UniqueIdentifier>{fa2676a6-bc3d-4cad-b6fe-2bcd41edd8c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\CEdit">
+      <UniqueIdentifier>{61a85e8f-4765-4443-afe3-8fb948111ef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\CControlBase">
+      <UniqueIdentifier>{45306397-654c-49f4-aaba-3430c3359629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\CListBox">
+      <UniqueIdentifier>{a53ef95a-5a85-4221-b491-3685e7c084cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\CButton">
+      <UniqueIdentifier>{2743ba04-8004-4c62-a5d9-a75356c9472e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\CComboBox">
+      <UniqueIdentifier>{6fb7a740-4547-4c59-a798-48d79a65ed50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\CStatic">
+      <UniqueIdentifier>{d634cdaf-8960-471c-93c6-8ca05a501da5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControl\_CControlFactory">
+      <UniqueIdentifier>{7d94c67a-29f0-4d48-8fe9-0b5375dccb2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CFigure\_CFigureFactory">
+      <UniqueIdentifier>{187cec0d-f5b5-4793-b992-b33776c73bd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CFigure\CCircle">
+      <UniqueIdentifier>{9b725c23-0633-43bb-b96c-591decc97171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CFigure\CFigureBase">
+      <UniqueIdentifier>{47609fa5-95e2-43b5-9e90-e08c610f0693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CFigure\CLine">
+      <UniqueIdentifier>{e714f4cd-0abc-4953-8d6f-8624a4421145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CFigure\CRectangle">
+      <UniqueIdentifier>{2da89f6d-f490-49db-98c6-132ab04ff618}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="CScrollBar.cpp">
+      <Filter>Control\CScrollBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CEdit.cpp">
+      <Filter>Control\CEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="CControlBase.cpp">
+      <Filter>Control\CControlBase</Filter>
+    </ClCompile>
+    <ClCompile Include="CControlFactory.cpp">
+      <Filter>CControlFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="CListBox.cpp">
+      <Filter>Control\CListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="CButton.cpp">
+      <Filter>Control\CButton</Filter>
+    </ClCompile>
+    <ClCompile Include="CComboBox.cpp">
+      <Filter>Control\CComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="CStatic.cpp">
+      <Filter>Control\CStatic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CScrollBar.h">
+      <Filter>Control\CScrollBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CEdit.h">
+      <Filter>Control\CEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="CControlBase.h">
+      <Filter>Control\CControlBase</Filter>
+    </ClInclude>
+    <ClInclude Include="CControlFactory.h">
+      <Filter>CControlFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="CListBox.h">
+      <Filter>Control\CListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="CButton.h">
+      <Filter>Control\CButton</Filter>
+    </ClInclude>
+    <ClInclude Include="CComboBox.h">
+      <Filter>Control\CComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="CStatic.h">
+      <Filter>Control\CStatic</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Control">
+      <UniqueIdentifier>{fc0dc143-7891-4ee0-8073-f54379682036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\CScrollBar">
+      <UniqueIdentifier>{fa2676a6-bc3d-4cad-b6fe-2bcd41edd8c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\CEdit">
+      <UniqueIdentifier>{61a85e8f-4765-4443-afe3-8fb948111ef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\CControlBase">
+      <UniqueIdentifier>{45306397-654c-49f4-aaba-3430c3359629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CControlFactory">
+      <UniqueIdentifier>{7d94c67a-29f0-4d48-8fe9-0b5375dccb2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\CListBox">
+      <UniqueIdentifier>{a53ef95a-5a85-4221-b491-3685e7c084cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\CButton">
+      <UniqueIdentifier>{2743ba04-8004-4c62-a5d9-a75356c9472e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\CComboBox">
+      <UniqueIdentifier>{6fb7a740-4547-4c59-a798-48d79a65ed50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\CStatic">
+      <UniqueIdentifier>{d634cdaf-8960-471c-93c6-8ca05a501da5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

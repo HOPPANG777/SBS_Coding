@@ -1,0 +1,9 @@
+#pragma once
+#include "CFigureBase.h"
+class CLine :
+	public CFigureBase
+{
+public :
+	virtual void Draw(HDC hdc);
+};
+
