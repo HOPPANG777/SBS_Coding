@@ -43,9 +43,9 @@ int APIENTRY WinMain(
 }
 //===============================================================================
 //  참고 : 윈도우즈 api 정복( 김상형 저 )
-//	TransparentBlt 단점 보완.
-//	-	윈도우즈 95에서는 사용 불가.
-//	-	속도 느림.
+//	[ TransparentBlt ]의 단점을 보완..
+//	-	윈도우즈 95에서는 사용 불가..
+//	-	속도 느림..
 void TransBlt(HDC hdc, int x, int y, HBITMAP hbitmap, COLORREF clrMask)
 {
 	BITMAP bm;
@@ -165,22 +165,22 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	case WM_PAINT:
 		hdc=BeginPaint(hWnd, &ps);
 		
-		//	1.	화면 DC와 호환되는 DC 생성.
+		//	1.	화면 DC와 호환되는 DC 생성..
 		hMemDC=CreateCompatibleDC(hdc);
 
-		//	2.	오프스크린 비트맵 생성.
+		//	2.	오프스크린 비트맵 생성..
 		hBackBit=CreateCompatibleBitmap(hdc,1000,480);
 
-		//	3.	가상 DC에 오프스크린 비트맵 세팅.
-		//		-	내부 버퍼 생성.
+		//	3.	가상 DC에 오프스크린 비트맵 세팅..
+		//		-	내부 버퍼 생성..
 		hOldBitmap=(HBITMAP)SelectObject(hMemDC,hBackBit);
 				
-		//	배경 비트맵을 위한 메모리 DC 생성.
+		//	배경 비트맵을 위한 메모리 DC 생성..
 		hMemDC2=CreateCompatibleDC(hdc);
-		//	메모리 DC에 배경 비트맵 적용.
+		//	메모리 DC에 배경 비트맵 적용..
 		SelectObject(hMemDC2,hField);
 
-		//	배경 애니 적용.
+		//	배경 애니 적용..
 		destWidth = min(2048-srcX,1000);
 		BitBlt(hMemDC,0,0, destWidth,480,hMemDC2, srcX,0,SRCCOPY);
 		if (destWidth < 1000) {
@@ -188,7 +188,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		}
 		DeleteDC(hMemDC2);
 
-		// 아기 그림
+		// 아기 그림..
 		//*
 			TransBlt(hMemDC,bx,by,hBaby,RGB(255,0,255));
 		//*/
@@ -203,11 +203,11 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		DeleteDC(hBabyDC);
 		//*/
 
-		// 총알 그림
+		// 총알 그림..
 		if (tx!= -1)
 			TransBlt(hMemDC,tx,ty,hToilet,RGB(255,0,255));
 
-		// 완성된 그림 전송
+		// 완성된 그림 전송..
 		BitBlt(hdc,0,0,1000,480,hMemDC,0,0,SRCCOPY);
 
 		SelectObject(hMemDC,hOldBitmap);

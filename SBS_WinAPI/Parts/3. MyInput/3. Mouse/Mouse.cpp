@@ -21,9 +21,9 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance
 	WndClass.hInstance=hInstance;
 	WndClass.lpfnWndProc=WndProc;
 	WndClass.lpszClassName=lpszClass;
-	WndClass.lpszMenuName=NULL;	
+	WndClass.lpszMenuName=NULL;
 	//WndClass.style = CS_HREDRAW | CS_VREDRAW;
-	//	3. 더블 클릭.
+	//	3. 더블 클릭..
 	WndClass.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
 	RegisterClass(&WndClass);
 
@@ -37,63 +37,78 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance
 		DispatchMessage(&Message);
 	}
 	return (int)Message.wParam;
-}
+
+}//	int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance ..
 //=====================================================================
-//	5.	wParam, lParam 참고.
+//	5.	wParam, lParam 참고..
 //=====================================================================
-LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
 	static int x;
 	static int y;
-	static BOOL bNowDraw=FALSE;
+	static BOOL bNowDraw = FALSE;
 
-	switch (iMessage) {
+	switch (iMessage)
+	{
 	case WM_LBUTTONDOWN:
 		x = LOWORD(lParam);
 		y = HIWORD(lParam);
 		bNowDraw = TRUE;
 		return 0;
 
+
 	case WM_MOUSEMOVE:
-		if (bNowDraw == TRUE) {
+		if (bNowDraw == TRUE)
+		{
 			hdc = GetDC(hWnd);
-			MoveToEx( hdc, x, y, NULL);
+
+			MoveToEx(hdc, x, y, NULL);
+
 			x = LOWORD(lParam);
 			y = HIWORD(lParam);
-			LineTo( hdc, x, y );
-			ReleaseDC(hWnd,hdc);
+
+			LineTo(hdc, x, y);
+
+			ReleaseDC(hWnd, hdc);
 		}
 		return 0;
+
 
 	case WM_LBUTTONUP:
 		bNowDraw = FALSE;
 		return 0;
-			
+
+
 	case WM_LBUTTONDBLCLK:
 		InvalidateRect(hWnd, NULL, TRUE);
 		return 0;
 
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
-	}
-	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
-}
+
+	}//	switch (iMessage)
+
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+
+}//	LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)}
 //==============================================================
 /*
-    Q > 간단한 그림판을 만듭니다.
+    Q > 간단한 그림판을 만듭니다..
         
-        -   1,2,3 버튼
-            -   선, 사각형, 원.
+        -   1,2,3 버튼..
+            -   선, 사각형, 원..
 
-        -   shift + 1,2,3 버튼
+        -   shift + 1,2,3 버튼..
             -   펜 색( Red, Green, Blue )
 
-        -   Ctrl + 1,2,3 버튼
+        -   Ctrl + 1,2,3 버튼..
             -   브러시 색( Red, Green, Blue )
 
+
         팁 )    shift, ctrl 키가 동시에 눌렸는지 확인하기 위해
-                [ GetAsyncKeyState ] 함수를 활용.
+                [ GetAsyncKeyState ] 함수를 활용..
 */
 //==============================================================

@@ -41,11 +41,13 @@ int APIENTRY WinMain(
 }
 //=========================================================================
 /*
-	타이머의 갯수는 무제한..
-	-	타이머의 갯수가 증가
-		---->	cpu의 연산량 증가..!!!
-	-	16비트 윈도우즈는
-		최대 16개 타이머 설치가능..
+	-	타이머의 갯수는 무제한..
+		
+		-	타이머의 갯수가 증가
+			---->	cpu의 연산량 증가..!!!
+
+		-	16비트 윈도우즈는
+			최대 16개의 타이머 설치가능..
 */
 //=========================================================================
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
@@ -59,37 +61,50 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	static RECT rt={100,100,400,120};
 
 	switch (iMessage) {
-	case WM_CREATE:
-		SetTimer(hWnd,1,1000,NULL);
-		SetTimer(hWnd,2,2000,NULL);
-		SendMessage(hWnd, WM_TIMER, 1, 0);
-		return 0;
 
-	case WM_TIMER:
-		switch (wParam) {
-		case 1:
-			GetLocalTime(&st);
-			wsprintf(sTime,TEXT("지금 시간은 %d:%d:%d입니다"),
-				st.wHour,st.wMinute,st.wSecond);
-			InvalidateRect(hWnd,&rt,TRUE);
-			break;
-		case 2:
-			wsprintf(sTime2, TEXT("2초가 %d회 경과했습니다."), ++count);
-			break;
-		}
-		return 0;
-	case WM_PAINT:
-		hdc=BeginPaint(hWnd,&ps);
-		TextOut(hdc,100,100,sTime,lstrlen(sTime));
-		SetWindowText(hWnd, sTime2);
-		EndPaint(hWnd,&ps);
-		return 0;
+		case WM_CREATE:
+			SetTimer(hWnd,1,1000,NULL);
+			SetTimer(hWnd,2,2000,NULL);
+			SendMessage(hWnd, WM_TIMER, 1, 0);
+			return 0;
 
-	case WM_DESTROY:
-		KillTimer(hWnd,1);
-		KillTimer(hWnd,2);
-		PostQuitMessage(0);
-		return 0;
+
+
+		case WM_TIMER:
+
+			switch (wParam) {
+
+				case 1:
+					GetLocalTime(&st);
+					wsprintf(sTime,TEXT("지금 시간은 %d:%d:%d입니다"),
+						st.wHour,st.wMinute,st.wSecond);
+					InvalidateRect(hWnd,&rt,TRUE);
+					break;
+
+
+				case 2:
+					wsprintf(sTime2, TEXT("2초가 %d회 경과했습니다."), ++count);
+					break;
+
+			}
+			return 0;
+
+
+
+		case WM_PAINT:
+			hdc=BeginPaint(hWnd,&ps);
+			TextOut(hdc,100,100,sTime,lstrlen(sTime));
+			SetWindowText(hWnd, sTime2);
+			EndPaint(hWnd,&ps);
+			return 0;
+
+
+
+		case WM_DESTROY:
+			KillTimer(hWnd,1);
+			KillTimer(hWnd,2);
+			PostQuitMessage(0);
+			return 0;
 
 	}//	switch (iMessage)
 

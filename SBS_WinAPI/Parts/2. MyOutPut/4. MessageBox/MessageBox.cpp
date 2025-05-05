@@ -42,46 +42,46 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	TCHAR str[128];
 	switch (iMessage) {
 
-	case WM_CREATE:
-		//	윈도우 타이틀로부터
-		//	문자열 읽기..
-		GetWindowText(hWnd, str, 127);
-		MessageBox(hWnd, str, TEXT("WM_CREATE"), MB_OK);
-		return 0;
+		case WM_CREATE:
+			//	윈도우 타이틀로부터
+			//	문자열 읽기..
+			GetWindowText(hWnd, str, 127);
+			MessageBox(hWnd, str, TEXT("WM_CREATE"), MB_OK);
+			return 0;
 
-	case WM_LBUTTONDOWN:
-		//	윈도우 타이틀에
-		//	문자열 설정..
-		wsprintf(str, TEXT("사과 갯수 = %d"), 100);
-		SetWindowText(hWnd, str);
+		case WM_LBUTTONDOWN:
+			//	윈도우 타이틀에
+			//	문자열 설정..
+			wsprintf(str, TEXT("사과 갯수 = %d"), 100);
+			SetWindowText(hWnd, str);
 
-		//	메시지 박스 리턴 값 확인..
-		if (MessageBox(hWnd, TEXT("사과를 좋아하시나요?"), TEXT("좋아하는 과일은 뭔가요??"), MB_YESNO) == IDYES)
-		{
-			MessageBox(hWnd, TEXT("네 그렇습니다!!"), TEXT("^^"), MB_OK);
-			if (MessageBox(hWnd, TEXT("사과 하나줄까요???"), TEXT("내 사과를 받아주세요~"), MB_YESNO) == IDYES)
+			//	메시지 박스 리턴 값 확인..
+			if (MessageBox(hWnd, TEXT("사과를 좋아하시나요?"), TEXT("좋아하는 과일은 뭔가요??"), MB_YESNO) == IDYES)
 			{
-				wsprintf(str, TEXT("사과 갯수 = %d"), 99);
-				SetWindowText(hWnd, str);
+				MessageBox(hWnd, TEXT("네 그렇습니다!!"), TEXT("^^"), MB_OK);
+
+				if (MessageBox(hWnd, TEXT("사과 하나줄까요???"), TEXT("내 사과를 받아주세요~"), MB_YESNO) == IDYES)
+				{
+					wsprintf(str, TEXT("사과 갯수 = %d"), 99);
+					SetWindowText(hWnd, str);
+				}
 			}
-		}
-		else
-			MessageBox(hWnd, TEXT("아닌데요!!"), TEXT("T.T"), MB_OK);
+			else
+				MessageBox(hWnd, TEXT("아닌데요!!"), TEXT("T.T"), MB_OK);
 		
-		return 0;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		return 0;
+			return 0;
+		case WM_DESTROY:
+			PostQuitMessage(0);
+			return 0;
 	}
 	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
 
 }//	LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 //======================================================================================
 /*
-	Q > 위 소스를 수정하여
-		마우스 좌측 버튼을 누르면
-		사과의 갯수가 증가하고
-		마우스 우측 버튼을 누르면
-		사과의 갯수가 감소하도록 합니다.		
+	Q > 위 소스를 응용하여 마우스 좌측 버튼을 누르면
+		사과의 갯수가 증가시키고
+		마우스 우측 버튼을 누르면 사과의 갯수가
+		감소하도록 합니다.		
 */
 //======================================================================================

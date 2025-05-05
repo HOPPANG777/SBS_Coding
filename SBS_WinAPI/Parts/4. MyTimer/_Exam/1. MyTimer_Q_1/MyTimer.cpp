@@ -52,11 +52,13 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			SendMessage(hWnd, WM_TIMER, 1, 0);
 			return 0;
 
+
 		case WM_TIMER:
 			if (g_countTime >= 0)
 			{
 				wsprintf(sTime, TEXT("남은시간 %d초."), g_countTime--);
-				InvalidateRect(hWnd, NULL, TRUE);	//	클라이언트 영역 전체 갱신.
+				//	클라이언트 영역 전체 갱신..
+				InvalidateRect(hWnd, NULL, TRUE);
 			}
 			else
 			{
@@ -66,11 +68,13 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			}
 			return 0;
 
+
 		case WM_PAINT:
 			hdc=BeginPaint(hWnd,&ps);
 			TextOut(hdc,100,100,sTime,lstrlen(sTime));
 			EndPaint(hWnd,&ps);
 			return 0;
+
 
 		case WM_DESTROY:
 			PostQuitMessage(0);

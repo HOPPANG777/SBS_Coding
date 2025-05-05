@@ -48,79 +48,102 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	HDC hdc,MemDC;
 	PAINTSTRUCT ps;
 	HBITMAP MyBitmap, OldBitmap;
-	switch (iMessage) {
 
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
+	switch (iMessage)
+	{
+		case WM_PAINT:
+			hdc = BeginPaint(hWnd, &ps);
 
-		/*
-		MemDC = CreateCompatibleDC(hdc);
-		-	인자로 주어진 dc와
-			동일한 특성의
-			메모리 DC 반환..
-		-	비트맵은 용량이 커서
-			화면으로 곧바로
-			출력할 수 없고
-			메모리 DC에 미리
-			준비해 놓고 사용..
-			-	메모리 DC
-				-	화면 DC와
-					동일한 특성을 가지며 
-					내부에 출력 표면을 지닌
-					메모리 영역..
-		*/
-		MemDC = CreateCompatibleDC( hdc );
+			/*
+				MemDC = CreateCompatibleDC(hdc);
 
-		/*
-		    비트맵 로딩.
-		*/
-		// IDB_BITMAP_MYSON		IDB_BITMAP_AVG3		IDB_BITMAP_GIRLS
-		MyBitmap = LoadBitmap(g_hInst, MAKEINTRESOURCE(IDB_BITMAP_CAR));
+				-	인자로 주어진 dc와
+					동일한 특성의 메모리 DC 반환..
 
-		/*
-		OldBitmap = ( HBITMAP )SelectObject( MemDC, MyBitmap );
-		-	GDI오브젝트 핸들을
-			주어진 dc에 선택..
-		-	리턴값은
-			이전에 선택되어 있던
-			같은 종류의 오브젝트 핸들..
-			-	복구를 위해 반드시 필요함..
-		*/
-		OldBitmap=(HBITMAP)SelectObject(MemDC, MyBitmap);
+				-	비트맵은 용량이 커서
+					화면으로 곧 바로 출력이 힘들고
+					메모리 DC에 미리 준비해 놓고 사용..
 
-		BitBlt( hdc, 0, 0, 718, 718, MemDC, 0, 0, SRCCOPY );
-		//BitBlt(hdc, 50,50,200,200,MemDC,100,100, SRCCOPY);
+					-	메모리 DC..
 
-		/*
-		SelectObject(MemDC,OldBitmap);
-		DeleteObject(MyBitmap);
-		-	GDI 오브젝트는
-			사용후 반드시 삭제해야함.
-			-	GDI 오브젝트로
-				메모리 리소스를 소모하기 때문..
-		-	현재 선택되어 있는
-			GDI 오브젝트는 사용할 수 없음..
-		-	삭제 하기전에
-			현재 선택되어 있는
-			객체를 선택 해제..
-			-	SelectObject(MemDC, DeleteObject(MyBitmap)); 
-		*/
-		SelectObject( MemDC, OldBitmap );
-		DeleteObject( MyBitmap );
+						-	화면 DC와 동일한 특성을 가지며
+							내부에 출력 표면을 지닌
+							메모리 영역..
 
-		/*
-		DeleteDC(MemDC);
-		-	메모리 DC 제거.
-		*/
-		DeleteDC(MemDC);
+			*/
+			MemDC = CreateCompatibleDC( hdc );
 
-		EndPaint(hWnd, &ps);
-		return 0;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		return 0;
-	}
+			/*
+				비트맵 로딩..
+			*/
+			//	IDB_BITMAP_MYSON
+			//	IDB_BITMAP_AVG3
+			//	IDB_BITMAP_GIRLS
+			//	IDB_BITMAP_CAR
+			//	IDB_BITMAP_WOLF
+			MyBitmap = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_GIRLS ) );
+
+			/*
+				OldBitmap = ( HBITMAP )SelectObject( MemDC, MyBitmap );
+
+				-	GDI오브젝트 핸들을
+					주어진 dc에 선택..
+
+				-	리턴값은 이전에 선택되어 있던
+					같은 종류의 오브젝트 핸들..
+
+					-	복구를 위해 반드시 필요..
+			*/
+			OldBitmap = ( HBITMAP )SelectObject( MemDC, MyBitmap );
+
+			//	출력..
+			BitBlt( hdc, 0, 0, 718, 718, MemDC, 0, 0, SRCCOPY );
+			//BitBlt(hdc, 50,50,200,200,MemDC,100,100, SRCCOPY);
+
+			/*
+				SelectObject(MemDC,OldBitmap);
+				DeleteObject(MyBitmap);
+
+				-	GDI 오브젝트는 사용 후
+					반드시 삭제해야함..
+
+					-	GDI 오브젝트로
+						메모리 리소스를 소모하기 때문..
+
+				-	현재 선택되어 있는
+					GDI 오브젝트는 사용할 수 없음..
+
+				-	삭제 하기전에 현재 선택되어 있는
+					객체를 선택 해제..
+
+					-	SelectObject(MemDC, DeleteObject(MyBitmap)); 
+			*/
+			SelectObject( MemDC, OldBitmap );
+			DeleteObject( MyBitmap );
+
+			/*
+			DeleteDC(MemDC);
+			-	메모리 DC 제거..
+			*/
+			DeleteDC(MemDC);
+
+			EndPaint(hWnd, &ps);
+			return 0;
+
+
+		case WM_DESTROY:
+			PostQuitMessage(0);
+			return 0;
+
+	}//	switch (iMessage)
 	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
 
 }//	LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
+//======================================================================
+/*
+	[ 참고 ]
+		
+		3axis.co
+		https://3axis.co/
+*/
 //======================================================================

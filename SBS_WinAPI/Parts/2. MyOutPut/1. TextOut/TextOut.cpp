@@ -63,6 +63,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			//EndPaint(hWnd, &ps);
 			return 0;
 	}
+
 	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
 }
 //*/
@@ -116,9 +117,11 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 
 				return 0;
 
+
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return 0;
+
 
 			//	어떤 상황에서 호출되는지
 			//	디버깅을 통해 확인할 것..
@@ -133,6 +136,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			//ReleaseDC(hWnd, hdc);
 			EndPaint(hWnd,&ps);
 			return 0;
+
 	}
 	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
 }
@@ -206,12 +210,16 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	PAINTSTRUCT ps;
 
 	switch (iMessage) {
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
+
+
 	case WM_PAINT:
+
 		hdc=BeginPaint(hWnd,&ps);
-				
+
 		SetTextAlign(hdc, TA_CENTER);
 
 		TextOut(hdc,200,60,TEXT("Beautiful Korea"),15);

@@ -69,43 +69,54 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	PAINTSTRUCT ps;
 	static HBITMAP hbmAVG3;
 	static HBITMAP hbmAVG3_2;
-	switch (iMessage) {
-	case WM_CREATE:
-		//	비트맵 로딩.
-		hbmAVG3 = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_AVG3 ) );
-		hbmAVG3_2 = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_AVG3_2 ) );
-		return 0;
+	switch (iMessage)
+	{
+		//-----------------------
+		case WM_CREATE:
 
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
+			//	비트맵 로딩..
+			hbmAVG3 = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_AVG3 ) );
+			hbmAVG3_2 = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_AVG3_2 ) );
+			return 0;
+
+		//-----------------------
+		case WM_PAINT:
+			hdc = BeginPaint(hWnd, &ps);
 		
-		//	비트맵 그리기.
-		DrawBitmap( hdc, 10, 10, hbmAVG3);
+			//	비트맵 그리기..
+			DrawBitmap( hdc, 10, 10, hbmAVG3);
 
-		//	비트맵 그리기.
-		DrawBitmap(hdc, 30, 10, hbmAVG3_2);
+			//	비트맵 그리기..
+			DrawBitmap(hdc, 700, 10, hbmAVG3_2);
 
-		EndPaint(hWnd, &ps);
-		return 0;
+			EndPaint(hWnd, &ps);
+			return 0;
 
-	case WM_DESTROY:
+
+		//-----------------------
+		case WM_DESTROY:
 		
-		//	비트맵 제거.
-		DeleteObject( hbmAVG3 );
-		DeleteObject( hbmAVG3_2 );
-		PostQuitMessage(0);
-		return 0;
-	}
+			//	비트맵 제거..
+			DeleteObject( hbmAVG3 );
+			DeleteObject( hbmAVG3_2 );
+			PostQuitMessage(0);
+			return 0;
+
+	}//	switch (iMessage)
+
 	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
-}
+
+}//	LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 //=========================================================
 /*
-    Q ) 위의 소스를 참고하여 비트맵을 그리는 클래스를 만듭니다.
+    Q ) 위의 소스를 참고하여
+		비트맵을 그리는 클래스를 만듭니다..
 
         참고)
-            클래스에는 최소한 다음의 기능이 들어갑니다.
-            1)  비트맵 로딩
-            2)  비트맵 그리기
-            3)  비트맵 리소스 제거.
+            클래스에는 다음의 기능이 들어갑니다..
+
+            1)  비트맵 로딩..
+            2)  비트맵 그리기..
+            3)  비트맵 리소스 제거..
 */
 //=========================================================

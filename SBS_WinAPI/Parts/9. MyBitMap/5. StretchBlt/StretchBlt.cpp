@@ -43,24 +43,40 @@ int APIENTRY WinMain(
 //===============================================================================
 #include "resource.h"
 /*
-	------------------------------------------------------------------------
+	-------------------------------------------------------------------
 	4.	BOOL  StretchBlt(	HDC hdcDest, 
 							int xDest, int yDest, int wDest, int hDest,
 							HDC hdcSrc, 
 							int xSrc, int ySrc, int wSrc, int hSrc,
 							DWORD rop);
-	------------------------------------------------------------------------	
+	-------------------------------------------------------------------
 
-		-	기능
-			-	BitBlt 유사하나 확대, 축소가 가능.
+		----------
+		-	기능..
+		----------
 
-		-	wSrc, hSrc
-			-	복사하려는 원본의 크기.
+			-	[ BitBlt ]와 유사하나
+				확대, 축소가 가능..
 
-		-	wDest / hDest > wSrc / hSrc
-			-	확대
-			wDest / hDest < wSrc / hSrc
-			-	축소
+
+		----------------
+		-	wSrc, hSrc..
+		----------------
+
+			-	복사하려는 원본의 크기..
+
+
+		----------------
+		-	확대 / 축소..
+		----------------
+
+			-	wDest / hDest > wSrc / hSrc..
+			
+				ㄴ	확대..
+
+			-	wDest / hDest < wSrc / hSrc..
+
+				ㄴ	축소..
 
 */
 //===============================================================================
@@ -84,20 +100,29 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		bx=bit.bmWidth;
 		by=bit.bmHeight;
 
-		// 소스와 같은 비율로 출력
+		// 소스와 같은 비율로 출력..
 		StretchBlt(hdc,0,0,bx,by,MemDC,0,0,bx,by,SRCCOPY);
 
-		// 미러링
+		// 미러링..
 		StretchBlt(hdc,100,105,-bx,by,MemDC,0,0,bx,by,SRCCOPY);
 
-		// 2배 확대
+		// 2배 확대..
 		StretchBlt(hdc,200,0,bx*2,by*2,MemDC,0,0,bx,by,SRCCOPY);
 
-		// 절반으로 축소
+		// 절반으로 축소..
 		/*
-			확대 할때는 원본의 픽셀을 여러번 반복하면 되므로 큰 문제가 없다.
-			축소시에는 불가피하게 원본의 픽셀중 일부를 생략해야함.
-			이때 픽셀 삽입과 생략의 기준을 정하는 방법을 스트레치 모드라고 함.
+			확대..
+			-	원본의 픽셀을
+				여러 번 반복하면 되므로
+				큰 문제가 없음..
+
+			축소..
+			-	불가피하게 원본의 픽셀중
+				일부를 생략해야함..
+
+				ㄴ	이때 픽셀 삽입과 생략의
+					기준을 정하는 방법을
+					스트레치 모드라고 함..
 		*/
 		SetStretchBltMode(hdc,BLACKONWHITE);	//	STRETCH_ANDSCANS
 		StretchBlt(hdc,0,210,bx/2,by/2,MemDC,0,0,bx,by,SRCCOPY);

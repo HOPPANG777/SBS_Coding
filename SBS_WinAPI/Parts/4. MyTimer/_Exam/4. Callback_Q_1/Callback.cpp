@@ -45,17 +45,17 @@ CRaceManager g_RaceManager(1000);
 //=====================================================================================
 void CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT idEvent, DWORD dwTime)
 {
-	//	현재 경과된 시간 계산.
-	//	GetTickCount()
-	//	-	시스템이 시작한 시점부터
-	//		이 함수를 호출한 시점까지
-	//		흘러간 시간을 1/1000초 단위의
-	//		시간으로 반환..
+	//	현재 경과된 시간 계산..
+	//	-	GetTickCount()
+	//		-	시스템이 시작한 시점부터
+	//			이 함수를 호출한 시점까지
+	//			흘러간 시간을 1/1000초 단위의
+	//			시간으로 반환..
 	static DWORD time = GetTickCount();
 	DWORD elapsedTime = dwTime - time;
 	time = GetTickCount();
 
-	/*	경과시간을 디버깅용으로 알기위해 출력.
+	/*	경과시간을 디버깅용으로 알기위해 출력..
 	TCHAR szTmp[100] = "";
 	wsprintf(szTmp, "%d\n", elapsedTime);
 	OutputDebugString(szTmp);

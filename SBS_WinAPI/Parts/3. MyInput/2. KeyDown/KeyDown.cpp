@@ -63,11 +63,13 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		InvalidateRect(hWnd,NULL,TRUE);
 		//InvalidateRect(hWnd,NULL,FALSE);
 		return 0;
+
 	case WM_PAINT:
 		hdc=BeginPaint(hWnd,&ps);
 		TextOut(hdc,x,y,TEXT("A"),1);
 		EndPaint(hWnd,&ps);
 		return 0;
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
@@ -76,22 +78,23 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 }
 //=====================================================================
 /*
-    Q > 프로그램 시작시
-		"Bad"라는 글자와
-		"A"라는 글자가
-		임의의 위치에 등장..
-        키보드 방향키로
-		"A"를 움직이게 하다가
-		"Bad"와 충돌하면
-        "Bad"의 위치가
-		임의의 위치로
-		변경되도록 합니다..
+    Q > 프로그램 시작시 "Bad"라는 글자와
+		"A"라는 글자가 임의의 위치에 등장..
+
+        키보드 방향 키로 "A"를 움직이게 하다가
+		"Bad"와 충돌하면 "Bad"의 위치가
+		임의의 위치로 변경되도록 합니다..
 
         팁) 
-            1.  임의의 위치 설정기능( 랜덤 기능 )
-                -   srand, rand 함수를 검색.
+            1.  임의의 위치 설정기능..
+				( 랜덤 기능 )
+                
+				-   srand, rand 함수를 검색..
 
-            2.  충돌체크 알고리즘
-                -   aabb 충돌 방식 검색.
+
+
+            2.  충돌체크 알고리즘..
+
+                -   aabb 충돌 방식 검색..
 */
 //=====================================================================

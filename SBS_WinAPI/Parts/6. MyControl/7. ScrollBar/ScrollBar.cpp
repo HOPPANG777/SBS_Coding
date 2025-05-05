@@ -1,91 +1,126 @@
 /*=====================================================================================
-	---------------
-	9-1	스크롤 바..
-	---------------
-		-	용도
+
+	------------------
+	9-1.	스크롤 바..
+	------------------
+
+		----------
+		-	용도..
+		----------
+
 			-	윈도우 스크롤 상태 관리..
+
 			-	일정 범위에 있는 값을
 				대략적으로 선택할 경우 사용..
+
 				-	사운드 볼륨,
-					게임내의 속성값 등..
+					게임 내의 속성 값 등..
 
-		-	생성하기..
-				-	윈도우 클래스..
-					-	"scrollbar"
 
-				-	스타일
-					SBS_HORZ	:	수평 스크롤 바
-					SBS_VERT	:	수직 스크롤 바
 
-			//	스크롤 범위 설정
+		---------------
+		-	생성 하기..
+		---------------
+
+			-	윈도우 클래스..
+				-	"scrollbar"
+
+			-	스타일..
+				SBS_HORZ	:	수평 스크롤 바..
+				SBS_VERT	:	수직 스크롤 바..
+
+
+			//	스크롤 범위 설정..
 			BOOL SetScrollRange( HWND hWnd, int nBar, int nMinPos, int nMaxPos, BOOL bRedraw )
+			
 				hWnd	:	스크롤바 핸들..
-				nBar	:	메인 윈도우에 부착된 스크롤 바 또는
-							별도의 스크롤 바 컨트롤..
-							SB_CTL 이면 별도의 스크롤 바.
+
+				nBar	:	메인 윈도우에 부착된
+							스크롤 바 또는 별도의
+							스크롤 바 컨트롤..
+
+							SB_CTL 이면 별도의 스크롤 바..
+
 				nMinPos / nMaxPos	:	스크롤 범위..
+
 				bRedraw	:	컨트롤 다시 그리기..
 
 
-			//	스크롤바 현재 위치 설정.
+			//	스크롤 바 현재 위치 설정..
 			int SetScrollPos( HWND hWnd, int nBar, int nPos, BOOL bRedraw )
-				nPos	:	현재 위치.
+				nPos	:	현재 위치..
 
 
 
-	----------------------------
-	9-2	부모와 컨트롤간의 통신..
-	----------------------------
+	------------------------
+	9-2.	부모와 컨트롤간의
+			통신..
+	------------------------
 
 		-	스크롤 바	->	부모..
 
-			다른 컨트롤들은
-			[ WM_COMMAND ]를 통해
-			통지 메시지를 전달하지만
-			스크롤 바는
-			[ WM_HSCROLL ] 또는
-			[ WM_VSCROLL ]를 통해
-			전달함..
+			-	다른 컨트롤들은 [ WM_COMMAND ]를 통해
+				통지 메시지를 전달하지만
+				스크롤 바는 [ WM_HSCROLL ] 또는
+				[ WM_VSCROLL ]를 통해 전달..
 
-				LOWORD(wParam)
-				-	스크롤 바 내에서
-					마우스로 클릭한 위치..
+					LOWORD(wParam)
 
-				HIWORD(wParam)
-				-	현재 위치..
-
-				lParam
-				-	스크롤 바의
-					윈도우 핸들..
+					-	스크롤 바 내에서
+						마우스로 클릭한 위치..
 
 
-			LOWORD(wParam)으로 전달 되는 값..
+					HIWORD(wParam)
+					-	현재 위치..
 
-				SB_LINELEFT ( SB_LINEUP )
-					왼쪽 화살표 버튼 클릭..
-					왼쪽(위)으로 한 단위 스크롤..
 
-				SB_LINERIGHT ( SB_LINEDOWN )
-					오른쪽 화살표 버튼 클릭..
-					오른쪽(아래)으로 한 단위 스크롤..
+					lParam
+					-	스크롤 바의
+						윈도우 핸들..
 
-				SB_PAGELEFT ( SB_PAGEUP )
-					왼쪽 몸통 부분 클릭..
-					한페이지 왼쪽으로 스크롤..
 
-				SB_PAGERIGHT ( SB_PAGEDOWN )
-					오른쪽 몸통 부분 클릭..
-					한페이지 오른쪽(아래)으로 스크롤..
 
-				SB_THUMBPOSITION
-					스크롤 박스를 드래그한 후
-					마우스 버튼 업..
+			-	LOWORD( wParam )으로
+				전달 되는 값..
 
-				SB_THUMBTRACK
-					스크롤 박스를
-					드래그하고 있는 중..
-					마우스 버튼을 놓을 때까지
-					계속 전달 됨..
+					SB_LINELEFT ( SB_LINEUP )
+
+						왼쪽 화살표 버튼 클릭..
+						왼쪽(위)으로 한 단위 스크롤..
+
+
+					SB_LINERIGHT ( SB_LINEDOWN )
+
+						오른쪽 화살표 버튼 클릭..
+						오른쪽(아래)으로 한 단위 스크롤..
+
+
+					SB_PAGELEFT ( SB_PAGEUP )
+
+						왼쪽 몸통 부분 클릭..
+						한페이지 왼쪽으로 스크롤..
+
+
+					SB_PAGERIGHT ( SB_PAGEDOWN )
+
+						오른쪽 몸통 부분 클릭..
+						한 페이지 오른쪽( 아래 )으로 스크롤..
+
+
+					SB_THUMBPOSITION
+
+						스크롤 박스를 드래그 한 후
+						마우스 버튼 업..
+
+
+					SB_THUMBTRACK..
+
+						스크롤 박스를 드래그
+						하는 동안 호출 됨..
+
+						ㄴ	마우스 버튼을 놓을 때까지
+							계속 전달 됨..
+
 =====================================================================================*/
 #include <windows.h>
 //=====================================================================================
@@ -147,7 +182,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		case WM_CREATE:
 			hRed = CreateWindow(	TEXT("scrollbar"),
 									NULL,
-									WS_CHILD | WS_VISIBLE | SBS_VERT,	//	수직 스크롤
+									WS_CHILD | WS_VISIBLE | SBS_VERT,	//	수직 스크롤..
 									420,10,20,290,
 									hWnd,
 									(HMENU)ID_SCRRED,
@@ -157,9 +192,11 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			SetScrollPos(hRed, SB_CTL, 0, TRUE);
 			Red = 0;
 
+
+
 			hGreen = CreateWindow(	TEXT("scrollbar"),
 									NULL,
-									WS_CHILD | WS_VISIBLE | SBS_HORZ,	//	수평 스크롤
+									WS_CHILD | WS_VISIBLE | SBS_HORZ,	//	수평 스크롤..
 									10,10,400,20,
 									hWnd,
 									(HMENU)ID_SCRGREEN,
@@ -169,6 +206,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			SetScrollPos(hGreen, SB_CTL, 0, TRUE);
 			Green = 0;
 		
+
+
 			hBlue = CreateWindow(	TEXT("scrollbar"),
 									NULL,
 									WS_CHILD | WS_VISIBLE | SBS_HORZ,
@@ -180,6 +219,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			SetScrollRange(hBlue,SB_CTL,0,255,TRUE);
 			SetScrollPos(hBlue,SB_CTL,0,TRUE);
 			Blue = 0;
+
 		
 			return 0;
 

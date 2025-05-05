@@ -49,51 +49,63 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	PAINTSTRUCT ps;
     static SPixelInfo pixelInfos[10000];
 
-	switch (iMessage) {
-	case WM_CREATE:
-        memset(pixelInfos, 0, sizeof(pixelInfos));
-		SetTimer(hWnd,1,1,NULL);
-		return 0;
+	switch (iMessage)
+	{
+		case WM_CREATE:
+			memset(pixelInfos, 0, sizeof(pixelInfos));
+			SetTimer(hWnd,1,1,NULL);
+			return 0;
+
+
 		
-	case WM_TIMER:
-        for( int cur = 0; cur < 10000; cur++)
-        {
-            pixelInfos[cur]._pos[0] = rand() % 500;
-            pixelInfos[cur]._pos[1] = rand() % 400;
+		case WM_TIMER:
+			for( int cur = 0; cur < 10000; cur++)
+			{
+				pixelInfos[cur]._pos[0] = rand() % 500;
+				pixelInfos[cur]._pos[1] = rand() % 400;
 
-            pixelInfos[cur]._color[0] = rand() % 256;
-            pixelInfos[cur]._color[1] = rand() % 256;
-            pixelInfos[cur]._color[2] = rand() % 256;
-		}
-		InvalidateRect(hWnd, NULL, FALSE);
-		return 0;
+				pixelInfos[cur]._color[0] = rand() % 256;
+				pixelInfos[cur]._color[1] = rand() % 256;
+				pixelInfos[cur]._color[2] = rand() % 256;
+			}
+			InvalidateRect(hWnd, NULL, FALSE);
+			return 0;
 
-	case WM_LBUTTONDOWN:
-		hdc=GetDC(hWnd);
-		Ellipse(hdc,LOWORD(lParam)-10,HIWORD(lParam)-10,
-			LOWORD(lParam)+10,HIWORD(lParam)+10);
-		ReleaseDC(hWnd, hdc);
-		return 0;
 
-	case WM_PAINT:
-		hdc=BeginPaint(hWnd, &ps);
-		for (int cur = 0; cur < 10000; cur++) {
-			SetPixel( 
-				hdc,
-				pixelInfos[cur]._pos[0],
-				pixelInfos[cur]._pos[1],
-				RGB(pixelInfos[cur]._color[0],
-					pixelInfos[cur]._color[1],
-					pixelInfos[cur]._color[2]));
-		}
-		EndPaint(hWnd, &ps);
-		return 0;
 
-	case WM_DESTROY:
-		KillTimer(hWnd, 1);
-		PostQuitMessage(0);
-		return 0;
-	}
+		case WM_LBUTTONDOWN:
+			hdc=GetDC(hWnd);
+			Ellipse(hdc,LOWORD(lParam)-10,HIWORD(lParam)-10,
+				LOWORD(lParam)+10,HIWORD(lParam)+10);
+			ReleaseDC(hWnd, hdc);
+			return 0;
+
+
+
+		case WM_PAINT:
+			hdc=BeginPaint(hWnd, &ps);
+			for (int cur = 0; cur < 10000; cur++) {
+				SetPixel( 
+					hdc,
+					pixelInfos[cur]._pos[0],
+					pixelInfos[cur]._pos[1],
+					RGB(pixelInfos[cur]._color[0],
+						pixelInfos[cur]._color[1],
+						pixelInfos[cur]._color[2]));
+			}
+			EndPaint(hWnd, &ps);
+			return 0;
+
+
+
+		case WM_DESTROY:
+			KillTimer(hWnd, 1);
+			PostQuitMessage(0);
+			return 0;
+
+	}//	switch (iMessage)
+
 	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
-}
+
+}//	LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 //==============================================================================

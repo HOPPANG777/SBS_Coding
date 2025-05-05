@@ -31,8 +31,8 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance
 	ShowWindow(hWnd,nCmdShow);
 
 	while (GetMessage(&Message,NULL,0,0)) {
-		//	1-3-2. TranslateMessage 확인.
-		//TranslateMessage(&Message);
+		//	1-3-2. TranslateMessage 확인..
+		TranslateMessage(&Message);
 		DispatchMessage(&Message);
 	}
 	return (int)Message.wParam;
@@ -41,14 +41,22 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 {
 	/*
-	WM_CHAR에서 wParam / lParam 용도
-	-	wParam
-		-	어떤 문자키를 눌렀는지 확인..
-	-	lParam
-		-	Alt키등
-			특수키가 눌려졌는지 체크..
-		-	비트 연산으로 체크..
-		-	메시지 별로 다름..
+		WM_CHAR에서 wParam / lParam 용도..
+
+		-	wParam..
+
+			-	어떤 문자키를 눌렀는지 확인..
+
+
+		-	lParam..
+
+			-	Alt 키 등 특수키가
+				눌려졌는지 체크..
+
+			-	비트 연산으로 체크..
+
+			-	메시지 별로 다름..
+
 	*/
 	HDC hdc;
 	PAINTSTRUCT ps;
@@ -56,11 +64,13 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	int len;
 
 	switch (iMessage) {
-		//	1-3-1. TranslateMessage 확인.
+		//	1-3-1. TranslateMessage 확인..
 		//*
 	case WM_KEYDOWN:
-		//	디버깅 모드로 실행하는 경우 출력창에 로그 출력.
-		OutputDebugString("--- keydown\n");	
+
+		//	디버깅 모드로 실행하는 경우
+		//	출력창에 로그 출력.
+		OutputDebugString("--- keydown\n");
 		return 0;
 
 
@@ -72,29 +82,32 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 
 	case WM_CHAR:
 		OutputDebugString("*** char\n");
-/*
+//*
 		len = lstrlen(str);
 		str[len] = (TCHAR)wParam;
 		str[len+1] = 0;
 		InvalidateRect(hWnd,NULL,TRUE);
 //*/
-//*		2. 무효 영역.
-		if ((TCHAR)wParam == ' ')	//	스페이스 버튼.
-			str[0]=0;	//	0 다음 char은 무시.
+/*		2. 무효 영역..
+		if ((TCHAR)wParam == ' ')	//	스페이스 버튼..
+			str[0] = 0;	//	0 다음 char은 무시..
 		else {
-			len=lstrlen(str);
-			str[len]=(TCHAR)wParam;
-			str[len+1]=0;
+			len = lstrlen(str);
+			str[len] = (TCHAR)wParam;
+			str[len+1] = 0;
 		}
-		InvalidateRect(hWnd,NULL, TRUE);	//	버퍼 지우고 갱신..
-	    //InvalidateRect(hWnd,NULL, FALSE);	//	버퍼 안지우고 갱신..
+		//InvalidateRect(hWnd,NULL, TRUE);	//	출력 버퍼 지우고 갱신..
+	    InvalidateRect(hWnd,NULL, FALSE);	//	출력 버퍼 안지우고 갱신..
 //*/
 		return 0;
+
+
 	case WM_PAINT:
 		hdc=BeginPaint(hWnd,&ps);
 		TextOut(hdc,100,100,str,lstrlen(str));
 		EndPaint(hWnd,&ps);
 		return 0;
+
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;

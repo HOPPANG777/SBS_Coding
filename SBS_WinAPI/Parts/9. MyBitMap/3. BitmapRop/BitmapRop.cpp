@@ -59,23 +59,23 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		MyBitmap = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP1 ) );
 		OldBitmap = ( HBITMAP )SelectObject( MemDC, MyBitmap );
 		
-		/*	SRCCOPY:	비트맵을 그대로 화면dc에 출력				Src
+		//*	SRCCOPY		:	비트맵을 그대로 화면dc에 출력..		Src
 		BitBlt(hdc, 0, 0, 123, 160, MemDC, 0, 0, SRCCOPY);
 		//*/
 		
-		/*	SRCAND		:	비트맵과 화면dc를 AND 연산.			Src & 화면DC
+		/*	SRCAND		:	비트맵과 화면dc를 AND 연산..			Src & 화면DC
 		BitBlt(hdc, 0, 0, 123, 160, MemDC, 0, 0, SRCAND);
 		//*/
 
-		/*	SRCPAINT	:	비트맵과 화면dc를 OR 연산				Src | 화면DC
+		/*	SRCPAINT	:	비트맵과 화면dc를 OR 연산..			Src | 화면DC
 		BitBlt(hdc, 0, 0, 123, 160, MemDC, 0, 0, SRCPAINT);
 		//*/
 
-		/*	SRCERASE	:	비트맵과 화면dc의 반전색을 AND연산.		Src & ~화면DC
+		/*	SRCERASE	:	비트맵과 화면dc의 반전색을 AND연산..	Src & ~화면DC
 		BitBlt(hdc, 0, 0, 123, 160, MemDC, 0, 0, SRCERASE);
 		//*/
 
-		/*	SRCINVERT	:	비트맵과 화면dc를 XOR연산				Src ^ 화면DC
+		/*	SRCINVERT	:	비트맵과 화면dc를 XOR연산..			Src ^ 화면DC
 		BitBlt(hdc, 0, 0, 123, 160, MemDC, 0, 0, SRCINVERT);
 		//*/
 

@@ -50,6 +50,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		MessageBox(hWnd, str, TEXT("WM_CREATE"), MB_OK);
 
 		return 0;
+
+
 	case WM_LBUTTONDOWN:
 		
 		//	윈도우 타이틀 문자열 설정.
@@ -67,7 +69,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			}			
 		}
 		else
-			MessageBox(hWnd, TEXT("아닌데요!!"), TEXT("T.T"), MB_OK);		
+			MessageBox(hWnd, TEXT("아닌데요!!"), TEXT("T.T"), MB_OK);
 		return 0;
 
 
@@ -83,7 +85,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
+
 	}
-	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
+	return( DefWindowProc( hWnd,iMessage,wParam,lParam ) );
 }
 //====================================================================

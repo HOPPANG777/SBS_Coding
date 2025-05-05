@@ -73,6 +73,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 				WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON,
 				220, 250, 100, 25,
 				hWnd, (HMENU)3, g_hInst, NULL);
+			
 			ShowWindow(_replayBttn, SW_HIDE);
 
 			return 0;

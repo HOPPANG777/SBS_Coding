@@ -53,7 +53,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		case WM_CREATE:
 
-			// 체크박스를 묶을 그룹박스..
+			// 체크박스를 묶을 그룹 박스..
 			CreateWindow(
 				TEXT("button"),
 				TEXT("굵기"),
@@ -80,6 +80,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			CreateWindow(TEXT("button"), TEXT("빨간색"), WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON, 150, 50, 100, 30, hWnd, (HMENU)ID_R2, g_hInst, NULL); // 빨강색
 			CreateWindow(TEXT("button"), TEXT("파란색"), WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON, 150, 80, 100, 30, hWnd, (HMENU)ID_R3, g_hInst, NULL); // 파란색
 			CreateWindow(TEXT("button"), TEXT("녹색"), WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON, 150, 110, 100, 30, hWnd, (HMENU)ID_R4, g_hInst, NULL); // 녹색
+
 			CreateWindow(TEXT("button"), TEXT("초기화"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 10, 70, 100, 30, hWnd, (HMENU)ID_BTTN, g_hInst, NULL); // 화면 초기화 누르기 버튼
 
 			CheckRadioButton(hWnd, ID_R1, ID_R4, ID_R1); // 색상 초기화는 검은색으로
@@ -127,7 +128,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		case WM_LBUTTONDOWN:
 			x = LOWORD(lParam);
-			y = HIWORD(lParam); // 마우스클릭한곳의 좌표를 입력받음
+			y = HIWORD(lParam); // 마우스 클릭한 곳의 좌표를 입력받음
 			bNowDraw = TRUE; // 그리기 시작
 			return 0;
 

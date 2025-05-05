@@ -44,14 +44,14 @@ int APIENTRY WinMain(
 	return (int)Message.wParam;
 }
 //=================================================================
-// 도형 상수.
+// 도형 상수..
 enum
 {
 	LINE,
 	RECTANGLE,
 	CIRCLE
 };
-// 색깔 상수.
+// 색깔 상수..
 enum
 {
 	RED,
@@ -61,7 +61,7 @@ enum
 	WHITE
 };
 //=================================================================
-//	5.	wParam, lParam 참고.
+//	5.	wParam, lParam 참고..
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 {
 	HDC hdc;
@@ -70,22 +70,22 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 
 	static BOOL bNowDraw=FALSE;
 
-	static int drawMode = LINE;		//	그리기 모드.
-	static int penColor = BLACK;	//	펜 색.
-	static int brushColor = WHITE;	//	브러쉬 색.
+	static int drawMode = LINE;		//	그리기 모드..
+	static int penColor = BLACK;	//	펜 색..
+	static int brushColor = WHITE;	//	브러쉬 색..
 
 	static bool isShift = false;	//	쉬프트 버튼이 눌렸나?
 	static bool isCtrl = false;		//	컨트롤 버튼이 눌렸나?
 
-	static TCHAR szDrawMode[30] = "선 그리기.";		//	현재 그리기 모드 출력.
-	static TCHAR szPenColor[30] = "검은 펜.";		//	현재 펜 색상 출력.
-	static TCHAR szBrushColor[30] = "하얀 브러쉬.";	//	현재 브러쉬 색상 출력.
+	static TCHAR szDrawMode[30] = "선 그리기..";		//	현재 그리기 모드 출력..
+	static TCHAR szPenColor[30] = "검은 펜..";		//	현재 펜 색상 출력..
+	static TCHAR szBrushColor[30] = "하얀 브러쉬..";	//	현재 브러쉬 색상 출력..
 	
-	//	선의 색상 핸들.
+	//	선의 색상 핸들..
 	HPEN curPen = NULL;
 	HPEN oldPen = NULL;
 
-	//	도형 색상.
+	//	도형 색상..
 	HBRUSH curBrush = NULL;
 	HBRUSH oldBrush = NULL;
 
@@ -228,7 +228,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 					curPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
 					break;
 				}
-				oldPen = (HPEN)SelectObject(hdc, curPen);			//	생성된 펜을 dc에 전달하면 기존 펜 리소스 데이터가 반환됨.
+				//	생성된 펜을 dc에 전달하면 기존 펜 리소스 데이터가 반환됨..
+				oldPen = (HPEN)SelectObject(hdc, curPen);
 
 				//	브러쉬 생성.
 				switch (brushColor)
@@ -245,7 +246,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 					curBrush = CreateSolidBrush(RGB(0, 0, 255));
 					break;
 				}
-				oldBrush = (HBRUSH)SelectObject(hdc, curBrush);		//	생성된 브러쉬를 dc에 전달하면 기존 브러쉬 리소스 데이터가 반환됨.
+				//	생성된 브러쉬를 dc에 전달하면 기존 브러쉬 리소스 데이터가 반환됨.
+				oldBrush = (HBRUSH)SelectObject(hdc, curBrush);
 
 				//	그리기 모드.
 				switch (drawMode)

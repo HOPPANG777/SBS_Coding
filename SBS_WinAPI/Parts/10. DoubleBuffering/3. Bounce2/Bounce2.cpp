@@ -79,64 +79,67 @@ void OnTimer()
 	GetClientRect( hWndMain, &crt );
 	hdc = GetDC( hWndMain );
 	
-	//	1.	화면 DC와 호환되는 DC 생성.
+	//	1.	화면 DC와 호환되는 DC 생성..
 	hMemDC = CreateCompatibleDC( hdc );
 	
-	//	2.	오프스크린 비트맵 생성.
+	//	2.	오프 스크린 비트맵 생성..
 	if (hBit == NULL)
 		hBit = CreateCompatibleBitmap(hdc, crt.right, crt.bottom);
 	
-	//	3.	메모리 DC에 오프스크린 비트맵을 선택.
-	//		-	메모리 DC가 가상화면이 됨.
+	//	3.	메모리 DC에 오프스크린 비트맵을 선택..
+	//		-	메모리 DC가 가상 화면이 됨..
 	OldBit=(HBITMAP)SelectObject(hMemDC,hBit);
 
-	//	가상 DC 초기화.
+	//	가상 DC 초기화..
 	FillRect( hMemDC, &crt, GetSysColorBrush( COLOR_WINDOW ) );
 
-	//	타원 이동
+	//	타원 이동..
 	if (x <= R || x >= crt.right-R) xi*=-1;	
 	if (y <= R || y >= crt.bottom-R) yi*=-1;
 	x+=xi;
 	y+=yi;
 
-	//	빨간 색 설정
+	//	빨간 색 설정..
 	hPen = CreatePen(PS_INSIDEFRAME, 1, RGB(255, 0, 0));
 	OldPen = (HPEN)SelectObject(hMemDC, hPen);
-	//	세로 라인 그리기.
+
+	//	세로 라인 그리기..
 	for (i=0;i<crt.right;i+=10) {
 		MoveToEx(hMemDC,i,0,NULL);
 		LineTo(hMemDC,i,crt.bottom); }
 
-	//	파란 색 설정.
+	//	파란 색 설정..
 	hPen = CreatePen(PS_INSIDEFRAME, 1, RGB(0, 0, 255));
 	OldPen = (HPEN)SelectObject(hMemDC, hPen);
-	//	가로 라인 그리기.
+
+	//	가로 라인 그리기..
 	for (i=0;i<crt.bottom;i+=10) {
 		MoveToEx(hMemDC,0,i,NULL);
 		LineTo(hMemDC,crt.right,i); }
 
 
-	//	빨간 테두리 색 설정.
+	//	빨간 테두리 색 설정..
 	hPen=CreatePen(PS_INSIDEFRAME,2,RGB(255,0,0));
 	//	가상 DC에 설정.
 	OldPen=(HPEN)SelectObject(hMemDC,hPen);
 
-	//	파란 브러쉬 선택.
+	//	파란 브러쉬 선택..
 	hBrush=CreateSolidBrush(RGB(0,0,255));
-	//	가상 DC에 설정.
+	//	가상 DC에 설정..
 	OldBrush=(HBRUSH)SelectObject(hMemDC,hBrush);
 
-	//	타원 그리기.
+	//	타원 그리기..
 	Ellipse(hMemDC,x-R,y-R,x+R,y+R);
 	
-	//	펜, 브러쉬 제거.
+	//	펜, 브러쉬 제거..
 	DeleteObject(SelectObject(hMemDC,OldPen));
 	DeleteObject(SelectObject(hMemDC,OldBrush));
 
-	//	현재 가상 DC에 적용된 비트맵 핸들 제거.
+	//	현재 가상 DC에 적용된
+	//	비트맵 핸들 제거..
 	SelectObject(hMemDC,OldBit);
 
-	//	가상 DC 제거.
+	//	가상 DC 제거..
 	DeleteDC(hMemDC);
 	ReleaseDC(hWndMain,hdc);
 	InvalidateRect(hWndMain,NULL,FALSE);

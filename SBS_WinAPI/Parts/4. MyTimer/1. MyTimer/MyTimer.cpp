@@ -4,17 +4,23 @@
 	1.	WM_TIMER..
 	--------------
 	
-		-	한 번 설정해 놓으면
+		-	한 번 시간을 설정해 놓으면
 			일정한 시간 간격을 두고
 			연속적으로 계속 발생..
 
-		-	용도
-	
+
+		----------
+		-	용도..
+		----------
+
 			-	주기적으로 같은 동작..
+				
 				예) 시계, 애니메이션..
 
-			-	시간대별로 여러번 나누어
+
+			-	시간대 별로 여러번 나누어
 				해야할 일..
+
 				예) 팝업 정보..
 
 ================================================================================*/
@@ -70,64 +76,104 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	switch (iMessage) {
 	case WM_CREATE:
 		/*
-			------------------------------------------------------------------------------
-			UINT SetTimer( HWND hWnd, UINT nIDEvent, UINT uElapse, TIMERPROC lpTimerFunc )
-			------------------------------------------------------------------------------
+			-------------------------------
+			UINT SetTimer(
+					HWND hWnd,
+					UINT nIDEvent,
+					UINT uElapse,
+					TIMERPROC lpTimerFunc )
+			-------------------------------
+
 			-	타이머 생성..
 
-				hWnd
-				-	타이머 메시지를
-					받을 윈도우..
-				-	일반적으로
-					WndProc의 hWnd를
-					그대로 사용..
 
-				nIDEvent
-				-	타이머의 ID..
+				----------
+				-	hWnd..
+				----------
 
-				uElapse
-				-	타이머의 주기..
-					단위는 1/1000초..
-				-	이 값이 1이라고 해서
-					타이머 메시지가
-					초당 1000번
-					발생하진 않음..
-					-	1초에 100회 이상
-						발생하지 않음..
+					-	타이머 메시지를 받을
+						윈도우..
 
-				lpTimerFunc
-				-	타이머 메시지가
-					발생할때마다
-					호출될 함수..
+					-	일반적으로 WndProc의 hWnd를
+						그대로 사용..
+
+
+
+				--------------
+				-	nIDEvent..
+				--------------
+
+					-	타이머의 ID..
+
+
+
+				-------------
+				-	uElapse..
+				-------------
+
+					-	타이머의 주기..
+						단위는 1/1000초..
+
+					-	이 값이 1이라고 해서
+						타이머 메시지가
+						초당 1000번 발생하진 않음..
+
+						-	1초에 100회 이상
+							발생하지 않음..
+
+				
+				
+				-----------------
+				-	lpTimerFunc..
+				-----------------
+
+					-	타이머 메시지가 발생할
+						때마다 호출될 함수..
+
 		*/
 		SetTimer( hWnd, 1, 1000, NULL );
 		SendMessage(hWnd, WM_TIMER, 1, 0);
 		return 0;
+
+
 	case WM_TIMER:
 		/*
-		wParam
-		-	타이머 ID..
-		lParam
-		-	타이머 메시지 발생시
-			호출될 함수의 주소..
+			-	wParam
+				-	타이머 ID..
+
+			-	lParam
+				-	타이머 메시지 발생 시
+					호출될 함수의 주소..
 		*/
+
+		//	현재 PC에 세팅되어 있는
+		//	시간 정보 가져오기..
 		GetLocalTime(&st);
 		wsprintf(sTime,TEXT("지금은 %d시 %d분 %d초 입니다."),
 			st.wHour,st.wMinute,st.wSecond);
-		InvalidateRect(hWnd,NULL,TRUE);		//	클라이언트 영역 전체 갱신.
-		//InvalidateRect(hWnd,&rt,TRUE);	//	rt 로 설정된 영역만 갱신.
+
+		//	클라이언트 영역 전체 갱신..
+		InvalidateRect(hWnd,NULL,TRUE);
+
+		//	rt 로 설정된 영역만 갱신..
+		//InvalidateRect(hWnd,&rt,TRUE);
 		return 0;
+
+
 	case WM_PAINT:
 		hdc=BeginPaint(hWnd,&ps);
 		TextOut(hdc,100,100,sTime,lstrlen(sTime));
 		EndPaint(hWnd,&ps);
 		return 0;
 
+
 	case WM_DESTROY:
 		/*
-			--------------------------------------
-			KillTimer(HWND hWnd, UINT nIDEvent)
-			--------------------------------------
+			------------------
+			KillTimer(
+				HWND hWnd,
+				UINT nIDEvent)
+			------------------
 
 				-	SetTimer에 의해 생성된
 					타이머 리소스 반환..
@@ -145,5 +191,13 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
         
         팁 ) SendMessage를 활용하여
 			강제 종료되는 기능 적용..
+*/
+//=========================================================================
+/*
+	[ 참고 ]
+
+		[C++] 시스템 시간 날짜 얻어오기, SYSTEMTIME, GetLocalTime, GetSystemTime byte 모호한 기호입니다. 에러 windows.h to_string
+		https://blog.naver.com/dorergiverny/223036013271
+
 */
 //=========================================================================

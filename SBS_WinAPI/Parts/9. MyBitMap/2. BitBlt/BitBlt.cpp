@@ -43,28 +43,46 @@ int APIENTRY WinMain(
 //===============================================================================
 #include "resource.h"
 /*
-	------------------------------------------------------------------------
+	--------------------------------------------------
 	3.	BOOL  BitBlt(	HDC hdcDest, 
-						int destX, int destY, int width, int height,
+						int destX, int destY,
+						int width, int height,
 						HDC hdcSrc,
 						int srcX, int srcY, DWORD rop)
-	------------------------------------------------------------------------
+	--------------------------------------------------
 
-		-	기능
-			-	DC간의 영역끼리 고속 복사 수행.
+		----------
+		-	기능..
+		----------
+
+			-	DC간의 영역끼리
+				고속 복사 수행..
 	
+
+		-------------
 		-	매개변수..
-			-	hdcDest
+		-------------
+
+			-	hdcDest..
 				-	복사 대상 DC.
-			-	destX, destY, width, height
-				-	복사 대상의 위치, 크기.
-			-	hdcSrc
-				-	복사 원본 DC.
-			-	srcX, srcY
-				-	복사 원본 좌표.
-			-	rop
-				-	래스터 연산 방법.
-				-	SRCCOPY, BLACKNESS, WHITENESS, DSTINVERT 등이 있음.
+
+
+			-	destX, destY, width, height..
+				-	복사 대상의 위치, 크기..
+
+
+			-	hdcSrc..
+				-	복사 원본 DC..
+
+
+			-	srcX, srcY..
+				-	복사 원본 좌표..
+
+
+			-	rop..
+				-	래스터 연산 방법..
+				-	SRCCOPY, BLACKNESS,
+					WHITENESS, DSTINVERT 등..
 
 */
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
@@ -84,14 +102,16 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		OldBitmap = ( HBITMAP )SelectObject( MemDC, MyBitmap );
 
 		/*
-			GetObject(MyBitmap,sizeof(BITMAP),&bit);
-			-	특정 그래픽오브젝트(GDI)의 정보 얻기.
+			GetObject( MyBitmap, sizeof(BITMAP) , &bit );
+
+			-	특정 그래픽 오브젝트( GDI )의
+				정보 얻기..
 		*/
 		GetObject( MyBitmap, sizeof(BITMAP) , &bit );
 		bx = bit.bmWidth;
 		by = bit.bmHeight;
 
-		/*
+		//*
 		// 전체 출력
 		BitBlt( hdc, 0, 0, bx, by, MemDC, 0,0, SRCCOPY);
 
@@ -99,10 +119,10 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		BitBlt( hdc, 0, 250, bx/2, by/2 , MemDC, 0, by/2, SRCCOPY);
 		//*/
 
-		//* 같은 DC끼리 비트맵 복사..
-		BitBlt(hdc,	0,	0,		bx,	by,		MemDC,	0,	0,		SRCCOPY);
+		/* 같은 DC끼리 비트맵 복사..
+		BitBlt(hdc, bx + 10,	0,		bx,	by,		MemDC,	0,	0,		SRCCOPY);
 
-		BitBlt(hdc,	0,	by+10,	bx,	by/2,	hdc,	0,	by/2,	SRCCOPY);
+		BitBlt(hdc, bx + 10,	by+10,	bx,	by/2,	hdc,	0,	by/2,	SRCCOPY);
 		//*/
 
 		SelectObject(MemDC,OldBitmap);

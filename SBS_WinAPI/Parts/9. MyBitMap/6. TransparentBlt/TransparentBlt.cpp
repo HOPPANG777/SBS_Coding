@@ -68,21 +68,26 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		by=bit.bmHeight;
 
 		/*
-		TransparentBlt(hdc,0,0,bx,by,MemDC,0,0,bx,by,RGB(255,0,0));
-		-	StretchBlt와 유사하나 마지막 인자는 ROP모드가 아닌 투명색으로 사용할 마스크 색상.
-		-	분홍색을 많이 사용했음.
-		-	확대 축소는 가능하나 미러링은 불가.
+			TransparentBlt( hdc,0,0,bx,by,MemDC,0,0,bx,by,RGB(255,0,0) );
+			-	[ StretchBlt ]와 유사하나
+				마지막 인자는 ROP모드가 아닌
+				투명색으로 사용할 마스크 색상..
+
+			-	분홍색을 많이 사용함..
+
+			-	확대 축소는 가능하나
+				미러링은 불가..
 		*/
 		//	일반적인 사용.
 		TransparentBlt(hdc,0,0,bx,by,MemDC,0,0,bx,by,RGB(255,0,0));
 
-		//	축소.
+		//	축소..
 		//TransparentBlt(hdc, 0, 0, bx*0.5f, by*0.5f, MemDC, 0, 0, bx, by, RGB(255, 0, 0));
 
-		//	확대.
+		//	확대..
 		//	TransparentBlt(hdc, 0, 0, bx*2.f, by*2.f, MemDC, 0, 0, bx, by, RGB(255, 0, 0));
 
-		//	미러링.
+		//	미러링..
 		//	TransparentBlt(hdc, 0, 0, -bx, -by, MemDC, 0, 0, bx, by, RGB(255, 0, 0));
 
 		SelectObject(MemDC,OldBitmap);
@@ -100,12 +105,16 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 }
 /*
 	---------------------------------------
-	예전에는 복잡한 그래픽 처리까지
-	CPU가 전담했으나
-	[ Direct X ]나 [ OPENGL ]등의
-	그래픽 랜더러 프로그램이 등장하여
-	그래픽 관련 업무를 [ GPU ]에 넘김으로써
-	[ CPU ]의 부담이 많이 줄었음..
+	참고..
+	
+		예전에는 복잡한 그래픽 처리까지
+		CPU가 전담..
+
+		[ Direct X ]나 [ OPENGL ]등의
+		그래픽 랜더러 프로그램이 등장하여
+		그래픽 관련 업무를 [ GPU ]에 넘김으로써
+		[ CPU ]의 부담이 많이 줄었음..
+
 	---------------------------------------
 */
 //===============================================================================

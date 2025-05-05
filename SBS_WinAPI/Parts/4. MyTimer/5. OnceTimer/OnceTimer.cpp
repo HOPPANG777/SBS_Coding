@@ -44,13 +44,14 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	PAINTSTRUCT ps;
 	static TCHAR str[128];
 
-	switch (iMessage) {
-
+	switch (iMessage)
+	{
 		case WM_LBUTTONDOWN:
 			lstrcpy(str,"¿ÞÂÊ ¹öÆ°À» ´­·¶½À´Ï´Ù.");
 			InvalidateRect(hWnd,NULL,TRUE);
 			SetTimer(hWnd,1,3000,NULL);
 			return 0;
+
 
 		case WM_TIMER:
 			KillTimer(hWnd,1);
@@ -58,11 +59,13 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			InvalidateRect(hWnd,NULL,TRUE);
 			return 0;
 
+
 		case WM_PAINT:
 			hdc=BeginPaint(hWnd, &ps);
 			TextOut(hdc,10,10,str,lstrlen(str));
 			EndPaint(hWnd, &ps);
 			return 0;
+
 
 		case WM_DESTROY:
 			PostQuitMessage(0);

@@ -119,20 +119,20 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			LineTo(hdc,crt.right,i);
 		}
 
-		//	외곽선 설정.
+		//	외곽선 설정..
 		hPen=CreatePen(PS_INSIDEFRAME,3,RGB(255, 255, 0));
 		OldPen=(HPEN)SelectObject(hdc,hPen);
 
-		//	내부 색 설정.
+		//	내부 색 설정..
 		hBrush=CreateSolidBrush(RGB(0,0,255));
 		OldBrush=(HBRUSH)SelectObject(hdc,hBrush);
 
-		//	원 그리기.
+		//	원 그리기..
 		Ellipse(hdc,x-R,y-R,x+R,y+R);
 
-		//	펜 제거.
+		//	펜 제거..
 		DeleteObject(SelectObject(hdc,OldPen));
-		//	브러시 제거
+		//	브러시 제거..
 		DeleteObject(SelectObject(hdc,OldBrush));
 		EndPaint(hWnd, &ps);
 		return 0;

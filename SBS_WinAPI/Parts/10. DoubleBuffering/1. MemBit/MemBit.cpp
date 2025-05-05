@@ -41,7 +41,7 @@ int APIENTRY WinMain(
 	return (int)Message.wParam;
 }
 //==================================================================
-//* 1 - 화면에 직접 그리기..
+/* 1 - 화면에 직접 그리기..
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 {
 	HDC hdc;
@@ -56,7 +56,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		break;//	return 0;	break;
 		//	return 0 으로 처리해버리면 
 		//	DefWindowProc에서
-		//  WM_ERASEBKGND에 대한 기본처리인
+		//  WM_ERASEBKGND에 대한 기본 처리인
 		//	화면 지우기를 하지 않기때문에
 		//  이전 이미지가 남아있게 됨..
 		//return 0;	
@@ -91,7 +91,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 }
 //*/
 //==================================================================
-/* 2 - 더블 버퍼링 적용.
+//* 2 - 더블 버퍼링 적용.
 
 // 가상 메모리 비트맵..
 HBITMAP g_hMemBit;			
@@ -106,7 +106,7 @@ void DrawBitmap(HDC hdc,int x,int y,HBITMAP hBit)
 	int bx,by;
 	BITMAP bit;
 
-	//	화면 DC와 호환되는 DC 생성.
+	//	화면 DC와 호환되는 DC 생성..
 	MemDC=CreateCompatibleDC(hdc);
 	OldBitmap=(HBITMAP)SelectObject(MemDC, hBit);
 
@@ -141,10 +141,11 @@ void Ready(HWND hWnd)
 	g_hMemBit = CreateCompatibleBitmap(hdc, 800, 600);
 
 	//	3.	메모리 DC에 오프스크린 비트맵을 선택..
-	//		-	메모리 DC가 가상화면이 됨.
+	//		-	메모리 DC가 가상화면이 됨..
 	hOldBmp=(HBITMAP)SelectObject(MemDC, g_hMemBit);
 
-	// 메모리 비트맵을 흰색으로 채운 후 무작위로 타원 5000개를 그린다.
+	//	메모리 비트맵을 흰색으로 채운 후
+	//	무작위로 타원 5000개를 그린다..
 	PatBlt(MemDC,0,0,800,600,WHITENESS);
 	for (i=0;i<5000;i++) {
 		MyBrush=CreateSolidBrush(RGB(rand()%256, rand()%256, rand()%256));
@@ -156,13 +157,13 @@ void Ready(HWND hWnd)
 		DeleteObject(MyBrush);
 	}
 
-	// 마무리를 한다.
+	// 마무리를 한다..
 	SelectObject(MemDC, hOldBmp);
 	DeleteDC(MemDC);
 	ReleaseDC(hWnd, hdc);
 }
 //==================================================================
-// 가상 화면에 그리기
+// 가상 화면에 그리기..
 LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 {
 	HDC hdc;
