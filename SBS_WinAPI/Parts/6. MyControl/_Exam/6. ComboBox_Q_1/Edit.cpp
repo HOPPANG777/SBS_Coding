@@ -41,7 +41,9 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance ,LPSTR lpszCmdP
 #define ID_EDIT 100
 #define ID_EDIT2 200
 #define ID_EDIT3 250
+
 #define ID_BTTN 300
+
 #define ID_COMBOBOX 400
 
 HWND hEdit;
@@ -73,7 +75,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		case WM_CREATE:
 			hEdit=CreateWindow(	TEXT("edit"),
 								NULL,	//	NULL TEXT("글자 입력하면 뭐가 나오려나???")
-								WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN,	//	수평 스크롤을 지원.
+								WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN,	//	수평 스크롤을 지원..
 								10,10,100,25,
 								hWnd,
 								(HMENU)ID_EDIT,
@@ -82,7 +84,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 
 			hEdit2 = CreateWindow(TEXT("edit"),
 				NULL,	//	NULL TEXT("글자 입력하면 뭐가 나오려나???")
-				WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN,	//	수평 스크롤을 지원.
+				WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN,	//	수평 스크롤을 지원..
 				200, 10, 100, 25,
 				hWnd,
 				(HMENU)ID_EDIT3,
@@ -91,7 +93,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 
 			hEdit3 = CreateWindow(TEXT("edit"),
 				NULL,	//	NULL TEXT("글자 입력하면 뭐가 나오려나???")
-				WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN | ES_READONLY,	//	수평 스크롤을 지원.
+				WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN | ES_READONLY,	//	수평 스크롤을 지원..
 				400, 10, 100, 25,
 				hWnd,
 				(HMENU)ID_EDIT2,
@@ -116,9 +118,9 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 				NULL);
                 
 			for (int i = 0; i < 5; i++)
-				SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)Items[i]);	//	항목 추가.
+				SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)Items[i]);	//	항목 추가..
 
-			SendMessage(hCombo, CB_SETCURSEL, 0, 0);					//	인덱스로 항목 선택.
+			SendMessage(hCombo, CB_SETCURSEL, 0, 0);	//	인덱스로 항목 선택..
 			g_select = 0;
 			return 0;
 
@@ -129,7 +131,8 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			{
 				case ID_COMBOBOX:
 				{
-					switch (HIWORD(wParam)) {
+					switch (HIWORD(wParam))
+					{
 						case CBN_SELCHANGE: g_select = SendMessage(hCombo, CB_GETCURSEL, 0, 0); break;
 					}
 
@@ -140,6 +143,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 				{
 					GetWindowText(hEdit, str, 128);
 					g_lVal = _ttoi(str);
+
 					GetWindowText(hEdit2, str, 128);
 					g_rVal = _ttoi(str);
 

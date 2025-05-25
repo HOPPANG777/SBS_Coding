@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SBS_CPP", "SBS_CPP\SBS_CPP.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SBS_WinAPI", "SBS_WinAPI\SBS_WinAPI.vcxproj", "{56D8D121-CD33-4DC1-AC74-82940834F652}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SBS_MFC", "SBS_MFC\SBS_MFC.vcxproj", "{C24BBD70-0457-4276-B853-15900E632909}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{56D8D121-CD33-4DC1-AC74-82940834F652}.Release|x64.Build.0 = Release|x64
 		{56D8D121-CD33-4DC1-AC74-82940834F652}.Release|x86.ActiveCfg = Release|Win32
 		{56D8D121-CD33-4DC1-AC74-82940834F652}.Release|x86.Build.0 = Release|Win32
+		{C24BBD70-0457-4276-B853-15900E632909}.Debug|x64.ActiveCfg = Debug|x64
+		{C24BBD70-0457-4276-B853-15900E632909}.Debug|x64.Build.0 = Debug|x64
+		{C24BBD70-0457-4276-B853-15900E632909}.Debug|x86.ActiveCfg = Debug|Win32
+		{C24BBD70-0457-4276-B853-15900E632909}.Debug|x86.Build.0 = Debug|Win32
+		{C24BBD70-0457-4276-B853-15900E632909}.Release|x64.ActiveCfg = Release|x64
+		{C24BBD70-0457-4276-B853-15900E632909}.Release|x64.Build.0 = Release|x64
+		{C24BBD70-0457-4276-B853-15900E632909}.Release|x86.ActiveCfg = Release|Win32
+		{C24BBD70-0457-4276-B853-15900E632909}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

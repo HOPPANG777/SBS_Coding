@@ -18,6 +18,8 @@ CFigureFactory::~CFigureFactory()
 
 	}//	for (iterCur = iterBegin; iterCur != iterEnd; ++iterCur)
 
+	_FigureList.clear();
+
 }//	CFigureFactory::~CFigureFactory()
 //------------------------------------------------
 CFigureBase* CFigureFactory::Create(int figureType, int posX, int posY, int wid, int hei)

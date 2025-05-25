@@ -76,6 +76,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 
 			//	ºñÆ®¸Ê ·Îµù..
 			hbmAVG3 = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_AVG3 ) );
+
 			hbmAVG3_2 = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_AVG3_2 ) );
 			return 0;
 
@@ -98,7 +99,9 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		
 			//	ºñÆ®¸Ê Á¦°Å..
 			DeleteObject( hbmAVG3 );
+
 			DeleteObject( hbmAVG3_2 );
+
 			PostQuitMessage(0);
 			return 0;
 

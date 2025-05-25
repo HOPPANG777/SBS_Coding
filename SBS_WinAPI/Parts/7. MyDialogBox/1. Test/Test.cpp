@@ -68,14 +68,14 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	switch (iMessage) {
 	case WM_LBUTTONDOWN:
 		
-		//	모달형 대화 상자 호출.
+		//	모달형 대화 상자 호출..
 		//	int DialogBox( HINSTANCE hInstance, LPCTSTR lpTemplate, HWND hWndParent, DLGPROC lpDialogFunc ); 
-		//	리턴값은 EndDialog 함수가 전달하는 값.
+		//	리턴값은 EndDialog 함수가 전달하는 값..
 		DialogBox(	
-					g_hInst,							//	대화상자 리소스를 가진 인스턴스의 핸들.
-					MAKEINTRESOURCE(IDD_DIALOG_TEST),	//	대화상자 템플리트의 리소스 ID.
-					hWnd,								//	대화상자를 소유할 부모 윈도우 핸들.
-					TestDlgProc							//	대화상자 프로시저.
+					g_hInst,							//	대화상자 리소스를 가진 인스턴스의 핸들..
+					MAKEINTRESOURCE(IDD_DIALOG_TEST),	//	대화상자 템플리트의 리소스 ID..
+					hWnd,								//	대화상자를 소유할 부모 윈도우 핸들..
+					TestDlgProc							//	대화상자 프로시저..
 				 );
 		return 0;
 	case WM_DESTROY:

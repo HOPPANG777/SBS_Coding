@@ -1,5 +1,8 @@
+//===========================================================
 #pragma once
+//===========================================================
 #include "CControlBase.h"
+//===========================================================
 class CListBox :
 	public CControlBase
 {
@@ -8,6 +11,7 @@ public:
 		: CControlBase(parentHwnd, TEXT("listbox"), pszName, hInst, id, posX, posY, width, height, winStyle) { }
 	
 	void Add(TCHAR** ppszItems, int count);
-	int GetCurSel() { return SendMessage(_hWnd, LB_GETCURSEL, 0, 0); }
-	int SetCurSel(int idx) { return SendMessage(_hWnd, LB_SETCURSEL, idx, 0); }
+	int GetCurSel() { return SendMsg( LB_GETCURSEL, 0, 0); }
+	int SetCurSel(int idx) { return SendMsg( LB_SETCURSEL, idx, 0); }
 };
+//===========================================================

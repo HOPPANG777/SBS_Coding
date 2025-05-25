@@ -64,7 +64,7 @@ int APIENTRY WinMain(
 		-------------
 
 			-	hdcDest..
-				-	복사 대상 DC.
+				-	복사 대상 DC..
 
 
 			-	destX, destY, width, height..
@@ -97,8 +97,11 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	switch (iMessage) {
 	case WM_PAINT:
 		hdc = BeginPaint( hWnd, &ps );
+
 		MemDC = CreateCompatibleDC( hdc );
+
 		MyBitmap = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP1 ) );
+
 		OldBitmap = ( HBITMAP )SelectObject( MemDC, MyBitmap );
 
 		/*
@@ -112,10 +115,10 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		by = bit.bmHeight;
 
 		//*
-		// 전체 출력
+		// 전체 출력..
 		BitBlt( hdc, 0, 0, bx, by, MemDC, 0,0, SRCCOPY);
 
-		// 절반만 출력
+		// 절반만 출력..
 		BitBlt( hdc, 0, 250, bx/2, by/2 , MemDC, 0, by/2, SRCCOPY);
 		//*/
 

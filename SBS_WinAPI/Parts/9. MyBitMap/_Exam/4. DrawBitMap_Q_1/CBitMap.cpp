@@ -46,7 +46,7 @@ void CBitMap::Draw(HDC hdc, int posX, int posY)
 //-------------------------------
 BOOL CBitMap::DeleteBitmap()
 {
-	//	∫Ò∆Æ∏  ¡¶∞≈.
+	//	∫Ò∆Æ∏  ¡¶∞≈..
 	if (_hBitMap == NULL)
 		return TRUE;
 

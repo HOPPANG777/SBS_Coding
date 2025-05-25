@@ -50,7 +50,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance ,LPSTR lpszCmdP
 
 }//	int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance ,LPSTR lpszCmdParam,int nCmdShow)
 //==========================================================================
-//	색 모드.
+//	색 모드..
 enum
 {	
 	PENCOLOR,
@@ -59,7 +59,7 @@ enum
 //	색 모드.
 int g_ColorMode = PENCOLOR;
 
-//	그리기 모드.
+//	그리기 모드..
 enum
 {
 	LINE,
@@ -68,7 +68,7 @@ enum
 };
 int g_curDrawMode = LINE;
 
-//	컨트롤 ID.
+//	컨트롤 ID..
 enum
 {
 	ID_SCRRED = 100,
@@ -89,10 +89,10 @@ enum
 
 };
 //==========================================================================
-//	컨트롤 팩토리.
+//	컨트롤 팩토리..
 CControlFactory* g_pControlFactory;
 //==========================================================================
-//	스크롤 컨트롤 배열 인덱스.
+//	스크롤 컨트롤 배열 인덱스..
 enum
 {
 	COLOR_RED,
@@ -104,24 +104,24 @@ enum
 //	스크롤 객체.
 CScrollBar* g_pScrollBar[COLOR_SIZE] = { 0, };
 //==========================================================================
-//	에디트 객체.
+//	에디트 객체..
 CEdit *g_pEdit[COLOR_SIZE] = { 0, };
 //-------------------------------------------
-//	버튼 객체.
+//	버튼 객체..
 CButton* g_pButton[COLOR_SIZE] = { 0, };
 //-------------------------------------------
-//	리스트 박스.
+//	리스트 박스..
 CListBox* g_pListBox = 0;
 //-------------------------------------------
-//	콤보 박스.
+//	콤보 박스..
 CComboBox* g_pComboBox = 0;
 //-------------------------------------------
-//	스태틱.
+//	스태틱..
 CStatic* g_pStatic[COLOR_SIZE] = { 0, };
 //-------------------------------------------
-//	브러쉬 컬러.
+//	브러쉬 컬러..
 int g_BrushColor[COLOR_SIZE] = { 0, };
-//	펜 컬러.
+//	펜 컬러..
 int g_PenColor[COLOR_SIZE] = { 0, };
 //-------------------------------------------
 CLine* g_pLine = NULL;
@@ -141,11 +141,11 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		case WM_CREATE:
 		{
 			//------------------
-			//	콘트롤 팩토리 생성.
+			//	콘트롤 팩토리 생성..
 			g_pControlFactory = new CControlFactory(hWnd, g_hInst);
 			g_figureFactory = new CFigureFactory();
 			//------------------
-			//	스크롤 생성.
+			//	스크롤 생성..
 			int posX = 500, posY = 80, offsetY = 45;
 			g_pScrollBar[COLOR_RED] = (CScrollBar*)g_pControlFactory->Create(SCROLLBAR, (HMENU)ID_SCRRED, NULL, posX, posY, 255, 20);
 			if (!g_pScrollBar[COLOR_RED]->Create(0, 0, 255))
@@ -160,7 +160,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 				MessageBox(hWnd, "ID_SCRBLUE 생성 실패.", "에러", MB_OK);
 
 			//------------------
-			//	에디트 생성.
+			//	에디트 생성..
 			TCHAR szTmp[10];
 			g_pEdit[COLOR_RED] = (CEdit*)g_pControlFactory->Create(EDIT, (HMENU)ID_EDITRED, NULL, posX + 280, posY, 30, 20);
 			if (!g_pEdit[COLOR_RED]->Create())
@@ -181,7 +181,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			g_pEdit[COLOR_BLUE]->SetText(szTmp);
 
 			//------------------
-			//	버튼 생성.
+			//	버튼 생성..
 			g_pButton[COLOR_RED] = (CButton*)g_pControlFactory->Create(BUTTON, (HMENU)ID_BUTTONRED, "확인", posX + 320, posY - 5, 60, 30);
 			if (!g_pButton[COLOR_RED]->Create())
 				MessageBox(hWnd, "ID_BUTTONRED 생성 실패.", "에러", MB_OK);
@@ -195,7 +195,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 				MessageBox(hWnd, "ID_BUTTONBLUE 생성 실패.", "에러", MB_OK);
 
 			//------------------
-			//	리스트 박스 생성.
+			//	리스트 박스 생성..
 			g_pListBox = (CListBox*)g_pControlFactory->Create(LISTBOX, (HMENU)ID_LISTBOX, NULL, posX, posY + 120, 70, 60);
 			if (!g_pListBox->Create())
 				MessageBox(hWnd, "ID_LISTBOX 생성 실패.", "에러", MB_OK);
@@ -204,7 +204,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			g_pListBox->SetCurSel(0);
 
 			//------------------
-			//	콤보 박스 생성.
+			//	콤보 박스 생성..
 			g_pComboBox = (CComboBox*)g_pControlFactory->Create(COMBOBOX, (HMENU)ID_COMBOBOX, NULL, posX + 80, posY + 120, 120, 60);
 			if (!g_pComboBox->Create())
 				MessageBox(hWnd, "ID_LISTBOX 생성 실패.", "에러", MB_OK);
@@ -213,7 +213,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			g_pComboBox->SetCurSel(0);
 
 			//------------------
-			//	스태틱 생성.
+			//	스태틱 생성..
 			g_pStatic[COLOR_RED] = (CStatic*)g_pControlFactory->Create(STATIC, (HMENU)-1, "빨간색", posX, posY - 20, 60, 20);
 			if (!g_pStatic[COLOR_RED]->Create())
 				MessageBox(hWnd, "빨간색 스태틱 생성 실패.", "에러", MB_OK);
@@ -227,7 +227,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 				MessageBox(hWnd, "파란색 스태틱 생성 실패.", "에러", MB_OK);
 
 			//------------------
-			//	도형 생성.
+			//	도형 생성..
 			if (g_pLine == NULL)
 				g_pLine = (CLine*)g_figureFactory->Create(F_LINE, 10, 80, 410, 300);
 
@@ -263,7 +263,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			InvalidateRect(hWnd, NULL, TRUE);
 			return 0;
 			//-----------------------------
-			case WM_COMMAND: //	컨트롤의 통지 메시지 전달시 호출되는 메시지.
+			case WM_COMMAND: //	컨트롤의 통지 메시지 전달시 호출되는 메시지..
 			{
 				int id = LOWORD(wParam);
 				if (g_pComboBox != NULL && id == g_pComboBox->GetID())

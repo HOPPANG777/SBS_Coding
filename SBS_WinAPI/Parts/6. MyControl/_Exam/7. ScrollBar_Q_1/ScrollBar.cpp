@@ -67,7 +67,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 
             hEdit = CreateWindow(TEXT("edit"),
                 NULL,	//	NULL TEXT("글자 입력하면 뭐가 나오려나???")
-                WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN,	//	수평 스크롤을 지원.
+                WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL | ES_WANTRETURN,	//	수평 스크롤을 지원..
                 10, 10, 100, 25,
                 hWnd,
                 (HMENU)ID_EDIT,

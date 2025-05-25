@@ -41,5 +41,7 @@ CControlFactory::~CControlFactory()
 		pTmp = NULL;
 	}
 
+	_ControlList.clear();
+
 }//	CControlFactory::~CControlFactory()
 //===========================================================

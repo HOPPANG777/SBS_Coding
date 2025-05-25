@@ -43,29 +43,30 @@ int APIENTRY WinMain(
 }
 //==================================================================
 #define R 20
-int x,y;
-int xi,yi;
+int x, y;
+int xi, yi;
 //==================================================================
 void OnTimer()
 {
 	RECT crt;
 
 	GetClientRect(hWndMain,&crt);
-	if (x <= R || x >= crt.right-R) {
-		xi*=-1;
-	}
-	if (y <= R || y >= crt.bottom-R) {
-		yi*=-1;
-	}
-	x+=xi;
-	y+=yi;
+	
+	if (x <= R || x >= crt.right - R )
+		xi *= -1;
+
+	if (y <= R || y >= crt.bottom - R )
+		yi *= -1;
+
+	x += xi;
+	y += yi;
 
 	//* 1) 전체 무효화
 	InvalidateRect(hWndMain, NULL, TRUE);
 	//InvalidateRect(hWndMain,NULL, FALSE);
 	//*/
 	
-	/* 2) 공 주변만 무효화
+	/* 2) 공 주변만 무효화..
 	RECT rt;
 	SetRect(&rt,x-R-5,y-R-5,x+R+5,y+R+5);
 	InvalidateRect(hWndMain,&rt,TRUE);
@@ -81,66 +82,82 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 	RECT crt;
 	int i;
 
-	switch (iMessage) {
-	case WM_CREATE:
-		x=50;
-		y=50;
-		xi=4;
-		yi=5;
-		SetTimer(hWnd,1,25,NULL);
-		return 0;
-	case WM_TIMER:
-		OnTimer();
-		return 0;
+	switch (iMessage)
+	{
+		case WM_CREATE:
+			x = 50;
+			y = 50;
+			xi = 4;
+			yi = 5;
+			SetTimer(hWnd,1,25,NULL);
+			return 0;
 
-		/*
-	case WM_ERASEBKGND:
-		int a;
-		a = 0;
-		//break;
-		return 0;
-		//*/
 
-	case WM_PAINT:
-		hdc=BeginPaint(hWnd, &ps);
-		GetClientRect(hWnd,&crt);
+		case WM_TIMER:
+			OnTimer();
+			return 0;
 
-		hPen = CreatePen(PS_INSIDEFRAME, 1, RGB(255, 0, 0));
-		OldPen = (HPEN)SelectObject(hdc, hPen);
-		for (i=0;i<crt.right;i+=10) {
-			MoveToEx(hdc,i,0,NULL);
-			LineTo(hdc,i,crt.bottom);
-		}
+			/*
+		case WM_ERASEBKGND:
+			int a;
+			a = 0;
+			//break;
+			return 0;
+			//*/
 
-		hPen = CreatePen(PS_INSIDEFRAME, 1, RGB(0, 0, 255));
-		OldPen = (HPEN)SelectObject(hdc, hPen);
-		for (i=0;i<crt.bottom;i+=10) {
-			MoveToEx(hdc,0,i,NULL);
-			LineTo(hdc,crt.right,i);
-		}
 
-		//	외곽선 설정..
-		hPen=CreatePen(PS_INSIDEFRAME,3,RGB(255, 255, 0));
-		OldPen=(HPEN)SelectObject(hdc,hPen);
+		case WM_PAINT:
+			hdc=BeginPaint(hWnd, &ps);
+			GetClientRect(hWnd,&crt);
 
-		//	내부 색 설정..
-		hBrush=CreateSolidBrush(RGB(0,0,255));
-		OldBrush=(HBRUSH)SelectObject(hdc,hBrush);
+			hPen = CreatePen(PS_INSIDEFRAME, 1, RGB(255, 0, 0));
+			OldPen = (HPEN)SelectObject(hdc, hPen);
+			
+			for (i=0;i<crt.right;i+=10)
+			{
+				MoveToEx(hdc,i,0,NULL);
+				LineTo(hdc,i,crt.bottom);
+			}
 
-		//	원 그리기..
-		Ellipse(hdc,x-R,y-R,x+R,y+R);
+			hPen = CreatePen(PS_INSIDEFRAME, 1, RGB(0, 0, 255));
+			OldPen = (HPEN)SelectObject(hdc, hPen);
+			
+			for (i=0;i<crt.bottom;i+=10)
+			{
+				MoveToEx(hdc,0,i,NULL);
+				LineTo(hdc,crt.right,i);
+			}
 
-		//	펜 제거..
-		DeleteObject(SelectObject(hdc,OldPen));
-		//	브러시 제거..
-		DeleteObject(SelectObject(hdc,OldBrush));
-		EndPaint(hWnd, &ps);
-		return 0;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		KillTimer(hWnd,1);
-		return 0;
-	}
+			//	외곽선 설정..
+			hPen = CreatePen( PS_INSIDEFRAME,3,RGB( 255, 255, 0 ) );
+			OldPen = ( HPEN )SelectObject(hdc,hPen );
+
+			//	내부 색 설정..
+			hBrush = CreateSolidBrush( RGB( 0, 0, 255 ) );
+			OldBrush = ( HBRUSH )SelectObject( hdc, hBrush );
+
+			//	원 그리기..
+			Ellipse(
+				hdc,
+				x - R, y - R,
+				x + R, y + R );
+
+			//	펜 제거..
+			DeleteObject( SelectObject( hdc, OldPen ) );
+			//	브러시 제거..
+			DeleteObject( SelectObject( hdc, OldBrush ) );
+			EndPaint( hWnd, &ps );
+			return 0;
+
+
+		case WM_DESTROY:
+			PostQuitMessage(0);
+			KillTimer(hWnd,1);
+			return 0;
+
+	}//	switch (iMessage)
+
 	return(DefWindowProc(hWnd,iMessage,wParam,lParam));
-}
+
+}//	LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 //==================================================================

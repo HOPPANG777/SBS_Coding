@@ -61,7 +61,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 					동일한 특성의 메모리 DC 반환..
 
 				-	비트맵은 용량이 커서
-					화면으로 곧 바로 출력이 힘들고
+					화면으로 곧 바로 출력이 힘들기 때문에
 					메모리 DC에 미리 준비해 놓고 사용..
 
 					-	메모리 DC..
@@ -81,7 +81,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 			//	IDB_BITMAP_GIRLS
 			//	IDB_BITMAP_CAR
 			//	IDB_BITMAP_WOLF
-			MyBitmap = LoadBitmap( g_hInst, MAKEINTRESOURCE( IDB_BITMAP_GIRLS ) );
+			MyBitmap = LoadBitmap( g_hInst, MAKEINTRESOURCE(IDB_BITMAP_MYSON) );
 
 			/*
 				OldBitmap = ( HBITMAP )SelectObject( MemDC, MyBitmap );

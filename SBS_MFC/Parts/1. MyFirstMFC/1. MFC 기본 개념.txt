@@ -1,0 +1,361 @@
+===================================================================
+	MFC 기본 개념..
+===================================================================
+
+
+	---------
+	1)	MFC..
+	---------
+	
+		-	정의..
+
+			-	Microsoft Foundation Class..
+
+			-	[ Win API ]를 사용하기
+				쉽게 클래스화..
+
+
+
+		-	MFC 설치..
+
+			-	[ 메뉴 ]
+				> [ 도구 ]
+				> [ 도구 및 기능 가져오기 ]
+				> [ C++ 를 사용한 데스크톱 개발 ]
+				> [ 최신 v143 빌드 도구용 C++ MFC(x86 및 x64 ) ]
+				> [ 수정 ]
+				
+
+
+
+	------------------------
+	2)	새 프로젝트 만들기..
+	------------------------
+
+		-	MFC 프로젝트 생성 절차..
+
+			
+			-	새프로젝트 만들기..
+
+				> [ C++ ] / [ Windows ] / [ 데스크톱 ]
+
+				> [ MFC 앱 ]
+
+				> [ 프로젝트 이름 ] / [ 위치 ] 설정
+
+				> [ 애플리케이션 종류 ]
+				
+					-	애플리케이션 종류..
+						ㄴ	단일 문서 선택..
+							( 기본 작업 환경 )
+
+					-	프로젝트 스타일..
+						ㄴ	MFC Standard..
+
+					-	문서 / 뷰 아키텍처 지원..
+						ㄴ	On..
+						ㄴ	MFC에서 제공하는 DB 지원..
+							ㄴ Off 인경우 Doc 클래스 생성안됨..
+
+				> [ 고급 기능 ]
+					-	All Off..
+
+				> 그외 기본값 설정..
+			
+				> 마침..
+
+
+		
+		--------------------
+		-	기능 추가 하기..
+		--------------------
+
+			1.	기능을 추가하려는 클래스를
+				[ 클래스 뷰 ]에서 선택..
+				
+				ㄴ	[ 메뉴 ]
+					> [ 보기 ]
+					> [ 클래스 뷰 ] 선택..
+
+
+			2.	속성창 - 메시지 클릭..
+
+
+			3.	메시지 맵 & 핸들러( 함수 ) 추가 확인..
+
+
+			4.	메시지 핸들러에서 작업..
+
+
+			5.	OnLButtonDown, OnPaint 추가..
+
+	
+	----------
+	3)	구조..
+	----------
+
+		1)	https://msdn.microsoft.com/ko-kr/library/ws8s10w4.aspx
+			https://msdn.microsoft.com/ko-kr/library/bk77x1wx.aspx
+		
+		
+		2)	핵심 구조
+			CObject		-	CCmdTarget		-		CWinThread	-		CWinApp		-	CMyFirstMFCApp
+
+											-		CWnd		-		CFrameWnd	-	CMainFrame
+
+																-		CView		-	CMyFirstMFCView
+																	
+																-		CDialog		-	CDialogEx	-	CAboutDlg
+									
+											-		CDocument	-		CMyFirstMFCDoc
+		
+
+			1)	CObject..
+
+				-	[ MFC ]에서 제공하는
+					모든 클래스의 부모 클래스..
+
+
+			
+			2)	CCmdTarget..
+
+				-	커멘드 메시지를 처리하는 클래스의
+					부모 클래스..
+
+				-	이벤트를 받는 기능..
+
+				-	윈도우 메시지를 처리하는 클래스는
+					모두 이 클래스를 상속 받음..
+			
+
+
+			3)	CWinThread..
+				-	스레드 관리..
+
+
+				CWnd..
+				-	윈도우 표현, 메시지 처리에 관련된
+					클래스들의 부모 클래스..
+
+
+				CDocument
+				-	어플리케이션의 데이터를
+					관리하는 클래스..
+
+				-	주로 파일 처리, 데이터 구조 관리
+					등에 사용..
+
+
+
+			4)	CWinApp..
+
+				-	어플리케이션에 대한 인스턴스를
+					초기화하고 메시지 루프를 설정..
+
+
+
+				CFrameWnd..
+
+				-	메인 윈도우를 표현하는
+					클래스..
+
+				-	윈도우의 크기, 위치,
+					상태 등을 설정..
+
+
+				CView..
+				-	클라이언트 영역을 표현하거나 
+					CDocument의 정보를 표현..
+
+
+				CDialog..
+				-	모든 대화상자의 부모 클래스..
+				
+
+
+			
+			-----------------
+			-	주요 클래스..
+			-----------------
+
+				-	CMyFirstMFCApp( CWinApp )
+					ㄴ	프로젝트의 시작과 종료 처리..
+
+				-	CMainFrame( CFrameWnd )
+					ㄴ	전체적인 틀..
+
+				-	CMyFirstMFCView( CView )
+					ㄴ	작업 공간..
+
+				-	CMyFirstMFCDoc( CDocument )
+					ㄴ	주요 데이터 관리..
+
+				http://marcof.tistory.com/26
+			
+
+
+	----------
+	4)	참고..
+	----------
+
+		-	WinMain() / WndProc()의 위치..
+
+			-	appmodule.cpp에서 호출..
+
+				-	CMyFirstMFCApp::InitInstance()에
+					브레이크 포인트 설정 후 디버깅모드로 실행..
+
+				-	브레이크 포인트가 걸리면
+					콜스택 창에서 확인 가능..
+
+					-	WinMain()	:	winmain.cpp
+						WndProc()	:	afxstate.cpp
+						( 2006년 자료 )
+
+
+
+	--------------------------
+	5)	주요 클래스 이해하기..
+		( 1 / 2 )
+	--------------------------
+
+		1)	CMainFrame( CFrameWnd )
+
+			1)	BOOL PreCreateWindow(CREATESTRUCT& cs)
+				-	윈도우가 생성되기 바로 직전에 호출..
+				-	[ CREATESTRUCT ]를 사용하여
+					윈도우의 스타일과 크기 등을
+					지정 가능..
+			
+			2)	int OnCreate( LPCREATESTRUCT lpCreateStruct )
+				-	생성된 윈도우가 화면에 표시되기
+					바로 직전에 호출..
+				-	툴바, 상태바 등의 객체 생성..
+
+
+
+
+		2)	CMyFirstMFC( CWinApp )
+		
+			1)	BOOL InitInstance()
+				-	CMyFirstMFCView, CMainFrame,
+					CMyFirstMFCDoc 등에 대한 동적 할당..
+					ㄴ	[ ProcessShellCommand ]에서 담당..
+					ㄴ	함수 내부에서 OnFileNew()를 호출..
+
+	
+
+	
+		3)	CMyFirstMFCView( CView )
+		
+			1)	CMyFirstMFCDoc* GetDocument()
+				-	CMyFirstMFCDoc클래스의 객체 반환..
+				
+			2)	void OnDraw(CDC* pDC)
+				-	[ OnPaint ]를 사용한 출력 내용은
+					뷰( 클라이언트 영역 )에만 출력..
+
+				-	프린터 같은 다른 장치로
+					출력하기 위한 작업 공간..
+
+	
+
+
+		4)	CMyFirstMFCDoc( CDocument )
+		
+			1)	BOOL OnNewDocument()
+				-	멤버 변수 초기화 작업 공간..
+				-	프로그램 시작시, 새 파일 메뉴 항목
+					선택시 호출..
+		
+			2)	void Serialize(CArchive& ar)
+				-	직렬화 함수..
+				-	파일 입출력과 관련된 작업을 위한 공간..
+				-	데이터 관련 멤버 변수들을
+					파일로 넣는 코드를 작성..
+
+
+			
+	--------------------------
+	6)	주요 클래스 이해하기..
+		( 2 / 2 )
+	--------------------------
+
+		1)	CMainFrame( CFrameWnd )..
+
+			1)	BOOL PreCreateWindow(CREATESTRUCT& cs)
+				-	윈도우의 위치와 크기 설정..(참고 1)
+				-	윈도우 스타일 설정..(참고 2)
+		
+			2)	void OnContextMenu(CWnd* pWnd, CPoint point);
+				-	윈도우 창에 마우스 우클릭..(참고 3)
+			
+			3)	int OnCreate(LPCREATESTRUCT lpCreateStruct)
+				-	툴바, 상태바 제어..(참고 4)
+
+
+
+		2)	CMyFirstMFC( CWinApp )..
+			1)	BOOL InitInstance()
+				-	CMyFirstMFCView, CMainFrame,
+					CMyFirstMFCDoc 의 객체 생성 및 연결..
+					(참고 5)
+
+				-	윈도우 최대 / 최소화..
+					(참고 6)
+
+	
+	
+		3)	CMyFirstMFCView( CView )..
+		
+			1)	dc 출력..
+				-	(참고 7), (참고 8),
+					(참고 9)
+
+
+
+		4)	CMyFirstMFCDoc( CDocument )..
+
+			1)	직렬화..
+				(참고 10)
+
+
+	
+	
+		5)	응용..
+			1)	(참고 11)
+		
+
+
+-----------------
+-	주요 클래스간
+	참조하기..
+-----------------
+
+	http://yonghello.tistory.com/entry/%EA%B0%81-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%97%90%EC%84%9C-%EA%B0%9D%EC%B2%B4-%EC%96%BB%EA%B8%B0
+
+	-	싱글톤 패턴을 활용하여
+		주요 클래스간의 커뮤니케이션이 가능..
+
+	1) App 참조하기..
+	
+		CTestApp *pApp = (CTestApp *) AfxGetApp();
+
+
+	2) Frame 참조하기..
+
+		CMainFrame *pFrame = (CMainFrame *) AfxGetMainWnd();
+
+
+	3) View 참조하기..
+	
+		CTestView *pView = (CTestView*)((CMainFrame *)AfxGetMainWnd())->GetActiveView();
+
+
+	4) Document 참조하기..
+	
+		CTestDoc *pDoc = (CTestDoc*)((CMainFrame *)AfxGetMainWnd())->GetActiveDocument();
+
+
+
+===================================================================
