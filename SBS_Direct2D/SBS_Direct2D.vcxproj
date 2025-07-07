@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c06c0009-b8b6-4cae-b036-689fa4dd364c}</ProjectGuid>
+    <RootNamespace>SBSDirect2D</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\Obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\Obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\Obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)_Build\$(PlatformTarget)\$(Configuration)\Obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxCore.cpp" />
+    <ClCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxFont.cpp" />
+    <ClCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxSprite.cpp" />
+    <ClCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxTexture.cpp" />
+    <ClCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CInputManager.cpp" />
+    <ClCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CMyGame.cpp" />
+    <ClCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\WinMain.cpp" />
+    <ClCompile Include="Parts\2. Create Device\DX_CreateDevice\DX_CreateDevice.cpp" />
+    <ClCompile Include="Parts\3. Sprite\CCore.cpp" />
+    <ClCompile Include="Parts\3. Sprite\CDx.cpp" />
+    <ClCompile Include="Parts\3. Sprite\CMyGame.cpp" />
+    <ClCompile Include="Parts\3. Sprite\WinMain.cpp" />
+    <ClCompile Include="Parts\4. Texture\MyEngine - numerous\CCore.cpp" />
+    <ClCompile Include="Parts\4. Texture\MyEngine - numerous\CMyGame.cpp" />
+    <ClCompile Include="Parts\4. Texture\MyEngine - numerous\WinMain.cpp" />
+    <ClCompile Include="Parts\4. Texture\MyEngine\CCore.cpp" />
+    <ClCompile Include="Parts\4. Texture\MyEngine\CMyGame.cpp" />
+    <ClCompile Include="Parts\4. Texture\MyEngine\WinMain.cpp" />
+    <ClCompile Include="Parts\5. Animation\MyEngine\CCore.cpp" />
+    <ClCompile Include="Parts\5. Animation\MyEngine\CMyGame.cpp" />
+    <ClCompile Include="Parts\5. Animation\MyEngine\WinMain.cpp" />
+    <ClCompile Include="Parts\6. Font Class\MyEngine\CCore.cpp" />
+    <ClCompile Include="Parts\6. Font Class\MyEngine\CDxTexture.cpp" />
+    <ClCompile Include="Parts\6. Font Class\MyEngine\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\6. Font Class\MyEngine\CMyGame.cpp" />
+    <ClCompile Include="Parts\6. Font Class\MyEngine\WinMain.cpp" />
+    <ClCompile Include="Parts\7. InputManager\MyEngine\CDxCore.cpp" />
+    <ClCompile Include="Parts\7. InputManager\MyEngine\CDxFont.cpp" />
+    <ClCompile Include="Parts\7. InputManager\MyEngine\CDxTexture.cpp" />
+    <ClCompile Include="Parts\7. InputManager\MyEngine\CInputManager.cpp" />
+    <ClCompile Include="Parts\7. InputManager\MyEngine\CMyGame.cpp" />
+    <ClCompile Include="Parts\7. InputManager\MyEngine\WinMain.cpp" />
+    <ClCompile Include="Parts\8. Collision\MyEngine\CDxCore.cpp" />
+    <ClCompile Include="Parts\8. Collision\MyEngine\CDxFont.cpp" />
+    <ClCompile Include="Parts\8. Collision\MyEngine\CDxTexture.cpp" />
+    <ClCompile Include="Parts\8. Collision\MyEngine\CInputManager.cpp" />
+    <ClCompile Include="Parts\8. Collision\MyEngine\CMyGame.cpp" />
+    <ClCompile Include="Parts\8. Collision\MyEngine\WinMain.cpp" />
+    <ClCompile Include="Parts\9. Pixel Processing\MyEngine\CDxCore.cpp" />
+    <ClCompile Include="Parts\9. Pixel Processing\MyEngine\CDxFont.cpp" />
+    <ClCompile Include="Parts\9. Pixel Processing\MyEngine\CDxSprite.cpp" />
+    <ClCompile Include="Parts\9. Pixel Processing\MyEngine\CDxTexture.cpp" />
+    <ClCompile Include="Parts\9. Pixel Processing\MyEngine\CInputManager.cpp" />
+    <ClCompile Include="Parts\9. Pixel Processing\MyEngine\CMyGame.cpp" />
+    <ClCompile Include="Parts\9. Pixel Processing\MyEngine\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxFont.cpp" />
+    <ClCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxSprite.cpp" />
+    <ClCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\CInputManager.cpp" />
+    <ClCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_2 Create Device\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_2 Create Device\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_2 Create Device\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_2 Create Device\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_4 Texture\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_4 Texture\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_4 Texture\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_4 Texture\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_4 Texture\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CDxCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CDxFont.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CDxSprite.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CInputManager.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_5-2. SpriteEx\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_5. Texture( with Anim )\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_5. Texture( with Anim )\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_5. Texture( with Anim )\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_5. Texture( with Anim )\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\__Exam\_5. Texture( with Anim )\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_5. Texture( with Anim )\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_6. Font Class\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_6. Font Class\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_6. Font Class\CDxFont.cpp" />
+    <ClCompile Include="Parts\__Exam\_6. Font Class\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_6. Font Class\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\__Exam\_6. Font Class\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_6. Font Class\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\CDxFont.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\CInputManager.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_7. InputManager\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CDxFont.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CheckCollision.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CInputManager.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CCollisionAABB.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CCollisionBase.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CCollisionSphere.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CDxFont.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CInputManager.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_8. Collision_Polymorphism\WinMain.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CCollisionAABB.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CCollisionBase.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CCollisionSphere.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CCore.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CDx.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CDxFont.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CDxTexture.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CDxTextureAnim.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CInputManager.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\CMyGame.cpp" />
+    <ClCompile Include="Parts\__Exam\_9. Show FPS\WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxCore.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxFont.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxSprite.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CDxTexture.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CInputManager.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\CMyGame.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\Global.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\resource.h" />
+    <ClInclude Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\Util.h" />
+    <ClInclude Include="Parts\3. Sprite\CCore.h" />
+    <ClInclude Include="Parts\3. Sprite\CDx.h" />
+    <ClInclude Include="Parts\3. Sprite\CMyGame.h" />
+    <ClInclude Include="Parts\3. Sprite\Global.h" />
+    <ClInclude Include="Parts\3. Sprite\Util.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine - numerous\CCore.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine - numerous\CMyGame.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine - numerous\Global.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine - numerous\Util.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine\CCore.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine\CMyGame.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine\Global.h" />
+    <ClInclude Include="Parts\4. Texture\MyEngine\Util.h" />
+    <ClInclude Include="Parts\5. Animation\MyEngine\CCore.h" />
+    <ClInclude Include="Parts\5. Animation\MyEngine\CMyGame.h" />
+    <ClInclude Include="Parts\5. Animation\MyEngine\Global.h" />
+    <ClInclude Include="Parts\5. Animation\MyEngine\Util.h" />
+    <ClInclude Include="Parts\6. Font Class\MyEngine\CCore.h" />
+    <ClInclude Include="Parts\6. Font Class\MyEngine\CDxTexture.h" />
+    <ClInclude Include="Parts\6. Font Class\MyEngine\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\6. Font Class\MyEngine\CMyGame.h" />
+    <ClInclude Include="Parts\6. Font Class\MyEngine\Global.h" />
+    <ClInclude Include="Parts\6. Font Class\MyEngine\Util.h" />
+    <ClInclude Include="Parts\7. InputManager\MyEngine\CDxCore.h" />
+    <ClInclude Include="Parts\7. InputManager\MyEngine\CDxFont.h" />
+    <ClInclude Include="Parts\7. InputManager\MyEngine\CDxTexture.h" />
+    <ClInclude Include="Parts\7. InputManager\MyEngine\CInputManager.h" />
+    <ClInclude Include="Parts\7. InputManager\MyEngine\CMyGame.h" />
+    <ClInclude Include="Parts\7. InputManager\MyEngine\Global.h" />
+    <ClInclude Include="Parts\7. InputManager\MyEngine\Util.h" />
+    <ClInclude Include="Parts\8. Collision\MyEngine\CDxCore.h" />
+    <ClInclude Include="Parts\8. Collision\MyEngine\CDxFont.h" />
+    <ClInclude Include="Parts\8. Collision\MyEngine\CDxTexture.h" />
+    <ClInclude Include="Parts\8. Collision\MyEngine\CInputManager.h" />
+    <ClInclude Include="Parts\8. Collision\MyEngine\CMyGame.h" />
+    <ClInclude Include="Parts\8. Collision\MyEngine\Global.h" />
+    <ClInclude Include="Parts\8. Collision\MyEngine\Util.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\CDxCore.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\CDxFont.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\CDxSprite.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\CDxTexture.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\CInputManager.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\CMyGame.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\Global.h" />
+    <ClInclude Include="Parts\9. Pixel Processing\MyEngine\Util.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxCore.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxFont.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxSprite.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\CInputManager.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\Global.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\resource.h" />
+    <ClInclude Include="Parts\__Exam\_10. FrameWork\FrameWork\Util.h" />
+    <ClInclude Include="Parts\__Exam\_2 Create Device\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_2 Create Device\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_2 Create Device\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_2 Create Device\Global.h" />
+    <ClInclude Include="Parts\__Exam\_2 Create Device\Util.h" />
+    <ClInclude Include="Parts\__Exam\_4 Texture\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_4 Texture\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_4 Texture\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_4 Texture\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_4 Texture\Global.h" />
+    <ClInclude Include="Parts\__Exam\_4 Texture\Util.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CDxCore.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CDxFont.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CDxSprite.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CInputManager.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\Global.h" />
+    <ClInclude Include="Parts\__Exam\_5-2. SpriteEx\Util.h" />
+    <ClInclude Include="Parts\__Exam\_5. Texture( with Anim )\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_5. Texture( with Anim )\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_5. Texture( with Anim )\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_5. Texture( with Anim )\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\__Exam\_5. Texture( with Anim )\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_5. Texture( with Anim )\Global.h" />
+    <ClInclude Include="Parts\__Exam\_5. Texture( with Anim )\Util.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\CDxFont.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\Global.h" />
+    <ClInclude Include="Parts\__Exam\_6. Font Class\Util.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\CDxFont.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\CInputManager.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\Global.h" />
+    <ClInclude Include="Parts\__Exam\_7. InputManager\Util.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CDxFont.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CheckCollision.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CInputManager.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\Global.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision\Util.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CCollisionAABB.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CCollisionBase.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CCollisionSphere.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CDxFont.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CInputManager.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\Global.h" />
+    <ClInclude Include="Parts\__Exam\_8. Collision_Polymorphism\Util.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CCollisionAABB.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CCollisionBase.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CCollisionSphere.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CCore.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CDx.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CDxFont.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CDxTexture.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CDxTextureAnim.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CInputManager.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\CMyGame.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\Global.h" />
+    <ClInclude Include="Parts\__Exam\_9. Show FPS\Util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Parts\10. Toggle ScreenMode\Toggle ScreenMode\MyEngine.rc" />
+    <ResourceCompile Include="Parts\__Exam\_10. FrameWork\FrameWork\MyEngine.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
