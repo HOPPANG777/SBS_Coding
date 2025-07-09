@@ -84,21 +84,21 @@ INT		CMyGame::Render3D()
 
 	//	회전하는 동작을 연출하기 위해
 	//	컬링 기능을 끔..
-	//		D3DCULL_CW			:	시계 방향을 컬링..
-	//		D3DCULL_CCW(디폴트)	:	시계 반대 방향을 컬링..
+	//		D3DCULL_CW				:	시계 방향을 컬링..
+	//		D3DCULL_CCW( 디폴트 )	:	시계 반대 방향을 컬링..
 	GetDev()->SetRenderState( D3DRS_CULLMODE, D3DCULL_NONE );
 
 	//	노멀 벡터 정보가 없으므로
 	//	어둡게 나옴..
-	//	-	라이팅 off.
-	//	-	노멀 벡터가 있어야 연산이 된다.( D3DFVF_NORMAL )
-	GetDev()->SetRenderState(D3DRS_LIGHTING, FALSE);
+	//	-	라이팅 off..
+	//	-	노멀 벡터가 있어야 연산이 된다..( D3DFVF_NORMAL )
+	GetDev()->SetRenderState( D3DRS_LIGHTING, FALSE );
 
 	// 정점을 디바이스에 연결..
 	GetDev()->SetStreamSource(0, m_pVB, 0, sizeof(SVtxD));
 
 	// 정점 포멧을 설정..
-	GetDev()->SetFVF(D3DFVF_CUSTOM);
+	GetDev()->SetFVF( D3DFVF_CUSTOM );
 
 	// 렌더링..
 	GetDev()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
@@ -210,7 +210,7 @@ INT CMyGame::FrameMove()
 		}
 
 		D3DXVECTOR3	vcS(_scale, _scale, _scale);
-		D3DXMATRIX	mtScl;	// 스케일 행렬
+		D3DXMATRIX	mtScl;	// 스케일 행렬..
 		D3DXMatrixScaling(&mtScl, vcS.x, vcS.y, vcS.z);
 		/*
 			정점을 x,y,z축으로 
@@ -247,13 +247,13 @@ INT CMyGame::FrameMove()
 		//	단위 행렬..
 		//	-	주대각선의 원소가 모두 1이며
 		//		나머지 원소는 모두 0인 정사각 행렬..
-		D3DXMatrixIdentity(&mtRot);
+		D3DXMatrixIdentity( &mtRot );
 		
 
 		/*
-			---------------
+			--------------
 			x축 회전 행렬..
-			---------------
+			--------------
 												|	1	0		0		0	|
 												|	0	cos@	sin@	0	|
 				[x' y' z' 1] = [x y z 1]	*	|	0	-sin@	cos@	0	|
@@ -277,27 +277,27 @@ INT CMyGame::FrameMove()
 												|	0		0		0	1	|
 		*/
 
-		D3DXMATRIX mtTrn;	// 이동 행렬
+		D3DXMATRIX mtTrn;	// 이동 행렬..
 		static bool isTrans = false;
 		if (m_pInputManager->KeyPress(VK_RIGHT))
 		{
-			_pos.x += 1.f * GetElapsedTime() * TRANS_RATE;
+			_pos.x += GetElapsedTime() * TRANS_RATE;
 			isTrans = true;
 		}
 		else if (m_pInputManager->KeyPress(VK_LEFT))
 		{
-			_pos.x -= 1.f * GetElapsedTime() * TRANS_RATE;
+			_pos.x -= GetElapsedTime() * TRANS_RATE;
 			isTrans = true;
 		}
 
 		if (m_pInputManager->KeyPress(VK_UP))
 		{
-			_pos.y += 1.f * GetElapsedTime() * TRANS_RATE;
+			_pos.y += GetElapsedTime() * TRANS_RATE;
 			isTrans = true;
 		}			
 		else if (m_pInputManager->KeyPress(VK_DOWN))
 		{
-			_pos.y -= 1.f * GetElapsedTime() * TRANS_RATE;
+			_pos.y -= GetElapsedTime() * TRANS_RATE;
 			isTrans = true;
 		}	
 
@@ -365,7 +365,7 @@ INT CMyGame::FrameMove()
 
 
 		//---------------------------------
-		// 투영 변환
+		// 투영 변환..
 		//---------------------------------
 		D3DXMATRIX m_mtPrj;
 		FLOAT	fScreenW = (FLOAT)800;
@@ -387,7 +387,7 @@ INT CMyGame::FrameMove()
 		FLOAT	fFar = 5000.f;					//	원거리 클리핑 영역 거리..
 
 		D3DXMatrixPerspectiveFovLH(&m_mtPrj, fFOV, fAspect, fNear, fFar);	// 투영 행렬 만들기..
-		GetDev()->SetTransform(D3DTS_PROJECTION, &m_mtPrj);					// 디바이스에 투영 행렬을 설정..
+		GetDev()->SetTransform( D3DTS_PROJECTION, &m_mtPrj );					// 디바이스에 투영 행렬을 설정..
 
 	}//	if (m_pInputManager)
 

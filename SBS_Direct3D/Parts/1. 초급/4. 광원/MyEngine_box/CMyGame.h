@@ -35,7 +35,7 @@ public:
 	HRESULT InitVB();
 	void SetMatrix();
 	//	광원 - 2)
-	//	-	재질, 조명 설정.
+	//	-	재질, 조명 설정..
 	void SetMaterial();
 	void SetLight();
 	//------------------------------------------

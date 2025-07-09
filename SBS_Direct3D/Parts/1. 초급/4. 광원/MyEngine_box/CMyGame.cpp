@@ -32,8 +32,8 @@ HRESULT CMyGame::InitVB()
 		return E_FAIL;
 	}
 
-	// 정점데이터를 채운다.
-	// Lock은 현재의 독점을 유지
+	// 정점데이터를 채운다..
+	// Lock은 현재의 독점을 유지..
 	void* pvtx;
 	if (FAILED(m_pVB->Lock(0, sizeof(vtx), (void**)&pvtx, 0)))
 		return E_FAIL;
@@ -48,26 +48,26 @@ HRESULT CMyGame::InitVB()
 void CMyGame::SetMatrix()
 {
 	//---------------------------------
-	// 월드 변환
+	// 월드 변환..
 	//---------------------------------
 	D3DXMATRIX matWorld;
 	D3DXMatrixIdentity(&matWorld);
-	D3DXMatrixRotationY(&matWorld, timeGetTime() / 500.0f);	// 회전행렬
-	GetDev()->SetTransform(D3DTS_WORLD, &matWorld);			// 디바이스의 월드 행렬을 설정한다.
+	D3DXMatrixRotationY(&matWorld, timeGetTime() / 500.0f);	// 회전행렬..
+	GetDev()->SetTransform(D3DTS_WORLD, &matWorld);			// 디바이스의 월드 행렬을 설정한다..
 
 	//---------------------------------
-	// 뷰 변환
+	// 뷰 변환..
 	//---------------------------------
 	D3DXMATRIX mtViw;
-	D3DXVECTOR3 vEyePt(0.0f, 0.0f, -5.0f);						// 카메라의 위치
-	D3DXVECTOR3 vLookAt(0.0f, 0.0f, 0.0f);						// 카메라가 보고 있는 지점
-	D3DXVECTOR3 vUpVec(0.0f, 1.0f, 0.0f);						// 카메라의 업 벡터
-	D3DXMatrixLookAtLH(&mtViw, &vEyePt, &vLookAt, &vUpVec);		// 뷰 행렬 만들기
+	D3DXVECTOR3 vEyePt(0.0f, 0.0f, -5.0f);						// 카메라의 위치..
+	D3DXVECTOR3 vLookAt(0.0f, 0.0f, 0.0f);						// 카메라가 보고 있는 지점..
+	D3DXVECTOR3 vUpVec(0.0f, 1.0f, 0.0f);						// 카메라의 업 벡터..
+	D3DXMatrixLookAtLH(&mtViw, &vEyePt, &vLookAt, &vUpVec);		// 뷰 행렬 만들기..
 
 	GetDev()->SetTransform(D3DTS_VIEW, &mtViw);					// 디바이스의 뷰 행렬 설정
 
 	//---------------------------------
-	// 투영 변환
+	// 투영 변환..
 	//---------------------------------
 	D3DXMATRIX m_mtPrj;
 	FLOAT	fScreenW = (FLOAT)800;
@@ -161,22 +161,22 @@ INT		CMyGame::Render2D()
 //============================================
 INT		CMyGame::Render3D()
 {
-	// 현재 은면제거 상태 확인.
+	// 현재 은면제거 상태 확인..
 	DWORD dCullMode = 0;
 	GetDev()->GetRenderState(D3DRS_CULLMODE, &dCullMode);
 
-	// 은면제거 비활성화
+	// 은면제거 비활성화..
 	GetDev()->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 
 
-	// 정점을 디바이스에 연결
+	// 정점을 디바이스에 연결..
 	GetDev()->SetStreamSource(0, m_pVB, 0, sizeof(SVtxNor));
-	// 정점 포멧을 설정
+	// 정점 포멧을 설정..
 	GetDev()->SetFVF(D3DFVF_CUSTOM);
-	// 렌더링
+	// 렌더링..
 	GetDev()->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
 
-	// 은면 제거 상태 복구.
+	// 은면 제거 상태 복구..
 	GetDev()->SetRenderState(D3DRS_CULLMODE, dCullMode);
 
 	return 0;

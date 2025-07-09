@@ -24,7 +24,7 @@ public:
 	//------------------------------------------
 	LPDIRECT3DVERTEXBUFFER9	m_pVB;
 	//	인덱스 버퍼 2)
-	//	-	인덱스 버퍼 선언.
+	//	-	인덱스 버퍼 선언..
 	LPDIRECT3DINDEXBUFFER9	m_pIB;
 	HRESULT InitVB();
 

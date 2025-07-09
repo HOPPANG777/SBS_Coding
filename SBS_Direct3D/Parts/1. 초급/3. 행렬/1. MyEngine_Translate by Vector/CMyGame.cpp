@@ -63,7 +63,7 @@ INT		CMyGame::Init()
 //============================================
 INT		CMyGame::Render2D()
 {
-	//	폰트 출력.
+	//	폰트 출력..
 	m_pDxFont->Draw(GetSprite(), _T("fps 테스트"), 300, 0, 300, 50, D3DXCOLOR(1, 1, 0, 1), DT_LEFT);
 	m_pDxFont->Draw(GetSprite(), m_tszFPS, 0, 0, 300, 50, D3DXCOLOR(1, 1, 0, 1), DT_LEFT);
 
@@ -73,7 +73,7 @@ INT		CMyGame::Render2D()
 INT		CMyGame::Render3D()
 {
 	GetDev()->SetStreamSource( 0, m_pVB, 0, sizeof(SVtxRHWD) );	
-	GetDev()->SetFVF(D3DFVF_CUSTOMVERTEX);
+	GetDev()->SetFVF( D3DFVF_CUSTOMVERTEX );
 	GetDev()->DrawPrimitive( D3DPT_TRIANGLELIST, 0, 1 );
 
 	return 0;

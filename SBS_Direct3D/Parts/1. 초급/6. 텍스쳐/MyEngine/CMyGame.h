@@ -30,7 +30,7 @@ public:
 	CDxGrid*	m_pGrid;
 	//------------------------------------------
 	//	텍스쳐 - 2 )
-	//	-	텍스쳐 버퍼 선언.
+	//	-	텍스쳐 버퍼 선언..
 	CDxTexture*	m_pTex;
 	//	텍스쳐 생성.
 	HRESULT	InitTexture();

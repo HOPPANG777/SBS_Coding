@@ -130,7 +130,7 @@ INT		CMyGame::Render3D()
 		sizeof(CUSTOMVERTEX)	//	정점 버퍼 한덩어리의 크기..
 	);
 	//	2)	FVF 정보 설정..
-	GetDev()->SetFVF(D3DFVF_CUSTOMVERTEX);
+	GetDev()->SetFVF( D3DFVF_CUSTOMVERTEX );
 
 	//	3)	그리기..
 	GetDev()->DrawPrimitive(
@@ -153,7 +153,7 @@ void	CMyGame::Destroy()
 		-	D3D 디바이스를 통해 생성된 메모리는
 			프로그램 종료전에 반드시 해제할 것..
 	*/
-	SAFE_RELEASE(m_pVB);
+	SAFE_RELEASE( m_pVB );
 }
 //============================================
 LRESULT CMyGame::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)

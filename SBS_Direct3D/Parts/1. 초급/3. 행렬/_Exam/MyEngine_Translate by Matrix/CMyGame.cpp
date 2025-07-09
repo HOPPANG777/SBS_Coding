@@ -172,13 +172,15 @@ INT		CMyGame::FrameMove()
 		/*	행렬 - 5)
 			[참고 : https://m.blog.naver.com/whdgkks12347/221347100241
 					https://m.blog.naver.com/dhygns/60191337515 ]
-			-	행렬 변환 적용.
-			-	3*3 행렬을 고려했으나 이동에 대한 처리로 인해 4*4 행렬로 연산.
+			-	행렬 변환 적용..
+			-	3*3 행렬을 고려했으나
+				이동에 대한 처리로 인해
+				4*4 행렬로 연산..
 		*/
 		//---------------------------------
-		//	월드 변환.
+		//	월드 변환..
 		//---------------------------------
-		//	스케일 변환.		
+		//	스케일 변환..	
 		if (m_pInputManager->KeyPress('q') || m_pInputManager->KeyPress('Q'))
 		{
 			if (_scale <= 5.0f)
@@ -191,7 +193,7 @@ INT		CMyGame::FrameMove()
 		}
 
 		D3DXVECTOR3	vcS(_scale, _scale, _scale);
-		D3DXMATRIX	mtScl;	// 스케일 행렬
+		D3DXMATRIX	mtScl;	// 스케일 행렬..
 		D3DXMatrixScaling(&mtScl, vcS.x, vcS.y, vcS.z);
 		/*
 			정점을 x,y,z축으로 Sx,Sy,Sz 만큼 확대/축소
@@ -217,17 +219,17 @@ INT		CMyGame::FrameMove()
 		}
 		//*/
 
-		//	회전 변환.		
+		//	회전 변환..
 		//	Degree 값으로 주어지면 Radian으로 바꾼다.
 		if (m_pInputManager->KeyPress('1'))
 			_rotY += GetElapsedTime() * ROTATE_RATE;
 		else if (m_pInputManager->KeyPress('2'))
 			_rotY -= GetElapsedTime() * ROTATE_RATE;
 
-		//	dx는 Radian 으로 회전 처리.
+		//	dx는 Radian 으로 회전 처리..
 		float fRadian = D3DXToRadian(_rotY);
-		//	Y축에 대한 회전 행렬을 구한다.
-		D3DXMATRIX mtRot;	// 회전 행렬
+		//	Y축에 대한 회전 행렬을 구한다..
+		D3DXMATRIX mtRot;	// 회전 행렬..
 		D3DXMatrixRotationY(&mtRot, fRadian);
 		/*
 			--------------

@@ -20,7 +20,7 @@ int	CDxCamera::Create(
 {
 	m_pDev = pDev;
 
-	//	카메라 위치,타겟, 업벡터 설정.
+	//	카메라 위치,타겟, 업벡터 설정..
 	m_vecEyePos = D3DXVECTOR3(0, 5, -5);
 	m_vecLookAt = D3DXVECTOR3(0, 0, 0);
 	m_vecUp = D3DXVECTOR3(0, 1, 0);
@@ -28,7 +28,7 @@ int	CDxCamera::Create(
 	m_fMoveSpeed = fMoveSpeed;
 	m_fRotSpeed = fRotSpeed;
 
-	//	투영 행렬 설정.
+	//	투영 행렬 설정..
 	D3DXMatrixPerspectiveFovLH(
 		&m_matProj,
 		D3DX_PI / 4.f,
@@ -68,11 +68,7 @@ int CDxCamera::FrameMove(	bool isForward, bool isBack,
 		D3DXVECTOR3	vecDelta = mouseEps;
 		Rotate(&vecDelta, m_fRotSpeed);
 	}
-	/*
-	D3DXVECTOR3	vecDelta = mouseEps;
-	MoveForward(vecDelta.z * m_fMoveSpeed);
-	*/
-
+	
 	D3DXMatrixLookAtLH(&m_matView, &m_vecEyePos, &m_vecLookAt, &m_vecUp);
 
 	m_pDev->SetTransform(D3DTS_VIEW, &m_matView);
@@ -118,17 +114,17 @@ void CDxCamera::Rotate(D3DXVECTOR3 *pvecDelta, float fSpeed)
 	D3DXVECTOR3 dirX, dirY, dirZ;
 	D3DXMATRIX matRotX, matRotY;
 
-	//	월드 좌표 Y축에 대한 회전.	( Yaw )	-------------------
+	//	월드 좌표 Y축에 대한 회전..	( Yaw )	-------------------
 	fYaw = D3DXToRadian(vecDelta.x * fSpeed);
-	//	회전에 대한 행렬값 연산.
+	//	회전에 대한 행렬값 연산..
 	D3DXMatrixRotationY(&matRotY, fYaw);
 
-	//	카메라의 Z축 방향.( 로컬좌표계 )
+	//	카메라의 Z축 방향..( 로컬좌표계 )
 	dirZ = m_vecLookAt - m_vecEyePos;
-	//	카메라의 Y축 방향.( 로컬좌표계 )
+	//	카메라의 Y축 방향..( 로컬좌표계 )
 	dirY = D3DXVECTOR3(m_matView._12, m_matView._22, m_matView._32);
 
-	//	회전에 대한 방향 재설정.
+	//	회전에 대한 방향 재설정..
 	//	-	Y축 회전을 적용한 후의 Z,Y축 방향 갱신..
 	D3DXVec3TransformCoord(&dirZ, &dirZ, &matRotY);
 	D3DXVec3TransformCoord(&dirY, &dirY, &matRotY);
@@ -138,7 +134,7 @@ void CDxCamera::Rotate(D3DXVECTOR3 *pvecDelta, float fSpeed)
 	D3DXMatrixLookAtLH(&m_matView, &m_vecEyePos, &m_vecLookAt, &m_vecUp);
 
 
-	//	월드 좌표 X축에 대한 회전.	( Pitch )	---------------
+	//	월드 좌표 X축에 대한 회전..	( Pitch )	---------------
 	fPitch = D3DXToRadian(vecDelta.y * fSpeed);
 	dirX = D3DXVECTOR3(m_matView._11, m_matView._21, m_matView._31);
 	dirY = D3DXVECTOR3(m_matView._12, m_matView._22, m_matView._32);

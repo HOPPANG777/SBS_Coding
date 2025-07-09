@@ -32,7 +32,7 @@ HRESULT CMyGame::InitVB()
 	vtx[5]._pos = D3DXVECTOR3(-1, -1, 0);
 	vtx[5]._color = 0xff0000ff;
 
-	// 정점버퍼를 생성한다.
+	// 정점버퍼 생성..
 	if (FAILED(GetDev()->CreateVertexBuffer(6 * sizeof(SVtxD)
 		, 0
 		, D3DFVF_CUSTOM
@@ -43,8 +43,8 @@ HRESULT CMyGame::InitVB()
 		return E_FAIL;
 	}
 
-	// 정점데이터를 채운다.
-	// Lock은 현재의 독점을 유지
+	// 정점 데이터 세팅..
+	// -	Lock은 현재의 독점을 유지..
 	void* pvtx;
 	if (FAILED(m_pVB->Lock(0, sizeof(vtx), (void**)&pvtx, 0)))
 		return E_FAIL;
@@ -67,7 +67,7 @@ HRESULT CMyGame::InitVB()
 	vtx[3]._pos = D3DXVECTOR3(1, -1, 0);
 	vtx[3]._color = 0xff0000ff;
 
-	// 정점버퍼를 생성한다.
+	// 정점버퍼 생성..
 	if (FAILED(GetDev()->CreateVertexBuffer(4 * sizeof(SVtxD)
 		, 0
 		, D3DFVF_CUSTOM
@@ -78,8 +78,8 @@ HRESULT CMyGame::InitVB()
 		return E_FAIL;
 	}
 
-	// 정점데이터를 채운다.
-	// Lock은 현재의 독점을 유지
+	// 정점 데이터 세팅..
+	// -	Lock은 현재의 독점을 유지..
 	void* pvtx;
 	if (FAILED(m_pVB->Lock(0, sizeof(vtx), (void**)&pvtx, 0)))
 		return E_FAIL;
@@ -94,7 +94,7 @@ HRESULT CMyGame::InitVB()
 }//	HRESULT CMyGame::InitVB()
 //============================================
 //	인덱스 버퍼 5)
-//	-	인덱스 버퍼 초기화.
+//	-	인덱스 버퍼 초기화..
 HRESULT CMyGame::InitIB()
 {
 	SIdx indices[] =
@@ -138,8 +138,8 @@ void CMyGame::SetMatrix()
 	//---------------------------------
 	D3DXMATRIX matWorld;
 	D3DXMatrixIdentity(&matWorld);
-	D3DXMatrixRotationY(&matWorld, timeGetTime() / 500.0f);	// 회전행렬
-	GetDev()->SetTransform(D3DTS_WORLD, &matWorld);			// 디바이스의 월드 행렬을 설정한다.
+	D3DXMatrixRotationY(&matWorld, timeGetTime() / 500.0f);	// 회전행렬..
+	GetDev()->SetTransform(D3DTS_WORLD, &matWorld);			// 디바이스의 월드 행렬을 설정..
 
 }//	void CMyGame::SetMatrix()
 //============================================
@@ -152,7 +152,7 @@ INT		CMyGame::Init()
 	InitVB();
 
 	//	인덱스 버퍼 6)
-	//	-	인덱스 버퍼 초기화 함수 호출.
+	//	-	인덱스 버퍼 초기화 함수 호출..
 	InitIB();
 
 	m_pGrid = new CDxGrid();
@@ -164,7 +164,7 @@ INT		CMyGame::Init()
 //============================================
 INT		CMyGame::Render2D()
 {
-	//	폰트 출력.
+	//	폰트 출력..
 	m_pDxFont->Draw(GetSprite(), _T("fps 테스트"), 300, 0, 300, 50, D3DXCOLOR(1, 1, 0, 1), DT_LEFT);
 	m_pDxFont->Draw(GetSprite(), m_tszFPS, 0, 0, 300, 50, D3DXCOLOR(1, 1, 0, 1), DT_LEFT);
 
@@ -173,23 +173,25 @@ INT		CMyGame::Render2D()
 //============================================
 INT		CMyGame::Render3D()
 {
-	//	그리드 렌더링.
+	//	그리드 렌더링..
 	m_pGrid->FrameMove();
 	m_pGrid->Render();
 
 
-	//	월드 행렬 설정.
-	SetMatrix();	
-	// 현재 은면제거 상태 확인.
+	//	월드 행렬 설정..
+	SetMatrix();
+
+	// 현재 은면제거 상태 확인..
 	DWORD dCullMode = 0;
 	GetDev()->GetRenderState(D3DRS_CULLMODE, &dCullMode);
 
-	// 은면제거 비활성화
+	// 은면제거 비활성화..
 	GetDev()->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 
-	// 정점을 디바이스에 연결
+	// 정점을 디바이스에 연결..
 	GetDev()->SetStreamSource(0, m_pVB, 0, sizeof(SVtxD));
-	// 정점 포멧을 설정
+
+	// 정점 포멧을 설정..
 	GetDev()->SetFVF(D3DFVF_CUSTOM);
 
 
@@ -198,25 +200,32 @@ INT		CMyGame::Render3D()
 	GetDev()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 2);
 #else
 	//	인덱스 버퍼 7)
-	//	-	인덱스 버퍼를 이용한 렌더링 설정.
+	//	-	인덱스 버퍼를 이용한 렌더링 설정..
 	GetDev()->SetIndices(m_pIB);
-	// 렌더링
+
+	// 렌더링..
 	GetDev()->DrawIndexedPrimitive(
 		D3DPT_TRIANGLELIST,	//	그리기 방식..
-		0,	//	인덱스의 시작지점으로부터 우리가 그리고자 하는
-			//	정점이 시작되는 부분까지의 오프셋..
+
+		0,	//	인덱스의 시작 지점으로부터
+			//	그리고자 하는 정점이
+			//	시작되는 부분까지의 오프셋..
+
 		0,	//	참조할 최소 인덱스 갯수..
 			//	-	보통 0으로 설정..
-			//	-	전체를 다그려주기 때문..
+			//		ㄴ	전체를 모두 그려주기 때문..
+
 		6,	//	버텍스 사용횟수..
 			//	-	버텍스는 총 4개이지만
 			//		인덱스 버퍼로 인해 6번 사용됨..
+
 		0,	//	읽기 시작할 인덱스 번호..
+
 		2	//	그리고자 하는 폴리곤 갯수..
 	);
 #endif
 
-	// 은면 제거 상태 복구.
+	// 은면 제거 상태 복구..
 	GetDev()->SetRenderState(D3DRS_CULLMODE, dCullMode);
 
 	return 0;
@@ -252,7 +261,7 @@ void	CMyGame::Destroy()
 	SAFE_DELETE(m_pGrid);
 	SAFE_DELETE(m_pDxFont);
 	//	인덱스 버퍼 8)
-	//	-	인덱스 버퍼 정리.
+	//	-	인덱스 버퍼 정리..
 	SAFE_RELEASE(m_pIB);
 	SAFE_RELEASE(m_pVB);
 }
@@ -264,4 +273,4 @@ LRESULT CMyGame::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 	return CCore::MsgProc(hWnd, msg, wParam, lParam);
 }
-//============================================//
+//============================================
